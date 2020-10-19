@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias type="kosta1200.todayroom.dto.Admin" alias="admin"/>
+		<typeAlias type="kosta1200.todayroom.dto.Basket" alias="basket"/>
+		<typeAlias type="kosta1200.todayroom.dto.Board" alias="board"/>
+		<typeAlias type="kosta1200.todayroom.dto.Comments" alias="comments"/>
+		<typeAlias type="kosta1200.todayroom.dto.Const" alias="const"/>
+		<typeAlias type="kosta1200.todayroom.dto.Contractor" alias="contractor"/>
+		<typeAlias type="kosta1200.todayroom.dto.Faq" alias="faq"/>
+		<typeAlias type="kosta1200.todayroom.dto.Follow" alias="follow"/>
+		<typeAlias type="kosta1200.todayroom.dto.Knowhow" alias="knowhow"/>
+		<typeAlias type="kosta1200.todayroom.dto.Member" alias="member"/>
+		<typeAlias type="kosta1200.todayroom.dto.OneInquiry" alias="oneInquiry"/>
+		<typeAlias type="kosta1200.todayroom.dto.Product" alias="product"/>
+		<typeAlias type="kosta1200.todayroom.dto.ProductInquiry" alias="productInquiry"/>
+		<typeAlias type="kosta1200.todayroom.dto.Report" alias="report"/>
+		<typeAlias type="kosta1200.todayroom.dto.Review" alias="review"/>
+		<typeAlias type="kosta1200.todayroom.dto.Roomwarming" alias="roomwarming"/>
+		<typeAlias type="kosta1200.todayroom.dto.Scrap" alias="scrap"/>
+		<typeAlias type="kosta1200.todayroom.dto.Shipping" alias="shipping"/>
+		<typeAlias type="kosta1200.todayroom.dto.Shoporder" alias="shoporder"/>
+		<typeAlias type="kosta1200.todayroom.dto.Vendor" alias="vendor"/>
+	</typeAliases>
+	
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"/>
+				<dataSource type="JNDI">
+					<property name="data_source" value="java:comp/env/jdbc/oracle"/>
+				</dataSource>
+		</environment>		
+	</environments>
+	
+	<mappers>
+		<mapper resource="kosta1200/todayroom/mapper/Contractor.xml"/>
+	</mappers>
+	
+</configuration>
