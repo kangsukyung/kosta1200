@@ -31,6 +31,18 @@ public class Product implements Serializable {
 	/** 배송비. */
 	private Integer productDlvchr;
 
+	private Integer boardSeq;
+	
+	public Integer getBoardSeq() {
+		return boardSeq;
+	}
+
+
+	public void setBoardSeq(Integer boardSeq) {
+		this.boardSeq = boardSeq;
+	}
+
+
 	/**
 	 * 생성자.
 	 */
