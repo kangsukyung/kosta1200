@@ -23,7 +23,7 @@ public class StoreDAO {
 		InputStream in = null;
 		
 		try {
-				in = Resources.getResourceAsStream(resource);
+			in = Resources.getResourceAsStream(resource);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -39,6 +39,7 @@ public class StoreDAO {
 		
 		try {
 			list = sqlSession.getMapper(Store.class).listProduct();
+			System.out.println(list);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
