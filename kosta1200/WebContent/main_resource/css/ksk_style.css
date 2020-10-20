@@ -1,0 +1,43 @@
+.ksk-right{
+	text-align: right !important;
+}
+
+#ksk_btn{
+	text-align: center !important;
+}
+
+#product_insert_input{
+	width: 60%;
+    float: right;
+    margin-right: 50px;
+}
+
+#product_insert_input2{
+	width: 60%;
+    float: right;
+    margin-right: 50px;
+}
+
+#product_insert_label{
+	margin-bottom: 1.5rem !important;
+	font-weight: bold;
+	margin-right: 70px;
+}
+
+
+#product_insert_category1{
+	border-radius: 0px;
+    border: 1px solid #eee;
+    padding-right: 60px;
+    height: 38px;
+    color: #999999;
+    margin-left: 50px;
+}
+
+#product_insert_category2{
+	border-radius: 0px;
+    border: 1px solid #eee;
+    padding-right: 40px;
+    height: 38px;
+    color: #999999;
+}
