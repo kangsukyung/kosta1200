@@ -7,17 +7,20 @@ public class Review implements Serializable {
 	private String review_date;
 	private String review_rating;
 	private String review_content;
-	private String picture;
+	private String review_picture;
+	private int shoporder_seq;
 	
-	public Review(){}
+	public Review() {}
 
-	public Review(int review_seq, String review_date, String review_rating, String review_content, String picture) {
+	public Review(int review_seq, String review_date, String review_rating, String review_content,
+			String review_picture, int shoporder_seq) {
 		super();
 		this.review_seq = review_seq;
 		this.review_date = review_date;
 		this.review_rating = review_rating;
 		this.review_content = review_content;
-		this.picture = picture;
+		this.review_picture = review_picture;
+		this.shoporder_seq = shoporder_seq;
 	}
 
 	public int getReview_seq() {
@@ -52,18 +55,27 @@ public class Review implements Serializable {
 		this.review_content = review_content;
 	}
 
-	public String getPicture() {
-		return picture;
+	public String getReview_picture() {
+		return review_picture;
 	}
 
-	public void setPicture(String picture) {
-		this.picture = picture;
+	public void setReview_picture(String review_picture) {
+		this.review_picture = review_picture;
+	}
+
+	public int getShoporder_seq() {
+		return shoporder_seq;
+	}
+
+	public void setShoporder_seq(int shoporder_seq) {
+		this.shoporder_seq = shoporder_seq;
 	}
 
 	@Override
 	public String toString() {
 		return "Review [review_seq=" + review_seq + ", review_date=" + review_date + ", review_rating=" + review_rating
-				+ ", review_content=" + review_content + ", picture=" + picture + "]";
+				+ ", review_content=" + review_content + ", review_picture=" + review_picture + ", shoporder_seq="
+				+ shoporder_seq + "]";
 	}
 	
 	

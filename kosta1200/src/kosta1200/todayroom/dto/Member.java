@@ -3,242 +3,125 @@ package kosta1200.todayroom.dto;
 import java.io.Serializable;
 
 public class Member implements Serializable {
-
-	private static final long serialVersionUID = 1L;
-
-	private Integer memberSeq;
-	private String memberId;
-	private String memberNickname;
-	private String memberName;
-	private String memberAddress;
-	private String memberPhone;
-	private String memberEmail;
-	private String memberRating;
-	private String memberPassword;
-	private String memberFollows;
+	private int member_seq;
+	private String member_id;
+	private String member_nickname;
+	private String member_name;
+	private String member_address;
+	private String member_phone;
+	private String member_email;
+	private String member_rating;
+	private String member_password;
+	private String member_follows;
 	
-	public Member() {
-	}
-	public Member(Integer memberSeq, String memberId, String memberNickname, String memberName, String memberAddress,
-			String memberPhone, String memberEmail, String memberRating, String memberPassword, String memberFollows) {
+	public Member() {}
+
+	public Member(int member_seq, String member_id, String member_nickname, String member_name, String member_address,
+			String member_phone, String member_email, String member_rating, String member_password,
+			String member_follows) {
 		super();
-		this.memberSeq = memberSeq;
-		this.memberId = memberId;
-		this.memberNickname = memberNickname;
-		this.memberName = memberName;
-		this.memberAddress = memberAddress;
-		this.memberPhone = memberPhone;
-		this.memberEmail = memberEmail;
-		this.memberRating = memberRating;
-		this.memberPassword = memberPassword;
-		this.memberFollows = memberFollows;
+		this.member_seq = member_seq;
+		this.member_id = member_id;
+		this.member_nickname = member_nickname;
+		this.member_name = member_name;
+		this.member_address = member_address;
+		this.member_phone = member_phone;
+		this.member_email = member_email;
+		this.member_rating = member_rating;
+		this.member_password = member_password;
+		this.member_follows = member_follows;
 	}
 
-
-
-
-	public void setMemberSeq(Integer memberSeq) {
-		this.memberSeq = memberSeq;
+	public int getMember_seq() {
+		return member_seq;
 	}
 
-	public Integer getMemberSeq() {
-		return this.memberSeq;
+	public void setMember_seq(int member_seq) {
+		this.member_seq = member_seq;
 	}
 
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
+	public String getMember_id() {
+		return member_id;
 	}
 
-	public String getMemberId() {
-		return this.memberId;
+	public void setMember_id(String member_id) {
+		this.member_id = member_id;
 	}
 
-	/**
-	 * ������ �����մϴ�..
-	 * 
-	 * @param memberNickname
-	 *            ����
-	 */
-	public void setMemberNickname(String memberNickname) {
-		this.memberNickname = memberNickname;
+	public String getMember_nickname() {
+		return member_nickname;
 	}
 
-	/**
-	 * ������ �����ɴϴ�..
-	 * 
-	 * @return ����
-	 */
-	public String getMemberNickname() {
-		return this.memberNickname;
+	public void setMember_nickname(String member_nickname) {
+		this.member_nickname = member_nickname;
 	}
 
-	/**
-	 * �̸��� �����մϴ�..
-	 * 
-	 * @param memberName
-	 *            �̸�
-	 */
-	public void setMemberName(String memberName) {
-		this.memberName = memberName;
+	public String getMember_name() {
+		return member_name;
 	}
 
-	/**
-	 * �̸��� �����ɴϴ�..
-	 * 
-	 * @return �̸�
-	 */
-	public String getMemberName() {
-		return this.memberName;
+	public void setMember_name(String member_name) {
+		this.member_name = member_name;
 	}
 
-	/**
-	 * �ּ��� �����մϴ�..
-	 * 
-	 * @param memberAddress
-	 *            �ּ�
-	 */
-	public void setMemberAddress(String memberAddress) {
-		this.memberAddress = memberAddress;
+	public String getMember_address() {
+		return member_address;
 	}
 
-	/**
-	 * �ּ��� �����ɴϴ�..
-	 * 
-	 * @return �ּ�
-	 */
-	public String getMemberAddress() {
-		return this.memberAddress;
+	public void setMember_address(String member_address) {
+		this.member_address = member_address;
 	}
 
-	/**
-	 * �ڵ�����ȣ�� �����մϴ�..
-	 * 
-	 * @param memberPhone
-	 *            �ڵ�����ȣ
-	 */
-	public void setMemberPhone(String memberPhone) {
-		this.memberPhone = memberPhone;
+	public String getMember_phone() {
+		return member_phone;
 	}
 
-	/**
-	 * �ڵ�����ȣ�� �����ɴϴ�..
-	 * 
-	 * @return �ڵ�����ȣ
-	 */
-	public String getMemberPhone() {
-		return this.memberPhone;
+	public void setMember_phone(String member_phone) {
+		this.member_phone = member_phone;
 	}
 
-	/**
-	 * e-mail�� �����մϴ�..
-	 * 
-	 * @param memberEmail
-	 *            e-mail
-	 */
-	public void setMemberEmail(String memberEmail) {
-		this.memberEmail = memberEmail;
+	public String getMember_email() {
+		return member_email;
 	}
 
-	/**
-	 * e-mail�� �����ɴϴ�..
-	 * 
-	 * @return e-mail
-	 */
-	public String getMemberEmail() {
-		return this.memberEmail;
+	public void setMember_email(String member_email) {
+		this.member_email = member_email;
 	}
 
-	/**
-	 * ȸ������� �����մϴ�..
-	 * 
-	 * @param memberRating
-	 *            ȸ�����
-	 */
-	public void setMemberRating(String memberRating) {
-		this.memberRating = memberRating;
+	public String getMember_rating() {
+		return member_rating;
 	}
 
-	/**
-	 * ȸ������� �����ɴϴ�..
-	 * 
-	 * @return ȸ�����
-	 */
-	public String getMemberRating() {
-		return this.memberRating;
+	public void setMember_rating(String member_rating) {
+		this.member_rating = member_rating;
 	}
 
-	/**
-	 * ��й�ȣ�� �����մϴ�..
-	 * 
-	 * @param memberPassword
-	 *            ��й�ȣ
-	 */
-	public void setMemberPassword(String memberPassword) {
-		this.memberPassword = memberPassword;
+	public String getMember_password() {
+		return member_password;
 	}
 
-	/**
-	 * ��й�ȣ�� �����ɴϴ�..
-	 * 
-	 * @return ��й�ȣ
-	 */
-	public String getMemberPassword() {
-		return this.memberPassword;
+	public void setMember_password(String member_password) {
+		this.member_password = member_password;
 	}
 
-	/**
-	 * �ȷο���� �����մϴ�..
-	 * 
-	 * @param memberFollows
-	 *            �ȷο��
-	 */
-	public void setMemberFollows(String memberFollows) {
-		this.memberFollows = memberFollows;
+	public String getMember_follows() {
+		return member_follows;
 	}
 
-	/**
-	 * �ȷο���� �����ɴϴ�..
-	 * 
-	 * @return �ȷο��
-	 */
-	public String getMemberFollows() {
-		return this.memberFollows;
+	public void setMember_follows(String member_follows) {
+		this.member_follows = member_follows;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((memberSeq == null) ? 0 : memberSeq.hashCode());
-		return result;
+	public String toString() {
+		return "Member [member_seq=" + member_seq + ", member_id=" + member_id + ", member_nickname=" + member_nickname
+				+ ", member_name=" + member_name + ", member_address=" + member_address + ", member_phone="
+				+ member_phone + ", member_email=" + member_email + ", member_rating=" + member_rating
+				+ ", member_password=" + member_password + ", member_follows=" + member_follows + "]";
 	}
+	
+	
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (obj == null) {
-			return false;
-		}
-		if (getClass() != obj.getClass()) {
-			return false;
-		}
-		Member other = (Member) obj;
-		if (memberSeq == null) {
-			if (other.memberSeq != null) {
-				return false;
-			}
-		} else if (!memberSeq.equals(other.memberSeq)) {
-			return false;
-		}
-		return true;
-	}
+	
 
 }

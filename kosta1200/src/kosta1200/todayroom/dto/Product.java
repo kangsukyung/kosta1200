@@ -80,6 +80,15 @@ public class Product implements Serializable{
 		this.product_dlvchr = dlvchr;
 		this.board_seq = board_seq;
 	}
+
+	@Override
+	public String toString() {
+		return "Product [product_seq=" + product_seq + ", product_name=" + product_name + ", product_price="
+				+ product_price + ", product_lcategory=" + product_lcategory + ", product_scategory="
+				+ product_scategory + ", product_dlvchr=" + product_dlvchr + ", board_seq=" + board_seq + "]";
+	}
+	
+	
 	
 	
 }
