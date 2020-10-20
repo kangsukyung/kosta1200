@@ -8,7 +8,7 @@ public class Product implements Serializable{
 	private int product_price;
 	private String product_lcategory;
 	private String product_scategory;
-	private int dlvchr;
+	private int product_dlvchr;
 	private int board_seq;
 	
 	public Product() {}
@@ -54,11 +54,11 @@ public class Product implements Serializable{
 	}
 
 	public int getDlvchr() {
-		return dlvchr;
+		return product_dlvchr;
 	}
 
 	public void setDlvchr(int dlvchr) {
-		this.dlvchr = dlvchr;
+		this.product_dlvchr = dlvchr;
 	}
 
 	public int getBoard_seq() {
@@ -77,7 +77,7 @@ public class Product implements Serializable{
 		this.product_price = product_price;
 		this.product_lcategory = product_lcategory;
 		this.product_scategory = product_scategory;
-		this.dlvchr = dlvchr;
+		this.product_dlvchr = dlvchr;
 		this.board_seq = board_seq;
 	}
 	

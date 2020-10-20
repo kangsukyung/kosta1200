@@ -185,6 +185,7 @@
           <!-- End Filter Bar -->
           <!-- Start Best Seller -->
           <section class="lattest-product-area pb-40 category-list">
+ 				<c:forEach items="${list }" var="product">                  
             <div class="row">
               <div class="col-md-6 col-lg-4">
                 <div class="card text-center card-product">
@@ -197,9 +198,9 @@
                     </ul>
                   </div>
                   <div class="card-body">
-                    <p>Accessories</p>
-                    <h4 class="card-product__title"><a href="#">Quartz Belt Watch</a></h4>
-                    <p class="card-product__price">$150.00</p>
+                    <p>${product.product_ }</p>
+                    <h4 class="card-product__title"><a href="#">${product.product_name }</a></h4>
+                    <p class="card-product__price">${product.product_price }¿ø</p>
                   </div>
                 </div>
               </div>
@@ -340,6 +341,7 @@
                 </div>
               </div>
             </div>
+            </c:forEach>
           </section>
           <!-- End Best Seller -->
         </div>
