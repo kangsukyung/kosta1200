@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+
+
+.comments_list_jsb{
+	background:none;
+	
+}
+
+.comments_reply_jsb{
+	padding-right: 0%;
+}
+
+.comments_insert_jsb{
+	padding-bottom : 20px;
+}
+
+#user justify-content-between d-flex jsb{
+	justify-content: unset;	
+}
+
