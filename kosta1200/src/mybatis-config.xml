@@ -35,9 +35,9 @@
 				</dataSource>
 		</environment>		
 	</environments>
-	
+
 	<mappers>
-		<mapper resource="kosta1200/todayroom/mapper/Admin.xml"/>
+<!-- 		<mapper resource="kosta1200/todayroom/mapper/Admin.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Basket.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Board.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Comments.xml"/>
@@ -56,7 +56,8 @@
 		<mapper resource="kosta1200/todayroom/mapper/Scrap.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Shipping.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Shoporder.xml"/>
-		<mapper resource="kosta1200/todayroom/mapper/Vendor.xml"/>
+		<mapper resource="kosta1200/todayroom/mapper/Vendor.xml"/> -->
+		<mapper resource="kosta1200/todayroom/mapper/Store.xml"/>
 	</mappers>
 	
 </configuration>
