@@ -1,15 +1,15 @@
-package kosta1200.todayroom.dto;
+package kosta1200.todayroom.vo;
 
 import java.io.Serializable;
 
-public class Scrap implements Serializable {
+public class ScrapVO implements Serializable {
 	private int scrap_seq;
 	private int member_seq;
 	private int board_seq;
 	
-	public Scrap() {}
+	public ScrapVO() {}
 
-	public Scrap(int scrap_seq, int member_seq, int board_seq) {
+	public ScrapVO(int scrap_seq, int member_seq, int board_seq) {
 		super();
 		this.scrap_seq = scrap_seq;
 		this.member_seq = member_seq;

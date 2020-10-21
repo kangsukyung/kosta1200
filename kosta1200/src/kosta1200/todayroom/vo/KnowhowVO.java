@@ -1,14 +1,14 @@
-package kosta1200.todayroom.dto;
+package kosta1200.todayroom.vo;
 
 import java.io.Serializable;
 
-public class Knowhow implements Serializable {
+public class KnowhowVO implements Serializable {
 	private int board_seq;
 	private String knowhow_style;
 	
-	public Knowhow() {}
+	public KnowhowVO() {}
 
-	public Knowhow(int board_seq, String knowhow_style) {
+	public KnowhowVO(int board_seq, String knowhow_style) {
 		super();
 		this.board_seq = board_seq;
 		this.knowhow_style = knowhow_style;

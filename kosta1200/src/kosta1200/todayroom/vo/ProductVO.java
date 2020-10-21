@@ -1,8 +1,8 @@
-package kosta1200.todayroom.dto;
+package kosta1200.todayroom.vo;
 
 import java.io.Serializable;
 
-public class Product implements Serializable{
+public class ProductVO implements Serializable{
 	private int product_seq;
 	private String product_name;
 	private int product_price;
@@ -11,7 +11,7 @@ public class Product implements Serializable{
 	private int product_dlvchr;
 	private int board_seq;
 	
-	public Product() {}
+	public ProductVO() {}
 
 	public int getProduct_seq() {
 		return product_seq;
@@ -69,7 +69,7 @@ public class Product implements Serializable{
 		this.board_seq = board_seq;
 	}
 
-	public Product(int product_seq, String product_name, int product_price, String product_lcategory,
+	public ProductVO(int product_seq, String product_name, int product_price, String product_lcategory,
 			String product_scategory, int dlvchr, int board_seq) {
 		super();
 		this.product_seq = product_seq;

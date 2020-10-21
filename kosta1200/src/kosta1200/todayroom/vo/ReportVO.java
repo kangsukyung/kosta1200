@@ -1,17 +1,17 @@
-package kosta1200.todayroom.dto;
+package kosta1200.todayroom.vo;
 
 import java.io.Serializable;
 
-public class Report implements Serializable {
+public class ReportVO implements Serializable {
 	private int report_seq;
 	private String report_reason;
 	private int member_seq;
 	private int board_seq;
 	private int comments_seq;
 	
-	public Report() {}
+	public ReportVO() {}
 
-	public Report(int report_seq, String report_reason, int member_seq, int board_seq, int comments_seq) {
+	public ReportVO(int report_seq, String report_reason, int member_seq, int board_seq, int comments_seq) {
 		super();
 		this.report_seq = report_seq;
 		this.report_reason = report_reason;

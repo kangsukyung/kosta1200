@@ -1,8 +1,8 @@
-package kosta1200.todayroom.dto;
+package kosta1200.todayroom.vo;
 
 import java.io.Serializable;
 
-public class Const implements Serializable {
+public class ConstVO implements Serializable {
 	private int const_seq;
 	private String const_space;
 	private String const_style;
@@ -10,9 +10,9 @@ public class Const implements Serializable {
 	private String const_budget;
 	private int member_seq;
 	
-	public Const() {}
+	public ConstVO() {}
 
-	public Const(int const_seq, String const_space, String const_style, String const_color, String const_budget,
+	public ConstVO(int const_seq, String const_space, String const_style, String const_color, String const_budget,
 			int member_seq) {
 		super();
 		this.const_seq = const_seq;

@@ -1,8 +1,8 @@
-package kosta1200.todayroom.dto;
+package kosta1200.todayroom.vo;
 
 import java.io.Serializable;
 
-public class Review implements Serializable {
+public class ReviewVO implements Serializable {
 	private int review_seq;
 	private String review_date;
 	private String review_rating;
@@ -10,9 +10,9 @@ public class Review implements Serializable {
 	private String review_picture;
 	private int shoporder_seq;
 	
-	public Review() {}
+	public ReviewVO() {}
 
-	public Review(int review_seq, String review_date, String review_rating, String review_content,
+	public ReviewVO(int review_seq, String review_date, String review_rating, String review_content,
 			String review_picture, int shoporder_seq) {
 		super();
 		this.review_seq = review_seq;

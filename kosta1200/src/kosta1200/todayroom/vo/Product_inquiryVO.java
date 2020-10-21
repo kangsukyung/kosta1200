@@ -1,8 +1,8 @@
-package kosta1200.todayroom.dto;
+package kosta1200.todayroom.vo;
 
 import java.io.Serializable;
 
-public class Product_inquiry implements Serializable {
+public class Product_inquiryVO implements Serializable {
 	private int pi_seq;
 	private String pi_type;
 	private String pi_content;
@@ -10,9 +10,9 @@ public class Product_inquiry implements Serializable {
 	private int product_seq;
 	private int member_seq;
 	
-	public Product_inquiry() {}
+	public Product_inquiryVO() {}
 
-	public Product_inquiry(int pi_seq, String pi_type, String pi_content, String pi_answer, int product_seq,
+	public Product_inquiryVO(int pi_seq, String pi_type, String pi_content, String pi_answer, int product_seq,
 			int member_seq) {
 		super();
 		this.pi_seq = pi_seq;

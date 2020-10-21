@@ -1,8 +1,8 @@
-package kosta1200.todayroom.dto;
+package kosta1200.todayroom.vo;
 
 import java.io.Serializable;
 
-public class Board implements Serializable {
+public class BoardVO implements Serializable {
 	private int board_seq;
 	private int member_seq;
 	private String board_title;
@@ -14,9 +14,9 @@ public class Board implements Serializable {
 	private String board_views;
 	private String board_scarps;
 	
-	public Board() {}
+	public BoardVO() {}
 
-	public Board(int board_seq, int member_seq, String board_title, String board_content, String board_date,
+	public BoardVO(int board_seq, int member_seq, String board_title, String board_content, String board_date,
 			String board_picture, String board_thumbnail, String board_classification, String board_views,
 			String board_scarps) {
 		super();

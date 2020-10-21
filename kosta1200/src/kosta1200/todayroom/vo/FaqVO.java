@@ -1,17 +1,17 @@
-package kosta1200.todayroom.dto;
+package kosta1200.todayroom.vo;
 
 import java.io.Serializable;
 
-public class Faq implements Serializable {
+public class FaqVO implements Serializable {
 	private int faq_seq;
 	private String faq_classification;
 	private String faq_title;
 	private String faq_content;
 	private int admin_seq;
 	
-	public Faq() {}
+	public FaqVO() {}
 
-	public Faq(int faq_seq, String faq_classification, String faq_title, String faq_content, int admin_seq) {
+	public FaqVO(int faq_seq, String faq_classification, String faq_title, String faq_content, int admin_seq) {
 		super();
 		this.faq_seq = faq_seq;
 		this.faq_classification = faq_classification;

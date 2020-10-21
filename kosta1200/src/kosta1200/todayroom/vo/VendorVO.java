@@ -1,8 +1,8 @@
-package kosta1200.todayroom.dto;
+package kosta1200.todayroom.vo;
 
 import java.io.Serializable;
 
-public class Vendor implements Serializable {
+public class VendorVO implements Serializable {
 	private int vendor_seq;
 	private String vendor_name;
 	private String vendor_license;
@@ -11,9 +11,9 @@ public class Vendor implements Serializable {
 	private int member_seq;
 	private int admin_seq;
 	
-	public Vendor() {}
+	public VendorVO() {}
 
-	public Vendor(int vendor_seq, String vendor_name, String vendor_license, String vendor_category,
+	public VendorVO(int vendor_seq, String vendor_name, String vendor_license, String vendor_category,
 			String vendor_introduction, int member_seq, int admin_seq) {
 		super();
 		this.vendor_seq = vendor_seq;

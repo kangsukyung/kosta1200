@@ -1,8 +1,8 @@
-package kosta1200.todayroom.dto;
+package kosta1200.todayroom.vo;
 
 import java.io.Serializable;
 
-public class Shipping implements Serializable {
+public class ShippingVO implements Serializable {
 	private int shipping_seq;
 	private int member_seq;
 	private String shipping_name;
@@ -10,9 +10,9 @@ public class Shipping implements Serializable {
 	private String shipping_address;
 	private String shipping_phone;
 	
-	public Shipping() {}
+	public ShippingVO() {}
 
-	public Shipping(int shipping_seq, int member_seq, String shipping_name, String shipping_recipients,
+	public ShippingVO(int shipping_seq, int member_seq, String shipping_name, String shipping_recipients,
 			String shipping_address, String shipping_phone) {
 		super();
 		this.shipping_seq = shipping_seq;

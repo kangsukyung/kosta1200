@@ -25,9 +25,9 @@ public class MemberDAO {
 		try {
 			re=sqlSession.getMapper(BoardMapper.class).deleteBoard(seq);
 			if(re>0) {
-				sqlSession.commit();//커밋을 반드시 해줘야 데이터가 들어감
+				sqlSession.commit();//而ㅻ컠�쓣 諛섎뱶�떆 �빐以섏빞 �뜲�씠�꽣媛� �뱾�뼱媛�
 			}else {
-				sqlSession.rollback();//들어가지 않으면 롤백
+				sqlSession.rollback();//�뱾�뼱媛�吏� �븡�쑝硫� 濡ㅻ갚
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -40,15 +40,15 @@ public class MemberDAO {
 		return re;
 	}
 	
-	public int updateBoard(Board board) {
+	public int updateBoard(BoardVO board) {
 		int re=-1;
-		SqlSession sqlSession=getSqlSessionFactory().openSession();//sql세션을 구할수있다
+		SqlSession sqlSession=getSqlSessionFactory().openSession();//sql�꽭�뀡�쓣 援ы븷�닔�엳�떎
 		try {
 			re=sqlSession.getMapper(BoardMapper.class).updateBoard(board);
 			if(re>0) {
-				sqlSession.commit();//커밋을 반드시 해줘야 데이터가 들어감
+				sqlSession.commit();//而ㅻ컠�쓣 諛섎뱶�떆 �빐以섏빞 �뜲�씠�꽣媛� �뱾�뼱媛�
 			}else {
-				sqlSession.rollback();//들어가지 않으면 롤백
+				sqlSession.rollback();//�뱾�뼱媛�吏� �븡�쑝硫� 濡ㅻ갚
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -61,15 +61,15 @@ public class MemberDAO {
 		return re;
 	}
 	
-	public int insertBoard(Board board) {
+	public int insertBoard(BoardVO board) {
 		int re=-1;
-		SqlSession sqlSession=getSqlSessionFactory().openSession();//sql세션을 구할수있다
+		SqlSession sqlSession=getSqlSessionFactory().openSession();//sql�꽭�뀡�쓣 援ы븷�닔�엳�떎
 		try {
 			re=sqlSession.getMapper(BoardMapper.class).insertBoard(board);
 			if(re>0) {
-				sqlSession.commit();//커밋을 반드시 해줘야 데이터가 들어감
+				sqlSession.commit();//而ㅻ컠�쓣 諛섎뱶�떆 �빐以섏빞 �뜲�씠�꽣媛� �뱾�뼱媛�
 			}else {
-				sqlSession.rollback();//들어가지 않으면 롤백
+				sqlSession.rollback();//�뱾�뼱媛�吏� �븡�쑝硫� 濡ㅻ갚
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -91,12 +91,12 @@ public class MemberDAO {
 			e.printStackTrace();
 		}
 		
-		return new SqlSessionFactoryBuilder().build(in);//getxml팩토리를 구함
+		return new SqlSessionFactoryBuilder().build(in);//getxml�뙥�넗由щ�� 援ы븿
 	}
 	
-	public Board detaillBoard(int seq) {
-		SqlSession sqlSession=getSqlSessionFactory().openSession();//sql세션을 구할수있다
-		Board board=null;
+	public BoardVO detaillBoard(int seq) {
+		SqlSession sqlSession=getSqlSessionFactory().openSession();//sql�꽭�뀡�쓣 援ы븷�닔�엳�떎
+		BoardVO board=null;
 
 		try {
 			board=sqlSession.getMapper(BoardMapper.class).detaillBoard(seq);
@@ -111,9 +111,9 @@ public class MemberDAO {
 		return board;
 	}
 	
-	public List<Board> listBoard(Search search, int startRow){
-		SqlSession sqlSession=getSqlSessionFactory().openSession();//sql세션을 구할수있다
-		List<Board> list=null;
+	public List<BoardVO> listBoard(Search search, int startRow){
+		SqlSession sqlSession=getSqlSessionFactory().openSession();//sql�꽭�뀡�쓣 援ы븷�닔�엳�떎
+		List<BoardVO> list=null;
 		
 		try {
 			list=sqlSession.getMapper(BoardMapper.class).listBoard(search, new RowBounds(startRow, 2));
@@ -129,15 +129,15 @@ public class MemberDAO {
 	}
 	
 	public int insertReply(Reply reply) {
-		SqlSession sqlSession=getSqlSessionFactory().openSession();//sql세션을 구할수있다
+		SqlSession sqlSession=getSqlSessionFactory().openSession();//sql�꽭�뀡�쓣 援ы븷�닔�엳�떎
 		int re=-1;
 
 		try {
 			re=sqlSession.getMapper(BoardMapper.class).insertReply(reply);
 			if(re>0) {
-				sqlSession.commit();//커밋을 반드시 해줘야 데이터가 들어감
+				sqlSession.commit();//而ㅻ컠�쓣 諛섎뱶�떆 �빐以섏빞 �뜲�씠�꽣媛� �뱾�뼱媛�
 			}else {
-				sqlSession.rollback();//들어가지 않으면 롤백
+				sqlSession.rollback();//�뱾�뼱媛�吏� �븡�쑝硫� 濡ㅻ갚
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

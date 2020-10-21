@@ -1,8 +1,8 @@
-package kosta1200.todayroom.dto;
+package kosta1200.todayroom.vo;
 
 import java.io.Serializable;
 
-public class Roomwarming implements Serializable {
+public class RoomwarmingVO implements Serializable {
 	private int board_seq;
 	private String roomwarming_classification;
 	private String roomwarming_space;
@@ -10,9 +10,9 @@ public class Roomwarming implements Serializable {
 	private String roomwarming_color;
 	private String roomwarming_budget;
 	
-	public Roomwarming() {}
+	public RoomwarmingVO() {}
 
-	public Roomwarming(int board_seq, String roomwarming_classification, String roomwarming_space,
+	public RoomwarmingVO(int board_seq, String roomwarming_classification, String roomwarming_space,
 			String roomwarming_style, String roomwarming_color, String roomwarming_budget) {
 		super();
 		this.board_seq = board_seq;

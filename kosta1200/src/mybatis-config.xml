@@ -5,26 +5,26 @@
 
 <configuration>
 	<typeAliases>
-		<typeAlias type="kosta1200.todayroom.dto.Admin" alias="admin"/>
-		<typeAlias type="kosta1200.todayroom.dto.Basket" alias="basket"/>
-		<typeAlias type="kosta1200.todayroom.dto.Board" alias="board"/>
-		<typeAlias type="kosta1200.todayroom.dto.Comments" alias="comments"/>
-		<typeAlias type="kosta1200.todayroom.dto.Const" alias="const"/>
-		<typeAlias type="kosta1200.todayroom.dto.Contractor" alias="contractor"/>
-		<typeAlias type="kosta1200.todayroom.dto.Faq" alias="faq"/>
-		<typeAlias type="kosta1200.todayroom.dto.Follow" alias="follow"/>
-		<typeAlias type="kosta1200.todayroom.dto.Knowhow" alias="knowhow"/>
-		<typeAlias type="kosta1200.todayroom.dto.Member" alias="member"/>
-		<typeAlias type="kosta1200.todayroom.dto.OneInquiry" alias="oneInquiry"/>
-		<typeAlias type="kosta1200.todayroom.dto.Product" alias="product"/>
-		<typeAlias type="kosta1200.todayroom.dto.ProductInquiry" alias="productInquiry"/>
-		<typeAlias type="kosta1200.todayroom.dto.Report" alias="report"/>
-		<typeAlias type="kosta1200.todayroom.dto.Review" alias="review"/>
-		<typeAlias type="kosta1200.todayroom.dto.Roomwarming" alias="roomwarming"/>
-		<typeAlias type="kosta1200.todayroom.dto.Scrap" alias="scrap"/>
-		<typeAlias type="kosta1200.todayroom.dto.Shipping" alias="shipping"/>
-		<typeAlias type="kosta1200.todayroom.dto.Shoporder" alias="shoporder"/>
-		<typeAlias type="kosta1200.todayroom.dto.Vendor" alias="vendor"/>
+		<typeAlias type="kosta1200.todayroom.vo.AdminVO" alias="admin"/>
+		<typeAlias type="kosta1200.todayroom.vo.BasketVO" alias="basket"/>
+		<typeAlias type="kosta1200.todayroom.vo.BoardVO" alias="board"/>
+		<typeAlias type="kosta1200.todayroom.vo.CommentsVO" alias="comments"/>
+		<typeAlias type="kosta1200.todayroom.vo.ConstVO" alias="const"/>
+		<typeAlias type="kosta1200.todayroom.vo.ContractorVO" alias="contractor"/>
+		<typeAlias type="kosta1200.todayroom.vo.FaqVO" alias="faq"/>
+		<typeAlias type="kosta1200.todayroom.vo.FollowVO" alias="follow"/>
+		<typeAlias type="kosta1200.todayroom.vo.KnowhowVO" alias="knowhow"/>
+		<typeAlias type="kosta1200.todayroom.vo.MemberVO" alias="member"/>
+		<typeAlias type="kosta1200.todayroom.vo.OneInquiryVO" alias="oneInquiry"/>
+		<typeAlias type="kosta1200.todayroom.vo.ProductVO" alias="product"/>
+		<typeAlias type="kosta1200.todayroom.vo.ProductInquiryVO" alias="productInquiry"/>
+		<typeAlias type="kosta1200.todayroom.vo.ReportVO" alias="report"/>
+		<typeAlias type="kosta1200.todayroom.vo.ReviewVO" alias="review"/>
+		<typeAlias type="kosta1200.todayroom.vo.RoomwarmingVO" alias="roomwarming"/>
+		<typeAlias type="kosta1200.todayroom.vo.ScrapVO" alias="scrap"/>
+		<typeAlias type="kosta1200.todayroom.vo.ShippingVO" alias="shipping"/>
+		<typeAlias type="kosta1200.todayroom.vo.ShoporderVO" alias="shoporder"/>
+		<typeAlias type="kosta1200.todayroom.vo.VendorVO" alias="vendor"/>
 	</typeAliases>
 	
 	<environments default="development">

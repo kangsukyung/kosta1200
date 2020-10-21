@@ -1,8 +1,8 @@
-package kosta1200.todayroom.dto;
+package kosta1200.todayroom.vo;
 
 import java.io.Serializable;
 
-public class Contractor implements Serializable {
+public class ContractorVO implements Serializable {
 	private int contractor_seq;
 	private String contractor_bname;
 	private String contractor_name;
@@ -10,9 +10,9 @@ public class Contractor implements Serializable {
 	private int member_seq;
 	private int admin_seq;
 	
-	public Contractor() {}
+	public ContractorVO() {}
 
-	public Contractor(int contractor_seq, String contractor_bname, String contractor_name, String contractor_address,
+	public ContractorVO(int contractor_seq, String contractor_bname, String contractor_name, String contractor_address,
 			int member_seq, int admin_seq) {
 		super();
 		this.contractor_seq = contractor_seq;

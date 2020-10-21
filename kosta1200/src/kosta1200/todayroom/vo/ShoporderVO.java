@@ -1,8 +1,8 @@
-package kosta1200.todayroom.dto;
+package kosta1200.todayroom.vo;
 
 import java.io.Serializable;
 
-public class Shoporder implements Serializable {
+public class ShoporderVO implements Serializable {
 	private int shoporder_seq;
 	private String shoporder_name;
 	private String shoporder_email;
@@ -12,9 +12,9 @@ public class Shoporder implements Serializable {
 	private int shipping_seq;
 	private int member_seq;
 	
-	public Shoporder() {}
+	public ShoporderVO() {}
 
-	public Shoporder(int shoporder_seq, String shoporder_name, String shoporder_email, String shoporder_phone,
+	public ShoporderVO(int shoporder_seq, String shoporder_name, String shoporder_email, String shoporder_phone,
 			String shoporder_paymethod, int basket_seq, int shipping_seq, int member_seq) {
 		super();
 		this.shoporder_seq = shoporder_seq;

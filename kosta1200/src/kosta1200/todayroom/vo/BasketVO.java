@@ -1,15 +1,15 @@
-package kosta1200.todayroom.dto;
+package kosta1200.todayroom.vo;
 
 import java.io.Serializable;
 
-public class Basket implements Serializable {
+public class BasketVO implements Serializable {
 	private int basket_seq;
 	private String basket_quantity;
 	private int product_seq;
 	
-	public Basket() {}
+	public BasketVO() {}
 
-	public Basket(int basket_seq, String basket_quantity, int product_seq) {
+	public BasketVO(int basket_seq, String basket_quantity, int product_seq) {
 		super();
 		this.basket_seq = basket_seq;
 		this.basket_quantity = basket_quantity;

@@ -1,8 +1,8 @@
-package kosta1200.todayroom.dto;
+package kosta1200.todayroom.vo;
 
 import java.io.Serializable;
 
-public class Comments implements Serializable {
+public class CommentsVO implements Serializable {
 	private int comments_seq;
 	private String comments_content;
 	private String comments_picture;
@@ -10,9 +10,9 @@ public class Comments implements Serializable {
 	private int member_seq;
 	private int admin_seq;
 	
-	public Comments() {}
+	public CommentsVO() {}
 
-	public Comments(int comments_seq, String comments_content, String comments_picture, int board_seq, int member_seq,
+	public CommentsVO(int comments_seq, String comments_content, String comments_picture, int board_seq, int member_seq,
 			int admin_seq) {
 		super();
 		this.comments_seq = comments_seq;

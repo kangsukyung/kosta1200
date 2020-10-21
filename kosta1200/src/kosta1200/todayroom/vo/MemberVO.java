@@ -1,8 +1,8 @@
-package kosta1200.todayroom.dto;
+package kosta1200.todayroom.vo;
 
 import java.io.Serializable;
 
-public class Member implements Serializable {
+public class MemberVO implements Serializable {
 	private int member_seq;
 	private String member_id;
 	private String member_nickname;
@@ -14,9 +14,9 @@ public class Member implements Serializable {
 	private String member_password;
 	private String member_follows;
 	
-	public Member() {}
+	public MemberVO() {}
 
-	public Member(int member_seq, String member_id, String member_nickname, String member_name, String member_address,
+	public MemberVO(int member_seq, String member_id, String member_nickname, String member_name, String member_address,
 			String member_phone, String member_email, String member_rating, String member_password,
 			String member_follows) {
 		super();

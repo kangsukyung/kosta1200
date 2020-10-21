@@ -1,15 +1,15 @@
-package kosta1200.todayroom.dto;
+package kosta1200.todayroom.vo;
 
 import java.io.Serializable;
 
-public class Follow implements Serializable {
+public class FollowVO implements Serializable {
 	private int follow_seq;
 	private int member_seq_me;
 	private int member_seq_other;
 	
-	public Follow() {}
+	public FollowVO() {}
 
-	public Follow(int follow_seq, int member_seq_me, int member_seq_other) {
+	public FollowVO(int follow_seq, int member_seq_me, int member_seq_other) {
 		super();
 		this.follow_seq = follow_seq;
 		this.member_seq_me = member_seq_me;

@@ -1,8 +1,8 @@
-package kosta1200.todayroom.dto;
+package kosta1200.todayroom.vo;
 
 import java.io.Serializable;
 
-public class Admin implements Serializable {
+public class AdminVO implements Serializable {
 	private int admin_id;
 	private String admin_password;
 	private String admin_name;
@@ -10,9 +10,9 @@ public class Admin implements Serializable {
 	private String admin_rating;
 	private int admin_seq;
 	
-	public Admin() {}
+	public AdminVO() {}
 
-	public Admin(int admin_id, String admin_password, String admin_name, String admin_phone, String admin_rating,
+	public AdminVO(int admin_id, String admin_password, String admin_name, String admin_phone, String admin_rating,
 			int admin_seq) {
 		super();
 		this.admin_id = admin_id;
