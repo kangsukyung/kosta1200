@@ -27,6 +27,7 @@
 		<typeAlias type="kosta1200.todayroom.vo.ShoporderVO" alias="shoporder"/>
 		<typeAlias type="kosta1200.todayroom.vo.VendorVO" alias="vendor"/>
 
+
 	</typeAliases>
 	
 	<environments default="development">
@@ -41,7 +42,7 @@
 	<mappers>
 <!-- 		<mapper resource="kosta1200/todayroom/mapper/Admin.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Basket.xml"/>
-		<mapper resource="kosta1200/todayroom/mapper/Board.xml"/>
+		
 		<mapper resource="kosta1200/todayroom/mapper/Comments.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Const.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Contractor.xml"/>
@@ -60,6 +61,7 @@
 		<mapper resource="kosta1200/todayroom/mapper/Shoporder.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Vendor.xml"/> -->
 		<mapper resource="kosta1200/todayroom/mapper/Store.xml"/>
+		<mapper resource="kosta1200/todayroom/mapper/Board.xml"/>
 	</mappers>
 	
 </configuration>

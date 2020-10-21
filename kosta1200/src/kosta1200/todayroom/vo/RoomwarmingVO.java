@@ -9,11 +9,12 @@ public class RoomwarmingVO implements Serializable {
 	private String roomwarming_style;
 	private String roomwarming_color;
 	private String roomwarming_budget;
+	private String roomwarming_type;
 	
 	public RoomwarmingVO() {}
 
 	public RoomwarmingVO(int board_seq, String roomwarming_classification, String roomwarming_space,
-			String roomwarming_style, String roomwarming_color, String roomwarming_budget) {
+			String roomwarming_style, String roomwarming_color, String roomwarming_budget, String roomwarming_type) {
 		super();
 		this.board_seq = board_seq;
 		this.roomwarming_classification = roomwarming_classification;
@@ -21,6 +22,7 @@ public class RoomwarmingVO implements Serializable {
 		this.roomwarming_style = roomwarming_style;
 		this.roomwarming_color = roomwarming_color;
 		this.roomwarming_budget = roomwarming_budget;
+		this.roomwarming_type = roomwarming_type;
 	}
 
 	public int getBoard_seq() {
@@ -71,12 +73,22 @@ public class RoomwarmingVO implements Serializable {
 		this.roomwarming_budget = roomwarming_budget;
 	}
 
+	public String getRoomwarming_type() {
+		return roomwarming_type;
+	}
+
+	public void setRoomwarming_type(String roomwarming_type) {
+		this.roomwarming_type = roomwarming_type;
+	}
+
 	@Override
 	public String toString() {
-		return "Roomwarming [board_seq=" + board_seq + ", roomwarming_classification=" + roomwarming_classification
+		return "RoomwarmingVO [board_seq=" + board_seq + ", roomwarming_classification=" + roomwarming_classification
 				+ ", roomwarming_space=" + roomwarming_space + ", roomwarming_style=" + roomwarming_style
-				+ ", roomwarming_color=" + roomwarming_color + ", roomwarming_budget=" + roomwarming_budget + "]";
+				+ ", roomwarming_color=" + roomwarming_color + ", roomwarming_budget=" + roomwarming_budget
+				+ ", roomwarming_type=" + roomwarming_type + "]";
 	}
+
 	
 	
 }
