@@ -25,6 +25,8 @@ public class ConstVO implements Serializable {
 		this.const_type = const_type;
 	}
 
+
+
 	public int getConst_seq() {
 		return const_seq;
 	}

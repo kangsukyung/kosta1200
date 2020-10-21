@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kosta1200.todayroom.action.Action;
 import kosta1200.todayroom.action.ActionForward;
+import kosta1200.todayroom.action.InsertConstAction;
 import kosta1200.todayroom.action.insertConstFormAction;
 
 /**
@@ -33,6 +34,7 @@ public class ConstController extends HttpServlet {
 		String uri = request.getRequestURI();
 		String command = uri.substring(uri.lastIndexOf("/const/") + 7);
 		
+		System.out.println(uri);
 		System.out.println(command);
 
 		Action action = null;
@@ -46,7 +48,16 @@ public class ConstController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}else if(command.equals("insertConst.do")) {
+			action = new InsertConstAction();
+
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
+		
 
 		if (forward != null) {
 			if (forward.isRedirect()) {
