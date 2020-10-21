@@ -46,7 +46,6 @@
 		<mapper resource="kosta1200/todayroom/mapper/Faq.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Follow.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Knowhow.xml"/>
-		<mapper resource="kosta1200/todayroom/mapper/Member.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/OneInquiry.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Product.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/ProductInquiry.xml"/>
@@ -58,6 +57,7 @@
 		<mapper resource="kosta1200/todayroom/mapper/Shoporder.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Vendor.xml"/> -->
 		<mapper resource="kosta1200/todayroom/mapper/Store.xml"/>
+		<mapper resource="kosta1200/todayroom/mapper/Member.xml"/>
 	</mappers>
 	
 </configuration>

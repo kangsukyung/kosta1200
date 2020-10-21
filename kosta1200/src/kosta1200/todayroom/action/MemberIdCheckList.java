@@ -1,17 +1,17 @@
 package kosta1200.todayroom.action;
 
-import javax.xml.ws.RequestWrapper;
-import javax.xml.ws.ResponseWrapper;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-@RequestWrapperMapping("/idcheck.do")
-@ResponseWrappereBody
+import kosta1200.todayroom.service.MemberService;
 
-public Map<Object, Object> MemberIdCheckList(@RequestBody String userid) {
-	int count = 0;
-    Map<Object, Object> map = new HashMap<Object, Object>();
+public class MemberIdCheckList implements Action{
 
-    count = signupService.idcheck(userid);
-    map.put("cnt", count);
-
-    return map;
+	@Override
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		MemberService service=MemberService.getInstance();
+		int num=service.MemberIdCheckList(request, response); 
+		response.getWriter().print(num);
+		return null;
+	}
 }

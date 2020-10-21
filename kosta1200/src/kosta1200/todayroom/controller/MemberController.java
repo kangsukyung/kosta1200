@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kosta1200.todayroom.action.Action;
 import kosta1200.todayroom.action.ActionForward;
+import kosta1200.todayroom.action.MemberIdCheckList;
 
 
 @WebServlet("/Member/*")
@@ -29,25 +30,26 @@ public class MemberController extends HttpServlet {
 		String command = requestURI.substring(contextPath.length()+8);
 		Action action = null;
 		ActionForward forward = null;
+		String val=request.getParameter("userid");
+		System.out.println(val);
 		
-		System.out.println(command);
-//		if (command.equals("MemberIdCheckList.do")) {
-//			action = new MemberIdCheckList();
-//			try {
-//				forward = action.execute(request, response);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//		}
-//		
-//		if (forward != null) {
-//			if (forward.isRedirect()) {
-//				response.sendRedirect(forward.getPath());
-//			} else {
-//				RequestDispatcher dispacher = request.getRequestDispatcher(forward.getPath());
-//				dispacher.forward(request, response);
-//			}
-//		}
+		if (command.equals("MemberIdCheckList.do")) {
+			try {
+				action=new MemberIdCheckList();
+				action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		if (forward != null) {
+			if (forward.isRedirect()) {
+				response.sendRedirect(forward.getPath());
+			} else {
+				RequestDispatcher dispacher = request.getRequestDispatcher(forward.getPath());
+				dispacher.forward(request, response);
+			}
+		}
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);

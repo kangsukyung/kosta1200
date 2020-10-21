@@ -5,21 +5,21 @@ $(function(){
 	var nameJ = /^[가-힣]{2,6}$/;// 이름 정규식
 	var mailJ = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
 	var phoneJ = /^01([0|1|6|7|8|9]?)?([0-9]{3,4})?([0-9]{4})$/;// 휴대폰 번호 정규식
-	
+	console.log(1);
 	$(".memberId_btn").click(function() {
         
-        var userid =  $("#userid").val(); 
-        
+        var userid =  $("#memberId").val(); 
+        console.log(1);
+    	console.log(userid);
         $.ajax({
             async: true,
-            type : 'POST',
-            data : userid,
+            type : 'Post',
+            data : "userid="+userid,
             url : "../../Member/MemberIdCheckList.do",
-            dataType : "json",
-            contentType: "application/json; charset=UTF-8",
+            dataType : "text",
             success : function(data) {
-                if (data.cnt > 0) {
-                    
+            	console.log(data);
+                if (data > 0) {
                     alert("아이디가 존재합니다. 다른 아이디를 입력해주세요.");
                     //아이디가 존제할 경우 빨깡으로 , 아니면 파랑으로 처리하는 디자인
                     $("#divInputId").addClass("has-error")
