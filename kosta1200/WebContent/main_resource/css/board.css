@@ -1,0 +1,52 @@
+@charset "EUC-KR";
+.contents-col-lg-6{
+	-ms-flex:0 0 100%;
+	flex:0 0 100%;
+	max-width:100%
+	};
+
+.contents-row login_form{
+	max-width: 80%;
+    margin: auto;
+    float: none;
+}
+
+#contents-register_form{
+	max-width: 80%;
+    margin: auto;
+    float: none;
+}
+
+.dropdown{
+	position: absolute;
+	margin: 10px 10px;
+}
+
+.col-md-12{
+	margin-bottom: 30px;
+}
+
+#dropdownMenuButton{
+	margin-left: 30px;
+}
+
+.selectoption{
+	position: absolute;
+	margin-left: 150px;
+}
+
+.login_form .form-group{
+	margin-bottom: 50px;
+}
+
+.contents-form-control{
+	height: 40px;
+}
+
+.sectionoption{
+	position: absolute;
+}
+
+#color_btn{
+	border-radius: 5em;
+}

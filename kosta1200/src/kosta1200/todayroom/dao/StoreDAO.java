@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kosta1200.todayroom.mapper.StoreMapper;
+import kosta1200.todayroom.vo.BoardVO;
 import kosta1200.todayroom.vo.ProductVO;
 
 public class StoreDAO {
@@ -47,5 +48,51 @@ public class StoreDAO {
 		}
 		return list;
 	}
+
+	public List<BoardVO> listStore() {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		List<BoardVO> list = null;
 		
+		try {
+			list = sqlSession.getMapper(StoreMapper.class).listStore();
+			System.out.println(list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return list;
+
+	}
+	
+	public int FilterPrice(int price) {
+		int check = -1;
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		try {
+			ProductVO product = null;
+			product = sqlSession.getMapper(StoreMapper.class).FilterPrice(price);
+			if ( product != null) {
+				check = 1;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		return check;
+	}
+	
+	public BoardVO detailStore(int seq) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		BoardVO boardVO = null;
+		try {
+			boardVO = sqlSession.getMapper(StoreMapper.class).detailStore(seq);			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return boardVO;
+	}
+	
 }
