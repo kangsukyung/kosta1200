@@ -5,14 +5,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import kosta1200.todayroom.service.MemberService;
 
-public class MemberIdCheckList implements Action{
+public class MemberSignup_Action implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		ActionForward forward=new ActionForward();
 		MemberService service=MemberService.getInstance();
-		int num=service.MemberIdCheckList(request, response); 
 		
-		response.getWriter().print(num);
-		return null;
+		int signup=service.MemberSignup(request, response);
+		
+		forward.setRedirect(true);
+		forward.setPath("MemberLogin_Action.do");
+		return forward;
 	}
 }

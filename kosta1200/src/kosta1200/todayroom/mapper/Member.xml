@@ -7,10 +7,21 @@
 <mapper namespace="kosta1200.todayroom.mapper.MemberMapper">
 	<cache />
 		
- 	<select id="MemberIdCheckList" parameterType="String" resultType="Member">
-		select count(*) from Member where memberId=#{id}
+ 	<select id="MemberIdCheckList" parameterType="String" resultType="member">
+		select * from Member where member_Id=#{id}
 	</select>
 	
+ 	<select id="MemberNickNameCheck" parameterType="String" resultType="member">
+		select * from Member where member_NickName=#{name}
+	</select>
+	
+	<insert id="MemberSignup" parameterType="member">
+		insert into member values(SEQ_MEMBER_MEMBER_SEQ.nextval,#{member_id},#{member_nickname},#{member_name},#{member_address},#{member_phone},#{member_email},'1',#{member_password},'','') 
+	</insert>
+	
+	<select id="MemberLogin" parameterType="member" resultType="member">
+		select * from member where member_Id=#{member_id} AND member_password=#{member_password}
+	</select>
 </mapper>
 
 

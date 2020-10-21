@@ -21,25 +21,35 @@ $(function(){
             	console.log(data);
                 if (data > 0) {
                     alert("아이디가 존재합니다. 다른 아이디를 입력해주세요.");
-                    //아이디가 존제할 경우 빨깡으로 , 아니면 파랑으로 처리하는 디자인
-                    $("#divInputId").addClass("has-error")
-                    $("#divInputId").removeClass("has-success")
-                    $("#userid").focus();
-                    
-                
                 } else {
                     alert("사용가능한 아이디입니다.");
-                    //아이디가 존제할 경우 빨깡으로 , 아니면 파랑으로 처리하는 디자인
-                    $("#divInputId").addClass("has-success")
-                    $("#divInputId").removeClass("has-error")
-                    $("#userpwd").focus();
-                    //아이디가 중복하지 않으면  idck = 1 
-                    idck = 1;
-                    
                 }
             },
             error : function(error) {
-                
+                alert("error : " + error);
+            }
+        });
+    });
+	$(".memberName_btn").click(function() {
+        
+        var userName =  $("#memberNickname").val(); 
+        console.log(1);
+    	console.log(userName);
+        $.ajax({
+            async: true,
+            type : 'Post',
+            data : "userName="+userName,
+            url : "../../Member/MemberNickNameCheck.do",
+            dataType : "text",
+            success : function(data) {
+            	console.log(data);
+                if (data > 0) {
+                    alert("별명이 존재합니다. 다른 별명를 입력해주세요.");
+                } else {
+                    alert("사용가능한 별명입니다.");
+                }
+            },
+            error : function(error) {
                 alert("error : " + error);
             }
         });
@@ -77,7 +87,7 @@ $(function(){
 		}
 	});
 	
-	$('#userPw').blur(function(){
+	$('#memberPassword').blur(function(){
 		if(pwJ.test($(this).val())){
 			$("#password_check").text('패턴일치');
 			$("#password_check").css('color','blue');
@@ -88,13 +98,13 @@ $(function(){
 	});
 
 	
-    $('#userPw').keyup(function(){
+    $('#memberPassword').keyup(function(){
       $('#chkNotice').html('');
     });
 
     $('#userPwChk').keyup(function(){
 
-        if($('#userPw').val() != $('#userPwChk').val()){
+        if($('#memberPassword').val() != $('#userPwChk').val()){
           $('#chkNotice').html('비밀번호 일치하지 않음<br><br>');
           $('#chkNotice').attr('color', '#f82a2aa3');
         } else{

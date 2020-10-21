@@ -64,11 +64,12 @@
 				<div class="col-lg-6">
 					<div class="login_form_inner register_form_inner">
 						<h3 >계정만들기</h3>
-						<form class="row login_form" action="#/" id="register_form" >
+						<form class="row login_form" action="${pageContext.request.contextPath}/Member/MemberSignup_Action.do" id="register_form" >
 							<div class="col-md-12 form-group member_signup"><input type="text" class="form-control-member_singup" id="memberId" name="memberId" placeholder="아이디" onfocus="this.placeholder = ''" onblur="this.placeholder = '아이디'">
 							<button type="button" class="memberId_btn" >중복확인</button></div>
     			          	<font class="member_font_padding" id="id_check" size="2"></font>
-							<div class="col-md-12 form-group member_signup"><input type="text" class="form-control-member_singup" id="memberNickname" name="memberNickname" placeholder="별명" onfocus="this.placeholder = ''" onblur="this.placeholder = '별명'"><button type="submit" >중복확인</button></div>
+							<div class="col-md-12 form-group member_signup"><input type="text" class="form-control-member_singup" id="memberNickname" name="memberNickname" placeholder="별명" onfocus="this.placeholder = ''" onblur="this.placeholder = '별명'">
+							<button type="button" class="memberName_btn">중복확인</button></div>
 							<div class="col-md-12 form-group"><input type="text" class="form-control" id="memberName" name="memberName" placeholder="이름" onfocus="this.placeholder = ''" onblur="this.placeholder = '이름'"></div>
 							<div class="col-md-12 form-group member_signup"><input type="text" class="form-control-member_singup" id="memberAddress" name="memberAddress" placeholder="주소" onfocus="this.placeholder = ''" onblur="this.placeholder = '주소'"><button type="button" onclick="openZipSearch()">주소찾기</button></div>
 							
@@ -76,7 +77,7 @@
     			          	<font class="member_font_padding" id="phone_check" size="2"></font>
 							<div class="col-md-12 form-group"><input type="text" class="form-control" id="memberEmail" name="memberEmail" placeholder="이메일 주소" onfocus="this.placeholder = ''" onblur="this.placeholder = '이메일 주소'"></div>
     			          	<font class="member_font_padding" id="mail_check" size="2"></font>
-	            			<div class="col-md-12 form-group"><input type="password" class="form-control" class="memberPassword" id="userPw" name="memberPassword" placeholder="비밀번호" onfocus="this.placeholder = ''" onblur="this.placeholder = '비밀번호'"></div>
+	            			<div class="col-md-12 form-group"><input type="password" class="form-control" class="memberPassword" id="memberPassword" name="memberPassword" placeholder="비밀번호" onfocus="this.placeholder = ''" onblur="this.placeholder = '비밀번호'"></div>
     			          	<font class="member_font_padding" id="password_check" size="2"></font>
     			          	<div class="col-md-12 form-group"><input type="password" class="form-control" class="memberPassword" id="userPwChk" name="memberPassword" placeholder="비밀번호확인" onfocus="this.placeholder = ''" onblur="this.placeholder = '비밀번호확인'"></div>
     			          	<font class="member_font_padding" id="chkNotice" size="2"></font>

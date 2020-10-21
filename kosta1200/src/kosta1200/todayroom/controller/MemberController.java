@@ -1,7 +1,6 @@
 package kosta1200.todayroom.controller;
 
 import java.io.IOException;
-import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import kosta1200.todayroom.action.Action;
 import kosta1200.todayroom.action.ActionForward;
 import kosta1200.todayroom.action.MemberIdCheckList;
+import kosta1200.todayroom.action.MemberLogin;
+import kosta1200.todayroom.action.MemberLogin_Action;
+import kosta1200.todayroom.action.MemberNickNameCheck;
+import kosta1200.todayroom.action.MemberSignup_Action;
 
 
 @WebServlet("/Member/*")
@@ -30,26 +33,55 @@ public class MemberController extends HttpServlet {
 		String command = requestURI.substring(contextPath.length()+8);
 		Action action = null;
 		ActionForward forward = null;
-		String val=request.getParameter("userid");
-		System.out.println(val);
 		
-		if (command.equals("MemberIdCheckList.do")) {
+		System.out.println(command);
+
+		if (command.equals("MemberIdCheckList.do")) {//아이디 중복체크
 			try {
 				action=new MemberIdCheckList();
 				action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		}else if(command.equals("MemberNickNameCheck.do")){//별명중복확인
+			try {
+				action=new MemberNickNameCheck();
+				action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("MemberSignup_Action.do")) {//회원가입버튼 클릭
+			try {
+				action=new MemberSignup_Action();
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}		
+		}else if(command.equals("MemberLogin_Action.do")) {//로그인 폼이동
+			try {
+				action=new MemberLogin_Action();
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}		
+		}else if(command.equals("MemberLogin.do")) {//로그인 버튼클릭
+			try {
+				action=new MemberLogin();
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}		
 		}
 		
-		if (forward != null) {
-			if (forward.isRedirect()) {
-				response.sendRedirect(forward.getPath());
-			} else {
-				RequestDispatcher dispacher = request.getRequestDispatcher(forward.getPath());
-				dispacher.forward(request, response);
+    	if(forward!=null) {
+    		if(forward.isRedirect()) {
+    			response.sendRedirect(forward.getPath());
+    		}else {
+    			RequestDispatcher dispatcher=request.getRequestDispatcher(forward.getPath());
+    			dispatcher.forward(request, response);
 			}
-		}
+    	}
+
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);

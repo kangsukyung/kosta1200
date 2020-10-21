@@ -80,18 +80,16 @@
               <li class="nav-item"><button><i class="ti-search"></i></button></li>
               <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle"></span></button> </li>
 	
-			  <%
-					if(session.getAttribute("userid")==null){
-			  %>              
+	<c:choose>
+		<c:when test="${member!=null }">
+              <li class="nav-item"><a href="#" class="msk-id"><button onclick="">${member.member_nickname}</button></a></li>
+              <li class="nav-item"><a href="#" class="msk-id"><button onclick="">로그아웃</button></a></li>
+		</c:when>
+		<c:otherwise>
               <li class="nav-item"><a href="#" class="msk-id">로그인</a></li>
               <li class="nav-item"><a href="#" class="msk-id">회원가입</a></li>
-              <%}
-					else{
-              %>
-              <li class="nav-item"><a href="#" class="msk-id"><button><%=session.getAttribute("userid")%></button></a></li>
-              <li class="nav-item"><a href="#" class="msk-id"><button>로그아웃</button></a></li>
-              <%} 
-              %>
+		</c:otherwise>
+	</c:choose>
               <li class="nav-item"><a class="button button-header" href="#">글쓰기</a></li>
             </ul>
           </div>
