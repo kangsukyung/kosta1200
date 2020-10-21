@@ -15,9 +15,9 @@
 		<typeAlias type="kosta1200.todayroom.vo.FollowVO" alias="follow"/>
 		<typeAlias type="kosta1200.todayroom.vo.KnowhowVO" alias="knowhow"/>
 		<typeAlias type="kosta1200.todayroom.vo.MemberVO" alias="member"/>
-		<typeAlias type="kosta1200.todayroom.vo.OneInquiryVO" alias="oneInquiry"/>
+		<typeAlias type="kosta1200.todayroom.vo.One_inquiryVO" alias="oneInquiry"/>
 		<typeAlias type="kosta1200.todayroom.vo.ProductVO" alias="product"/>
-		<typeAlias type="kosta1200.todayroom.vo.ProductInquiryVO" alias="productInquiry"/>
+		<typeAlias type="kosta1200.todayroom.vo.Product_inquiryVO" alias="productInquiry"/>
 		<typeAlias type="kosta1200.todayroom.vo.ReportVO" alias="report"/>
 		<typeAlias type="kosta1200.todayroom.vo.ReviewVO" alias="review"/>
 		<typeAlias type="kosta1200.todayroom.vo.RoomwarmingVO" alias="roomwarming"/>
@@ -39,9 +39,9 @@
 	<mappers>
 <!-- 		<mapper resource="kosta1200/todayroom/mapper/Admin.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Basket.xml"/>
-		<mapper resource="kosta1200/todayroom/mapper/Board.xml"/>
+		<mapper resource="kosta1200/todayroom/mapper/Board.xml"/>-->
 		<mapper resource="kosta1200/todayroom/mapper/Comments.xml"/>
-		<mapper resource="kosta1200/todayroom/mapper/Const.xml"/>
+	 <!--<mapper resource="kosta1200/todayroom/mapper/Const.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Contractor.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Faq.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Follow.xml"/>
@@ -56,8 +56,8 @@
 		<mapper resource="kosta1200/todayroom/mapper/Scrap.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Shipping.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Shoporder.xml"/>
-		<mapper resource="kosta1200/todayroom/mapper/Vendor.xml"/> -->
-		<mapper resource="kosta1200/todayroom/mapper/Store.xml"/>
+		<mapper resource="kosta1200/todayroom/mapper/Vendor.xml"/> 
+		<mapper resource="kosta1200/todayroom/mapper/Store.xml"/>-->
 	</mappers>
 	
 </configuration>
