@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import kosta1200.todayroom.action.Action;
 import kosta1200.todayroom.action.ActionForward;
+import kosta1200.todayroom.action.Store_DetailAction;
 import kosta1200.todayroom.action.Store_ListAction;
+import kosta1200.todayroom.action.Store_ListStoreAction;
 
 @WebServlet("/store/*")
 public class StoreController extends HttpServlet {
@@ -40,6 +42,34 @@ public class StoreController extends HttpServlet {
 				e.printStackTrace();
 			}
     	}
+    	
+    	if (command.equals("listStoreAction.do")) {
+    		action = new Store_ListStoreAction();
+    		try {
+    			forward = action.execute(request, response);
+    		} catch (Exception e) {
+    			e.printStackTrace();
+    		}
+    	}
+    	
+    	if (command.equals("filterPrice.do")) {
+    		action = new Store_ListAction();
+    		try {
+    			forward = action.execute(request, response);
+    		} catch (Exception e) {
+    			e.printStackTrace();
+    		}
+    	}
+    	
+    	if (command.equals("StoreDetailAction.do")) {
+    		action = new Store_DetailAction();
+    		try {
+    			forward = action.execute(request, response);
+    		} catch (Exception e) {
+    			e.printStackTrace();
+    		}
+    	}
+    	
     	
     	if (forward != null) {
     		if(forward.isRedirect()) {

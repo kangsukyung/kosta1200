@@ -8,20 +8,16 @@
 		select * from product
 	</select>
 	
+	<select id="listStore" resultType="Board">
+		select * from board where board_classification = 'store'
+	</select>
+	
+	<select id="detailStore" resultType="Board">
+		select * 
+		from board b, product p 
+		where b.board_seq = #{board_seq}
+	
+
+	</select>
 
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

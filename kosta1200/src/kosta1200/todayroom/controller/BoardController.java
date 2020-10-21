@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import kosta1200.todayroom.action.Action;
 import kosta1200.todayroom.action.ActionForward;
+import kosta1200.todayroom.action.Board_insertAction;
+import kosta1200.todayroom.action.Board_insertActionForm;
 
 @WebServlet("/board/*")
 public class BoardController extends HttpServlet {
@@ -31,7 +33,15 @@ public class BoardController extends HttpServlet {
     	ActionForward forward = null;
     	
     	if (command.equals("board_insertActionForm.do")) {
-			action = Board_insertActionForm();
+			action = new Board_insertActionForm();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("board_insert.do")) {
+			action = new Board_insertAction();
 			
 			try {
 				forward = action.execute(request, response);

@@ -31,19 +31,21 @@
 						<h3>인테리어 시공 신청서</h3>
 						<div class="login_form_inner register_form_inner hw-consult-form">
 						
-							<form class="row login_form" action="#/" id="register_form">
+							<form class="row login_form" action="insertConst.do" method="post"  id="register_form">
+								<input type="hidden" name="member_seq" value="1">
+									<%-- 원래는 value속성 값에 ${session.member_seq } 가 들어가야함 --%>
 								<div class="col-md-12 form-group">
-									<div>시공공간은 몇 평이세요?</div>
+									<div>시공 공간은 몇 평이세요?</div>
 									<input type="text" class="form-control" id="const_space" name="const_space"
 										placeholder="평 수 입력" onfocus="this.placeholder = ''"
-										onblur="this.placeholder = '평 수 입력'">
+										onblur="this.placeholder = '평 수 입력'" required="required">
 									<span>평</span>
 								</div>
 								<div class="col-md-12 form-group">
 									<div>생각하시는 예산을 알려주세요.</div>
 									<input type="text" class="form-control" id="const_budget" name="const_budget"
 										placeholder="예산 입력" onfocus="this.placeholder = ''"
-										onblur="this.placeholder = '예산 입력'">
+										onblur="this.placeholder = '예산 입력'" required="required">
 									<span>만원</span>
 								</div>
 								<div class="col-md-12 form-group">
@@ -52,7 +54,7 @@
 										name="password" placeholder="공간 선택"
 										onfocus="this.placeholder = ''"
 										onblur="this.placeholder = '공간 선택'"> -->
-									<select name="">
+									<select name="const_type">
 										<option value="">선택해주세요</option>
 									</select>
 								</div>
@@ -71,11 +73,11 @@
 									<input type="text" class="form-control" id="const_color"
 										name="const_color" placeholder="희망하는 색상 선택"
 										onfocus="this.placeholder = ''"
-										onblur="this.placeholder = '희망하는 색상 선택'">
+										onblur="this.placeholder = '희망하는 색상 선택'" required="required">
 								</div>
 								<div class="col-md-12 form-group">
 									<div class="creat_account">
-										<input type="checkbox" id="f-option2" name="selector">
+										<input type="checkbox" id="f-option2" name="selector" required="required">
 										<label for="f-option2">회원님께서 가입하실 때 사용하신 휴대전화로 문자가 갑니다. 동의하십니까?</label>
 									</div>
 								</div>

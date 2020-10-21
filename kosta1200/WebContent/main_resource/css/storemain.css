@@ -1,1 +1,11 @@
 @charset "EUC-KR";
+
+.row_product_hw {
+	float: left !important;
+	margin-right: 20px;
+}
+
+.card-img {
+    width: auto !important;
+    border-radius: calc(.25rem - 1px);
+}
