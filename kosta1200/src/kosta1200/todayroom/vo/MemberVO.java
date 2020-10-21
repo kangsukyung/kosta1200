@@ -13,12 +13,13 @@ public class MemberVO implements Serializable {
 	private String member_rating;
 	private String member_password;
 	private String member_follows;
-	
+	private String member_profile; 
+
 	public MemberVO() {}
 
 	public MemberVO(int member_seq, String member_id, String member_nickname, String member_name, String member_address,
 			String member_phone, String member_email, String member_rating, String member_password,
-			String member_follows) {
+			String member_follows, String member_profile) {
 		super();
 		this.member_seq = member_seq;
 		this.member_id = member_id;
@@ -30,6 +31,7 @@ public class MemberVO implements Serializable {
 		this.member_rating = member_rating;
 		this.member_password = member_password;
 		this.member_follows = member_follows;
+		this.member_profile = member_profile;
 	}
 
 	public int getMember_seq() {
@@ -112,16 +114,21 @@ public class MemberVO implements Serializable {
 		this.member_follows = member_follows;
 	}
 
+	public String getMember_profile() {
+		return member_profile;
+	}
+
+	public void setMember_profile(String member_profile) {
+		this.member_profile = member_profile;
+	}
+
 	@Override
 	public String toString() {
-		return "Member [member_seq=" + member_seq + ", member_id=" + member_id + ", member_nickname=" + member_nickname
-				+ ", member_name=" + member_name + ", member_address=" + member_address + ", member_phone="
-				+ member_phone + ", member_email=" + member_email + ", member_rating=" + member_rating
-				+ ", member_password=" + member_password + ", member_follows=" + member_follows + "]";
+		return "MemberVO [member_seq=" + member_seq + ", member_id=" + member_id + ", member_nickname="
+				+ member_nickname + ", member_name=" + member_name + ", member_address=" + member_address
+				+ ", member_phone=" + member_phone + ", member_email=" + member_email + ", member_rating="
+				+ member_rating + ", member_password=" + member_password + ", member_follows=" + member_follows
+				+ ", member_profile=" + member_profile + "]";
 	}
-	
-	
-
-	
 
 }
