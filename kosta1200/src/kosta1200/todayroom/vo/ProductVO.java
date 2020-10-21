@@ -10,8 +10,22 @@ public class ProductVO implements Serializable{
 	private String product_scategory;
 	private int product_dlvchr;
 	private int board_seq;
+	private String product_fname;
 	
 	public ProductVO() {}
+
+	public ProductVO(int product_seq, String product_name, int product_price, String product_lcategory,
+			String product_scategory, int product_dlvchr, int board_seq, String product_fname) {
+		super();
+		this.product_seq = product_seq;
+		this.product_name = product_name;
+		this.product_price = product_price;
+		this.product_lcategory = product_lcategory;
+		this.product_scategory = product_scategory;
+		this.product_dlvchr = product_dlvchr;
+		this.board_seq = board_seq;
+		this.product_fname = product_fname;
+	}
 
 	public int getProduct_seq() {
 		return product_seq;
@@ -53,12 +67,12 @@ public class ProductVO implements Serializable{
 		this.product_scategory = product_scategory;
 	}
 
-	public int getDlvchr() {
+	public int getProduct_dlvchr() {
 		return product_dlvchr;
 	}
 
-	public void setDlvchr(int dlvchr) {
-		this.product_dlvchr = dlvchr;
+	public void setProduct_dlvchr(int product_dlvchr) {
+		this.product_dlvchr = product_dlvchr;
 	}
 
 	public int getBoard_seq() {
@@ -69,25 +83,24 @@ public class ProductVO implements Serializable{
 		this.board_seq = board_seq;
 	}
 
-	public ProductVO(int product_seq, String product_name, int product_price, String product_lcategory,
-			String product_scategory, int dlvchr, int board_seq) {
-		super();
-		this.product_seq = product_seq;
-		this.product_name = product_name;
-		this.product_price = product_price;
-		this.product_lcategory = product_lcategory;
-		this.product_scategory = product_scategory;
-		this.product_dlvchr = dlvchr;
-		this.board_seq = board_seq;
+	public String getProduct_fname() {
+		return product_fname;
+	}
+
+	public void setProduct_fname(String product_fname) {
+		this.product_fname = product_fname;
 	}
 
 	@Override
 	public String toString() {
-		return "Product [product_seq=" + product_seq + ", product_name=" + product_name + ", product_price="
+		return "ProductVO [product_seq=" + product_seq + ", product_name=" + product_name + ", product_price="
 				+ product_price + ", product_lcategory=" + product_lcategory + ", product_scategory="
-				+ product_scategory + ", product_dlvchr=" + product_dlvchr + ", board_seq=" + board_seq + "]";
+				+ product_scategory + ", product_dlvchr=" + product_dlvchr + ", board_seq=" + board_seq
+				+ ", product_fname=" + product_fname + "]";
 	}
+
 	
+
 	
 	
 	
