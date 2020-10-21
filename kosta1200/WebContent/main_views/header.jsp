@@ -8,25 +8,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Aroma Shop - Home</title>
-  <link rel="icon" href="../main_resource/img/Fevicon.png" type="image/png">
-  <link rel="stylesheet" href="../main_resource/vendors/bootstrap/bootstrap.min.css">
-  <link rel="stylesheet" href="../main_resource/vendors/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../main_resource/vendors/themify-icons/themify-icons.css">
-  <link rel="stylesheet" href="../main_resource/vendors/nice-select/nice-select.css">
-  <link rel="stylesheet" href="../main_resource/vendors/owl-carousel/owl.theme.default.min.css">
-  <link rel="stylesheet" href="../main_resource/vendors/owl-carousel/owl.carousel.min.css">
-  <link rel="stylesheet" href="../main_resource/css/style.css">
-  <link rel="stylesheet" href="../main_resource/css/header.css">
-  
-   <script src="../main_resource/vendors/jquery/jquery-3.2.1.min.js"></script>
-  <script src="../main_resource/vendors/bootstrap/bootstrap.bundle.min.js"></script>
-  <script src="../main_resource/vendors/skrollr.min.js"></script>
-  <script src="../main_resource/vendors/owl-carousel/owl.carousel.min.js"></script>
-  <script src="../main_resource/vendors/nice-select/jquery.nice-select.min.js"></script>
-  <script src="../main_resource/vendors/jquery.ajaxchimp.min.js"></script>
-  <script src="../main_resource/vendors/mail-script.js"></script>
-  <script src="../main_resource/js/main.js"></script>
-  
+  <link rel="icon" href="${pageContext.request.contextPath}/main_resource/img/Fevicon.png" type="image/png">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/vendors/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/vendors/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/vendors/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/vendors/nice-select/nice-select.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/vendors/owl-carousel/owl.theme.default.min.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/vendors/owl-carousel/owl.carousel.min.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/css/style.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/css/header.css">
+    
 </head>
 <body>
 	<header class="header_area">
@@ -83,7 +74,7 @@
 	<c:choose>
 		<c:when test="${member!=null }">
               <li class="nav-item"><a href="#" class="msk-id"><button onclick="">${member.member_nickname}</button></a></li>
-              <li class="nav-item"><a href="#" class="msk-id"><button onclick="">로그아웃</button></a></li>
+              <li class="nav-item"><a href="#" class="msk-id"><button onclick="location.href ='${pageContext.request.contextPath}/Member/MemberLogout.do'">로그아웃</button></a></li>
 		</c:when>
 		<c:otherwise>
               <li class="nav-item"><a href="#" class="msk-id">로그인</a></li>
@@ -97,5 +88,14 @@
       </nav>
     </div>
   </header>
+  
+  <script src="${pageContext.request.contextPath}/main_resource/vendors/jquery/jquery-3.2.1.min.js"></script>
+  <script src="${pageContext.request.contextPath}/main_resource/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="${pageContext.request.contextPath}/main_resource/vendors/skrollr.min.js"></script>
+  <script src="${pageContext.request.contextPath}/main_resource/vendors/owl-carousel/owl.carousel.min.js"></script>
+  <script src="${pageContext.request.contextPath}/main_resource/vendors/nice-select/jquery.nice-select.min.js"></script>
+  <script src="${pageContext.request.contextPath}/main_resource/vendors/jquery.ajaxchimp.min.js"></script>
+  <script src="${pageContext.request.contextPath}/main_resource/vendors/mail-script.js"></script>
+  <script src="${pageContext.request.contextPath}/main_resource/js/main.js"></script>
 </body>
 </html>

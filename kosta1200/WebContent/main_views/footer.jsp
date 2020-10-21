@@ -5,23 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-  <link rel="icon" href="../main_resource/img/Fevicon.png" type="image/png">
-  <link rel="stylesheet" href="../main_resource/vendors/bootstrap/bootstrap.min.css">
-  <link rel="stylesheet" href="../main_resource/vendors/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="../main_resource/vendors/themify-icons/themify-icons.css">
-  <link rel="stylesheet" href="../main_resource/vendors/nice-select/nice-select.css">
-  <link rel="stylesheet" href="../main_resource/vendors/owl-carousel/owl.theme.default.min.css">
-  <link rel="stylesheet" href="../main_resource/vendors/owl-carousel/owl.carousel.min.css">
-  <link rel="stylesheet" href="../main_resource/css/style.css">
+  <link rel="icon" href="${pageContext.request.contextPath}/main_resource/img/Fevicon.png" type="image/png">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/vendors/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/vendors/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/vendors/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/vendors/nice-select/nice-select.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/vendors/owl-carousel/owl.theme.default.min.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/vendors/owl-carousel/owl.carousel.min.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/css/style.css">
   
-   <script src="../main_resource/vendors/jquery/jquery-3.2.1.min.js"></script>
-  <script src="../main_resource/vendors/bootstrap/bootstrap.bundle.min.js"></script>
-  <script src="../main_resource/vendors/skrollr.min.js"></script>
-  <script src="../main_resource/vendors/owl-carousel/owl.carousel.min.js"></script>
-  <script src="../main_resource/vendors/nice-select/jquery.nice-select.min.js"></script>
-  <script src="../main_resource/vendors/jquery.ajaxchimp.min.js"></script>
-  <script src="../main_resource/vendors/mail-script.js"></script>
-  <script src="../main_resource/js/main.js"></script>
 </head>
 <body>
 	<footer class="footer">
@@ -100,5 +92,15 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> by Bu
 			</div>
 		</div>
 	</footer>
+	
+  <script src="${pageContext.request.contextPath}/main_resource/vendors/jquery/jquery-3.2.1.min.js"></script>
+  <script src="${pageContext.request.contextPath}/main_resource/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="${pageContext.request.contextPath}/main_resource/vendors/skrollr.min.js"></script>
+  <script src="${pageContext.request.contextPath}/main_resource/vendors/owl-carousel/owl.carousel.min.js"></script>
+  <script src="${pageContext.request.contextPath}/main_resource/vendors/nice-select/jquery.nice-select.min.js"></script>
+  <script src="${pageContext.request.contextPath}/main_resource/vendors/jquery.ajaxchimp.min.js"></script>
+  <script src="${pageContext.request.contextPath}/main_resource/vendors/mail-script.js"></script>
+  <script src="${pageContext.request.contextPath}/main_resource/js/main.js"></script>
+	
 </body>
 </html>

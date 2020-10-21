@@ -14,6 +14,7 @@ import kosta1200.todayroom.action.ActionForward;
 import kosta1200.todayroom.action.MemberIdCheckList;
 import kosta1200.todayroom.action.MemberLogin;
 import kosta1200.todayroom.action.MemberLogin_Action;
+import kosta1200.todayroom.action.MemberLogout;
 import kosta1200.todayroom.action.MemberNickNameCheck;
 import kosta1200.todayroom.action.MemberSignup_Action;
 
@@ -71,7 +72,17 @@ public class MemberController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}		
+		}else if(command.equals("MemberLogout.do")) {
+			try {
+				action=new MemberLogout();
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}		
 		}
+		
+		
+		
 		
     	if(forward!=null) {
     		if(forward.isRedirect()) {

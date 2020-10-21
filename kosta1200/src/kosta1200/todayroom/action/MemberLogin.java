@@ -15,13 +15,16 @@ public class MemberLogin implements Action{
 		MemberService service=MemberService.getInstance();
 		
 		MemberVO member=service.MemberLogin(request, response);
-		
+	
 		if(member!=null) {
 			request.getSession().setAttribute("member", member);
+			forward.setRedirect(false);//true
+			forward.setPath("MemberLogin_Action.do");//홈
+		}else if(member==null){
+			forward.setRedirect(false);
+			forward.setPath("MemberLogin_Action.do");
 		}
 		
-		forward.setRedirect(false);
-		forward.setPath("MemberLogin_Action.do");
 		return forward;
 	}
 
