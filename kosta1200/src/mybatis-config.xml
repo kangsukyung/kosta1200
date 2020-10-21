@@ -15,9 +15,9 @@
 		<typeAlias type="kosta1200.todayroom.vo.FollowVO" alias="follow"/>
 		<typeAlias type="kosta1200.todayroom.vo.KnowhowVO" alias="knowhow"/>
 		<typeAlias type="kosta1200.todayroom.vo.MemberVO" alias="member"/>
-		<typeAlias type="kosta1200.todayroom.vo.OneInquiryVO" alias="oneInquiry"/>
+		<typeAlias type="kosta1200.todayroom.vo.One_inquiryVO" alias="oneInquiry"/>
 		<typeAlias type="kosta1200.todayroom.vo.ProductVO" alias="product"/>
-		<typeAlias type="kosta1200.todayroom.vo.ProductInquiryVO" alias="productInquiry"/>
+		<typeAlias type="kosta1200.todayroom.vo.Product_inquiryVO" alias="productInquiry"/>
 		<typeAlias type="kosta1200.todayroom.vo.ReportVO" alias="report"/>
 		<typeAlias type="kosta1200.todayroom.vo.ReviewVO" alias="review"/>
 		<typeAlias type="kosta1200.todayroom.vo.RoomwarmingVO" alias="roomwarming"/>
