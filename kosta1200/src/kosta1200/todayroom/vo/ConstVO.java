@@ -9,11 +9,12 @@ public class ConstVO implements Serializable {
 	private String const_color;
 	private String const_budget;
 	private int member_seq;
+	private String const_type;
 	
 	public ConstVO() {}
 
 	public ConstVO(int const_seq, String const_space, String const_style, String const_color, String const_budget,
-			int member_seq) {
+			int member_seq, String const_type) {
 		super();
 		this.const_seq = const_seq;
 		this.const_space = const_space;
@@ -21,7 +22,10 @@ public class ConstVO implements Serializable {
 		this.const_color = const_color;
 		this.const_budget = const_budget;
 		this.member_seq = member_seq;
+		this.const_type = const_type;
 	}
+
+
 
 	public int getConst_seq() {
 		return const_seq;
@@ -69,6 +73,14 @@ public class ConstVO implements Serializable {
 
 	public void setMember_seq(int member_seq) {
 		this.member_seq = member_seq;
+	}
+
+	public String getConst_type() {
+		return const_type;
+	}
+
+	public void setConst_type(String const_type) {
+		this.const_type = const_type;
 	}
 
 	@Override
