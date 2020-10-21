@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package kosta1200.todayroom.service;
 
 import java.io.File;
@@ -26,3 +27,5 @@ public class MemberService {
 		return dao.MemberIdCheckList(id);
 	}
 }
+=======
+>>>>>>> refs/heads/develop

@@ -8,8 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import kosta1200.todayroom.dto.Product;
-import kosta1200.todayroom.mapper.Store;
+import kosta1200.todayroom.mapper.StoreMapper;
+import kosta1200.todayroom.vo.ProductVO;
 
 public class StoreDAO {
 	private static StoreDAO dao = new StoreDAO();
@@ -33,12 +33,12 @@ public class StoreDAO {
 		
 	}
 	
-	public List<Product> listProduct() {
+	public List<ProductVO> listProduct() {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
-		List<Product> list = null;
+		List<ProductVO> list = null;
 		
 		try {
-			list = sqlSession.getMapper(Store.class).listProduct();
+			list = sqlSession.getMapper(StoreMapper.class).listProduct();
 			System.out.println(list);
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import kosta1200.todayroom.dao.StoreDAO;
-import kosta1200.todayroom.dto.Product;
+import kosta1200.todayroom.vo.ProductVO;
 
 public class StoreService {
 	private static StoreService service = new StoreService();
@@ -17,9 +17,9 @@ public class StoreService {
 		return service;
 	}
 	
-	public List<Product> listProductService(HttpServletRequest request) throws Exception{
+	public List<ProductVO> listProductService(HttpServletRequest request) throws Exception{
 		request.setCharacterEncoding("utf-8");
-		List<Product> list = dao.listProduct();
+		List<ProductVO> list = dao.listProduct();
 		return list;
 	}
 	

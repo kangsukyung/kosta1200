@@ -5,8 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kosta1200.todayroom.dto.Product;
 import kosta1200.todayroom.service.StoreService;
+import kosta1200.todayroom.vo.ProductVO;
 
 public class Store_ListAction implements Action {
 
@@ -14,7 +14,7 @@ public class Store_ListAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = new ActionForward();
 		StoreService service = StoreService.getInstance();
-		List<Product> list = service.listProductService(request);
+		List<ProductVO> list = service.listProductService(request);
 		
 		request.setAttribute("list", list);
 		forward.setRedirect(false);
