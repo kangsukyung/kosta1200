@@ -12,13 +12,13 @@ public class BoardVO implements Serializable {
 	private String board_thumbnail;
 	private String board_classification;
 	private String board_views;
-	private String board_scarps;
+	private String board_scraps;
 	
 	public BoardVO() {}
 
 	public BoardVO(int board_seq, int member_seq, String board_title, String board_content, String board_date,
 			String board_picture, String board_thumbnail, String board_classification, String board_views,
-			String board_scarps) {
+			String board_scraps) {
 		super();
 		this.board_seq = board_seq;
 		this.member_seq = member_seq;
@@ -29,7 +29,7 @@ public class BoardVO implements Serializable {
 		this.board_thumbnail = board_thumbnail;
 		this.board_classification = board_classification;
 		this.board_views = board_views;
-		this.board_scarps = board_scarps;
+		this.board_scraps = board_scraps;
 	}
 
 	public int getBoard_seq() {
@@ -104,12 +104,12 @@ public class BoardVO implements Serializable {
 		this.board_views = board_views;
 	}
 
-	public String getBoard_scarps() {
-		return board_scarps;
+	public String getBoard_scraps() {
+		return board_scraps;
 	}
 
-	public void setBoard_scarps(String board_scarps) {
-		this.board_scarps = board_scarps;
+	public void setBoard_scraps(String board_scraps) {
+		this.board_scraps = board_scraps;
 	}
 
 	@Override
@@ -117,7 +117,7 @@ public class BoardVO implements Serializable {
 		return "Board [board_seq=" + board_seq + ", member_seq=" + member_seq + ", board_title=" + board_title
 				+ ", board_content=" + board_content + ", board_date=" + board_date + ", board_picture=" + board_picture
 				+ ", board_thumbnail=" + board_thumbnail + ", board_classification=" + board_classification
-				+ ", board_views=" + board_views + ", board_scarps=" + board_scarps + "]";
+				+ ", board_views=" + board_views + ", board_scraps=" + board_scraps + "]";
 	}
 	
 	
