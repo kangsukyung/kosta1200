@@ -6,8 +6,9 @@ import kosta1200.todayroom.vo.CommentsVO;
 
 public interface CommentsMapper {
 	
-	//´ñ±Û ¸®½ºÆ®
 	List<CommentsVO> listComments();
+	
+	int insertComments(CommentsVO commentsvo);
 	
 	
 }

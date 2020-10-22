@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kosta1200.todayroom.action.Action;
 import kosta1200.todayroom.action.ActionForward;
+import kosta1200.todayroom.action.CommentsInsertAction;
 import kosta1200.todayroom.action.CommentsListAction;
 
 /**
@@ -26,19 +27,24 @@ public class CommentsController extends HttpServlet {
 
 	private void doProcess(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		String requestURI = request.getRequestURI();
-		System.out.println(requestURI);
+		//System.out.println(requestURI);
 		String contextPath = request.getContextPath();
-		System.out.println(contextPath);
+		//System.out.println(contextPath);
     	String command = requestURI.substring(contextPath.length()+10);
     	System.out.println(command);
-    	
     	
     	Action action = null;
     	ActionForward forward = null;
     	
     	if(command.equals("CommentsListAction.do")){
-    		//System.out.println("잘 오고있니");
     		action = new CommentsListAction();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+    	}else if(command.equals("CommentsInsertAction.do")){
+    		action = new CommentsInsertAction();
     		try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
