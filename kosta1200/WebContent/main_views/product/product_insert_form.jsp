@@ -46,6 +46,13 @@
 											class="form-control" id="product_insert_input" name="product_name"
 											type="text" placeholder="상품명을 입력하세요." required="">
 									</div>
+									
+									<div class="form-group">
+										<label id="product_insert_label">파일 </label> 
+										<input class="form-control" id="product_insert_input" name="product_fname"
+											type="file" placeholder="상품명을 입력하세요." required="">
+									</div>
+									
 									<div class="form-group">
 										<label id="product_insert_label">가격 </label> <input
 											class="form-control" id="product_insert_input2" name="product_price"
