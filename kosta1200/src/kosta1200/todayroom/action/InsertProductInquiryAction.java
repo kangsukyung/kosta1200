@@ -17,13 +17,17 @@ public class InsertProductInquiryAction implements Action {
 		
 		re = service.insertProductInquiryService(request);
 		
+		System.out.println(re);
+		
 		response.setContentType("text/html; charset=UTF-8");
+		
+		response.getWriter().print(re);
 
-		if (re > 0) {
-			response.getWriter().println("<script>alert('문의가 접수되었습니다.');</script>");
-		} else {
-			response.getWriter().println("<script>alert('양식을 다시 확인해주세요.'); history.back();</script>");
-		}
+//		if (re > 0) {
+//			response.getWriter().println("<script>alert('문의가 접수되었습니다.');</script>");
+//		} else {
+//			response.getWriter().println("<script>alert('양식을 다시 확인해주세요.'); history.back();</script>");
+//		}
 
 		return null;
 	}

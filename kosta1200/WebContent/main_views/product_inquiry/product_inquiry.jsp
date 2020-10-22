@@ -10,7 +10,7 @@
 <script src="../../main_resource/vendors/jquery/jquery-3.2.1.min.js"></script>
 <script
 	src="../../main_resource/vendors/bootstrap/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="../../main_resource/js/product_inquery.js"></script> 
+<script type="text/javascript" src="../../main_resource/js/product_inquiry.js"></script> 
 </head>
 <body>
 	<button type="button" class="btn btn-primary" data-toggle="modal"
@@ -28,7 +28,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form action="../../productInquiry/insertProductInquiry.do" method="POST" id="my-form">
+					<form method="POST" id="my-form">
 						<!--           <div class="form-group"> -->
 						<!--             <label for="recipient-name" class="control-label">Recipient:</label> -->
 						<!--             <input type="text" class="form-control" id="recipient-name"> -->
@@ -60,7 +60,7 @@
 				</div>
 				<div class="modal-footer">
 					<!--         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-					<button type="submit" form="my-form" class="btn btn-primary">문의하기</button>
+					<button type="submit" form="my-form" class="btn btn-primary" id="inquiry-submit">문의하기</button>
 				</div>
 			</div>
 		</div>
