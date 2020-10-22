@@ -2,6 +2,7 @@ package kosta1200.todayroom.dao;
 
 import java.io.InputStream;
 
+
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -9,9 +10,9 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kosta1200.todayroom.mapper.BoardMapper;
 import kosta1200.todayroom.vo.BoardVO;
-import kosta1200.todayroom.vo.RoomwarmingVO;
 
 public class BoardDAO {
+	
 	private static BoardDAO dao = new BoardDAO();
 	
 	public static BoardDAO getInstance() {
@@ -23,7 +24,7 @@ public class BoardDAO {
 		InputStream in = null;
 		
 		try {
-			in = Resources.getResourceAsStream(resource);
+				in = Resources.getResourceAsStream(resource);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -53,4 +54,5 @@ public class BoardDAO {
 		
 		return re;
 	}
+	
 }

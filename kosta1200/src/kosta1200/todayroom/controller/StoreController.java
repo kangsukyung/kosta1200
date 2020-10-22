@@ -28,7 +28,7 @@ public class StoreController extends HttpServlet {
     	String requestURI = request.getRequestURI();
     	String contextPath = request.getContextPath();
     	String command = requestURI.substring(contextPath.length()+7);
-    	
+    	    	
     	System.out.println(command);
     	
     	Action action = null;
