@@ -17,6 +17,8 @@ import kosta1200.todayroom.action.MemberLogin_Action;
 import kosta1200.todayroom.action.MemberLogout;
 import kosta1200.todayroom.action.MemberNickNameCheck;
 import kosta1200.todayroom.action.MemberSignup_Action;
+import kosta1200.todayroom.action.MemberUpdate_Action;
+import kosta1200.todayroom.action.MemberUpdate_form;
 
 
 @WebServlet("/Member/*")
@@ -79,11 +81,16 @@ public class MemberController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}		
+		}else if(command.equals("MemberUpdate_form.do")) {
+			try {
+				action=new MemberUpdate_form();
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 		}
-		
-		
-		
-		
+			
     	if(forward!=null) {
     		if(forward.isRedirect()) {
     			response.sendRedirect(forward.getPath());
