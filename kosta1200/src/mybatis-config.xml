@@ -44,7 +44,6 @@
 		<mapper resource="kosta1200/todayroom/mapper/Follow.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Knowhow.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/OneInquiry.xml"/>
-		<mapper resource="kosta1200/todayroom/mapper/ProductInquiry.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Report.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Review.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Roomwarming.xml"/>
@@ -53,6 +52,7 @@
 		<mapper resource="kosta1200/todayroom/mapper/Shoporder.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Vendor.xml"/> -->
 		
+		<mapper resource="kosta1200/todayroom/mapper/ProductInquiry.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Product.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Board.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Comments.xml"/>
