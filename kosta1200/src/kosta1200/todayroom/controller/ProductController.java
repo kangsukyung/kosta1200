@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import kosta1200.todayroom.action.Action;
 import kosta1200.todayroom.action.ActionForward;
+import kosta1200.todayroom.action.ProductDetailAction;
 import kosta1200.todayroom.action.ProductInsertAction;
 import kosta1200.todayroom.action.ProductInsertActionForm;
+import kosta1200.todayroom.action.ProductListAction;
 
 
 @WebServlet("/Product/*")
@@ -32,7 +34,6 @@ public class ProductController extends HttpServlet {
     	String command = requestURI.substring(contextPath.length()+9); // 7의 뜻 : /board/ -> 이걸 짜르겠단거임
     	//System.out.println(command);// => *
     	
-    	
     	Action action = null;
     	ActionForward forward = null;
     	
@@ -50,7 +51,28 @@ public class ProductController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+    	} else if(command.equals("ProductListAction.do")) {
+    		action = new ProductListAction();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+    	} else if(command.equals("ProductDetailAction.do")) {
+    		action = new ProductDetailAction();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
     	}
+    	
+    	
+    	
+    	
+    	
+    	
+    	
     	
     	
     	

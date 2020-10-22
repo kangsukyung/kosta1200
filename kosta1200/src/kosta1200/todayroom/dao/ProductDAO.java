@@ -1,6 +1,7 @@
 package kosta1200.todayroom.dao;
 
 import java.io.InputStream;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -35,9 +36,11 @@ public class ProductDAO {
 	
 	public int insertProduct(ProductVO productVO) {
 		int re = -1;
+
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		try {
 			re = sqlSession.getMapper(ProductMapper.class).insertProduct(productVO);
+			System.out.println(re);
 			if(re >  0) {
 				sqlSession.commit();
 			}else {
@@ -53,6 +56,42 @@ public class ProductDAO {
 		
 		return re;
 	} //end insertProduct
+	
+	public List<ProductVO> listProduct(){
+		SqlSession sqlSession = getSqlSessionFactory().openSession(); //sqlSession 구하기
+		List<ProductVO> list = null; //변수선언
+		
+		try {
+			list = sqlSession.getMapper(ProductMapper.class).listProduct();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
+		return list;
+		
+	}//end listProduct
+	
+	
+	public ProductVO detailProduct(int product_seq) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		ProductVO productVO = null;	
+		try {
+			productVO = sqlSession.getMapper(ProductMapper.class).detailProduct(product_seq);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
+		return productVO;
+	}//end detailProduct
+	
 	
 	
 	
