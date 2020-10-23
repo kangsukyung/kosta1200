@@ -3,6 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html class="skrollr skrollr-desktop">
 <head>
@@ -20,91 +21,93 @@
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}//main_resource/css/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}//main_resource/css/comments.css">
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+$("#btn_comments_Update").click(function(){
+	comments_content.
+})
+</script> -->
 
 </head>
 <body>
 
-	<div class="col-lg-12 comments_div_jsb">
-		<div class="comments-area comments_list_jsb">
-			<h4>댓글</h4>
-			<div class="comment-list">
-				<div class="user d-flex comments_insert_jsb">
-					<c:forEach var="m" items="${member}">
-						<div class="thumb">
-							<img src="${m.member_profile}" alt="">
-						</div>
-					</c:forEach>
-					<div class="form-group col-lg-10 col-md-6 name comments_reply_jsb">
-						<form action="CommentsInsertAction.do" method="POST" enctype="multipart/form-data">
-							<input type="hidden" name="seq" value="">
-							<input type="text" class="form-control" id="" name="comments_content"
-								placeholder="댓글내용을 입력해주세요" onfocus="this.placeholder = ''"
-								onblur="this.placeholder = '댓글내용을 입력해주세요'">
-							<input class="ti-search" type="file" name="comments_picture">
-					<div class="reply-btn">
-						<input class="btn-reply text-uppercase" type="submit">
-					</div>
-						</form>
-					</div>
-				</div>
-				<c:forEach var="c" items="${comments}">
-					<div class="single-comment justify-content-between d-flex">
-						<div class="user justify-content-between d-flex">
-							<div class="desc">
-								<h5>
-									<a href="#">${c.member_seq}번 글쓴이</a>
-								</h5>
-								<p class="comment">${c.comments_content}</p>
-								<!-- 이미지 -->
-								<div class="d-flex">
-                                	<img src="img/cart/cart1.png" alt="">
-                                </div>
-                                
-                                <c:if test="${c.comments_picture != null }">
-									<c:set var="head" value="${fn:substring(c.comments_picture, 0, fn:length(c.comments_picture)-4) }"></c:set>
-									<c:set var="pattern" value="${fn:substring(c.comments_picture, fn:length(head) +1, fn:length(c.comments_picture)) }"></c:set>
-								<c:choose>
-									<c:when test="${pattern == 'png' || pattern == 'gif' || pattern == 'PNG' || pattern == 'jpg'}">
-										<div class="d-flex">
-											<img src="${pageContext.request.contextPath}/upload/${head}_small.${pattern}">
-										</div>
-									</c:when>
-								<c:otherwise>
-								<c:out value="NO IMAGE"></c:out>
-								</c:otherwise>
-								</c:choose>
-								</c:if>
-								<!-- <p class="date">날짜 2020/08/20 00시 00분</p> -->
-							</div>
-						</div>
+<div class="col-lg-12 comments_div_jsb">
+	<div class="comments-area comments_list_jsb">
+		<h4>댓글</h4>
+		<div class="comment-list">
+			<div class="user d-flex comments_insert_jsb">
+				<c:forEach var="m" items="${member}">
+					<div class="thumb">
+						<img src="${m.member_profile}" alt="">
 					</div>
 				</c:forEach>
+				<div class="form-group col-lg-10 col-md-6 name comments_reply_jsb">
+					<form action="CommentsInsertAction.do" method="POST" enctype="multipart/form-data">
+						<!-- 댓글 입력 -->
+						<input type="text" class="form-control" id="insert_content" 
+						name="comments_content" placeholder="댓글내용을 입력해주세요" onfocus="this.placeholder = ''"
+							onblur="this.placeholder = '댓글내용을 입력해주세요'">
+						<input class="ti-search" type="file" name="comments_picture">
+						<div class="reply-btn">
+							<input class="btn-reply text-uppercase" type="submit">
+						</div>
+					</form>
+				</div>
 			</div>
-
-			<nav class="blog-pagination justify-content-center d-flex">
-			<ul class="pagination">
-				<li class="page-item"><a href="#" class="page-link"
-					aria-label="Previous"> <span aria-hidden="true"> <span
-							class="lnr lnr-chevron-left"></span>
-					</span>
-				</a></li>
-				<li class="page-item"><a href="#" class="page-link">01</a></li>
-				<li class="page-item active"><a href="#" class="page-link">02</a>
-				</li>
-				<li class="page-item"><a href="#" class="page-link">03</a></li>
-				<li class="page-item"><a href="#" class="page-link">04</a></li>
-				<li class="page-item"><a href="#" class="page-link">09</a></li>
-				<li class="page-item"><a href="#" class="page-link"
-					aria-label="Next"> <span aria-hidden="true"> <span
-							class="lnr lnr-chevron-right"></span>
-					</span>
-				</a></li>
-			</ul>
-			</nav>
+			<c:forEach var="c" items="${comments}">
+				<div class="single-comment justify-content-between d-flex">
+					<div class="user justify-content-between d-flex">
+						<div class="desc">
+						<input type="hidden" name="seq" value="${c.comments_seq}">
+							<h5>
+								<a href="#">${c.member_seq}번 글쓴이</a>
+							</h5>
+                               <!-- 썸네일 이미지 -->
+                               <c:if test="${c.comments_picture != null }">
+								<c:set var="head" value="${fn:substring(c.comments_picture, 0, fn:length(c.comments_picture)-4) }"></c:set>
+								<c:set var="pattern" value="${fn:substring(c.comments_picture, fn:length(head) +1, fn:length(c.comments_picture)) }"></c:set>
+									<c:choose>
+										<c:when test="${pattern == 'png' || pattern == 'gif' || pattern == 'PNG' || pattern == 'jpg'}">
+											<div class="d-flex">
+												<img src="${pageContext.request.contextPath}/upload/${head}_small.${pattern}">
+											</div>
+										</c:when>
+										<c:otherwise>
+										<c:out value="NO IMAGE"></c:out>
+										</c:otherwise>
+									</c:choose>
+							</c:if>
+							<p id="comments_content" class="comment">${c.comments_content}</p>
+							<a type="button" id="btn_comments_Update" class="date" href="CommentsUpdateAction.do?seq=${c.comments_seq}">수정하기</a>
+							<a type="button" id="btn_comments_Delete" class="date" href="CommentsDeleteAction.do?seq=${c.comments_seq}">삭제하기</a>
+						</div>
+					</div>
+				</div>
+			</c:forEach>
 		</div>
 
-
+		<nav class="blog-pagination justify-content-center d-flex">
+		<ul class="pagination">
+			<li class="page-item"><a href="#" class="page-link"
+				aria-label="Previous"> <span aria-hidden="true"> <span
+						class="lnr lnr-chevron-left"></span>
+				</span>
+			</a></li>
+			<li class="page-item"><a href="#" class="page-link">01</a></li>
+			<li class="page-item active"><a href="#" class="page-link">02</a>
+			</li>
+			<li class="page-item"><a href="#" class="page-link">03</a></li>
+			<li class="page-item"><a href="#" class="page-link">04</a></li>
+			<li class="page-item"><a href="#" class="page-link">09</a></li>
+			<li class="page-item"><a href="#" class="page-link" aria-label="Next"> 
+			<span aria-hidden="true">
+			<span class="lnr lnr-chevron-right"></span>
+				</span>
+			</a></li>
+		</ul>
+		</nav>
 	</div>
+</div>
 
 	<script src="../../main_resource/vendors/jquery/jquery-3.2.1.min.js"></script>
 	<script src="../../main_resource/vendors/skrollr.min.js"></script>
