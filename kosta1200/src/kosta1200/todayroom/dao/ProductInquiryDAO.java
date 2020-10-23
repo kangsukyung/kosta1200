@@ -7,15 +7,13 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import kosta1200.todayroom.mapper.ProductMapper;
-import kosta1200.todayroom.vo.ProductVO;
+import kosta1200.todayroom.vo.Product_inquiryVO;
 
-public class ProductDAO {
-	private static ProductDAO dao = new ProductDAO();
-	
-		public static ProductDAO getInstance() {
-			return dao;
-		}
+public class ProductInquiryDAO {
+	private static ProductInquiryDAO dao = new ProductInquiryDAO();
+	public static ProductInquiryDAO getInstance() {
+		return dao;
+	}
 	
 	public SqlSessionFactory getSqlSessionFactory() {
 		String resource = "mybatis-config.xml";
@@ -30,38 +28,30 @@ public class ProductDAO {
 		
 		return new SqlSessionFactoryBuilder().build(in);
 		
-	}// end SqlSessionFactory
+	}
 	
-	
-	public int insertProduct(ProductVO productVO) {
+	public int insertProductInquiry(Product_inquiryVO product_inquiryVO) {
 		int re = -1;
-		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		
+		SqlSession session = getSqlSessionFactory().openSession();
+		
 		try {
-			re = sqlSession.getMapper(ProductMapper.class).insertProduct(productVO);
-			if(re >  0) {
-				sqlSession.commit();
+			re = session.getMapper(kosta1200.todayroom.mapper.ProductInquiryMapper.class).insertProductInquery(product_inquiryVO);
+			
+			if(re>0) {
+				session.commit();
 			}else {
-				sqlSession.rollback();
+				session.rollback();
 			}
 		} catch (Exception e) {
+			// TODO: handle exception
 			e.printStackTrace();
 		}finally {
-			if(sqlSession != null) {
-				sqlSession.close();
+			if(session!=null) {
+				session.close();
 			}
 		}
 		
 		return re;
-	} //end insertProduct
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-}//end ProductDAO
+	}
+}

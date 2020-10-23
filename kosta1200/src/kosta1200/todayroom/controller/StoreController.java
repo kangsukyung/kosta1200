@@ -30,11 +30,12 @@ public class StoreController extends HttpServlet {
     	String command = requestURI.substring(contextPath.length()+7);
     	
     	System.out.println(command);
-    	
+		
     	Action action = null;
     	ActionForward forward = null;
     	
     	if (command.equals("listAction.do")) {
+  		
     		action = new Store_ListAction();
     		try {
 				forward = action.execute(request, response);
@@ -43,7 +44,7 @@ public class StoreController extends HttpServlet {
 			}
     	}
     	
-    	if (command.equals("listStoreAction.do")) {
+    	if (command.equals("listStoreAction.do")) {		
     		action = new Store_ListStoreAction();
     		try {
     			forward = action.execute(request, response);

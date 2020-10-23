@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/css/const.css">
 </head>
 <body class="hw-contractor-common">
+	<jsp:include page="../header.jsp"></jsp:include>
 	<!-- ================ start banner area ================= -->
 	<section class="blog-banner-area hw-contractor-common" id="category">
 		<div class="container h-100">
@@ -93,6 +94,7 @@
 			</div>
 		</div>
 	</section>
+	<jsp:include page="../footer.jsp"></jsp:include>
 
 	<script src="${pageContext.request.contextPath}/main_resource/vendors/jquery/jquery-3.2.1.min.js"></script>
 	<script src="${pageContext.request.contextPath}/main_resource/vendors/bootstrap/bootstrap.bundle.min.js"></script>

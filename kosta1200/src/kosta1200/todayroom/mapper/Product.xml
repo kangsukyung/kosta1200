@@ -1,2 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<select></select>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="kosta1200.todayroom.mapper.ProductMapper">
+	<cache />
+	
+	<insert id="insertProduct" parameterType="Product">
+		insert into product values(SEQ_PRODUCT_PRODUCT_SEQ.nextval, #{product_name}, #{product_price}, #{product_lcategory},
+									 #{product_scategory}, 2500, 2, null)
+	</insert>
+	
+	
+	
+
+
+</mapper>
