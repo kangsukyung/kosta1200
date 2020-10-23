@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -9,7 +8,10 @@
 			#{board_content}, sysdate, #{board_picture}, #{board_thumbnail}, #{board_classification}, '0', '0')
 	</insert>
 	
-
+	<insert id="insertRoomwarming" parameterType="roomwarming">
+       insert into roomwarming values(SEQ_BOARD_BOARD_SEQ, #{roomwarming_classification}, #{roomwarming_space},
+          #{roomwarming_style}, #{roomwarming_color}, #{roomwarming_budget}, #{roomwarming_type})
+    </insert>
 
  </mapper>
 
