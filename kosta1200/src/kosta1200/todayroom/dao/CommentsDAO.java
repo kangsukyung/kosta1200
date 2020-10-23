@@ -18,7 +18,6 @@ public class CommentsDAO {
 		return dao;
 	}
 	
-	//mybatis sqlSessionFactory¸¦ ¾µ ¼ö ÀÖ°Ô ¸¸µé¾îÁÜ
 	public SqlSessionFactory getSqlSessionFactory(){
 		String resource = "mybatis-config.xml";
 		InputStream in = null;
@@ -33,13 +32,36 @@ public class CommentsDAO {
 	
 	
 	
+	public int insertComments(CommentsVO commentsvo){
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		int re = -1;
+		try {
+			re = sqlSession.getMapper(CommentsMapper.class).insertComments(commentsvo);
+			if(re > 0){
+				sqlSession.commit();//ë“¤ì–´ì˜¨ ê°’ì´ ìˆìœ¼ë©´ ì»¤ë°‹
+			}else{
+				sqlSession.rollback();//ë“¤ì–´ì˜¨ ê°’ì´ ì—†ìœ¼ë©´ ë¡¤ë°±
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(sqlSession != null){
+				sqlSession.close();
+			}
+		}
+		return re;
+	}
+	
+	
+	
+	
+	
 	public List<CommentsVO> listComments(){
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		
 		List<CommentsVO> list = null;
 		try {
 			list = sqlSession.getMapper(CommentsMapper.class).listComments();
-			System.out.println("dao¿¡ listÀß ¿À³ª : "+list);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
