@@ -4,7 +4,11 @@
 
 
 <mapper namespace="kosta1200.todayroom.mapper.ProductInquiryMapper">
-	<insert id="insertProductInquery" parameterType="productInquiry">
+	<insert id="insertProductInquiry" parameterType="productInquiry">
 		insert into product_inquiry(pi_seq, pi_type, pi_content, product_seq, member_seq) values(SEQ_PRODUCT_INQUIRY_PI_SEQ.nextval, #{pi_type}, #{pi_content}, #{product_seq}, #{member_seq})
 	</insert>
+	
+	<select id="listProductInquiry" resultType="productInquiry">
+		select * from product_inquiry order by desc
+	</select>
 </mapper>
