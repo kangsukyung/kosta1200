@@ -97,7 +97,6 @@ public class MemberDAO {
 		SqlSession sqlSession=getSqlSessionFactory().openSession();
 		try {
 			membervo=sqlSession.getMapper(MemberMapper.class).MemberLogin(member);
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
