@@ -150,7 +150,8 @@
 										<div class="selling-option-item__controls">
 											<div class="selling-option-item__quantity">
 												<div class="input-group select-input option-count-input">
-													<select class="form-control"><option value="1">1</option>
+													<select class="form-control"><option value="0">수량</option>
+														<option value="1">1</option>
 														<option value="2">2</option>
 														<option value="3">3</option>
 														<option value="4">4</option>
@@ -158,7 +159,6 @@
 														<option value="6">6</option>
 														<option value="7">7</option>
 														<option value="8">8</option>
-														<option value="9">9</option>
 														</select>
 												</div>
 											</div>
@@ -172,7 +172,7 @@
 						<p class="selling-option-form-content__price">
 							<span class="selling-option-form-content__price__left">총 주문금액</span><span
 								class="selling-option-form-content__price__right"><span
-								class="selling-option-form-content__price__number">82,800</span>원</span>
+								class="selling-option-form-content__price__number">0</span>원</span>
 						</p>
 
 						<div class="product_count">
