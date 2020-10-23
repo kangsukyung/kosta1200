@@ -38,6 +38,7 @@ public class MemberController extends HttpServlet {
 		ActionForward forward = null;
 		
 		System.out.println(command);
+		System.out.println("1");
 
 		if (command.equals("MemberIdCheckList.do")) {//아이디 중복체크
 			try {
@@ -89,6 +90,14 @@ public class MemberController extends HttpServlet {
 				e.printStackTrace();
 			}
 			
+		}else if(command.equals("MemberUpdate_Action.do")) {
+			try {
+				action=new MemberUpdate_Action();
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
 		}
 			
     	if(forward!=null) {

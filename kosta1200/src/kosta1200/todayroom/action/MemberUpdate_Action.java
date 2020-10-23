@@ -9,10 +9,14 @@ public class MemberUpdate_Action implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ActionForward action=new ActionForward();
+		ActionForward forward=new ActionForward();
 		MemberService service=MemberService.getInstance();
 		
-		return null;
+		int re=service.MemberUpdate(HttpServletRequest request, HttpServletResponse response);
+		
+		forward.setRedirect(true);
+		forward.setPath("");
+		return forward;
 	}
 
 }

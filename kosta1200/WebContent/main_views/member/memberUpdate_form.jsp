@@ -56,7 +56,7 @@
 					<div>
 							<a href="${pageContext.request.contextPath}/Member/MemberUpdate_form.do"><img class="author_img rounded-circle" src="${member.member_profile }"alt="" width="130" height="130"></a>
 							<c:if test="${member!=null }">
-								<h4>${member.member_nickname}님 프로필</h4>
+								<h4 style=" padding-top: 10px;">${member.member_nickname}님 프로필</h4>
 							</c:if>
 							<div class="social_icon">
 							<br>
@@ -81,20 +81,20 @@
         <div class="col-xl-9 col-lg-8 col-md-7">
           <section class="lattest-product-area pb-40 category-list">
             		<a href="#" style="float:right;">회원탈퇴</a>
-						<form class="row login_form" action="${pageContext.request.contextPath}/Member/MemberSignup_Action.do" id="register_form" >
-    			          	<font class="member_font_padding" id="id_check" size="2"></font>
-							<div class="col-md-12 form-group member_signup"><input type="text" class="form-control-member_singup" id="memberNickname" name="memberNickname" placeholder="별명" onfocus="this.placeholder = ''" onblur="this.placeholder = '별명'">
+						<form class="row login_form" action="${pageContext.request.contextPath}/Member/MemberUpdate_Action.do?=" id="register_form" >
+							<input type="hidden" name="seq" value="${member.member_seq }">
+							<div class="col-md-12 form-group member_signup"><input type="text" class="form-control-member_singup" id="memberNickname" name="memberNickname"  placeholder="별명" onfocus="this.placeholder = ''" onblur="this.placeholder = '별명'" value="${member.member_nickname}">
 							<button type="button" class="memberName_btn">중복확인</button></div>
-							<div class="col-md-12 form-group"><input type="text" class="form-control" id="memberName" name="memberName" placeholder="이름" onfocus="this.placeholder = ''" onblur="this.placeholder = '이름'"></div>
-							<div class="col-md-12 form-group member_signup"><input type="text" class="form-control-member_singup" id="memberAddress" name="memberAddress" placeholder="주소" onfocus="this.placeholder = ''" onblur="this.placeholder = '주소'"><button type="button" onclick="openZipSearch()">주소찾기</button></div>
+							<div class="col-md-12 form-group"><input type="text" class="form-control" id="memberName" name="memberName" placeholder="이름" onfocus="this.placeholder = ''" onblur="this.placeholder = '이름'" value="${member.member_name}"></div>
+							<div class="col-md-12 form-group member_signup"><input type="text" class="form-control-member_singup" id="memberAddress" name="memberAddress" placeholder="주소" onfocus="this.placeholder = ''" onblur="this.placeholder = '주소'" value="${member.member_address}"><button type="button" onclick="openZipSearch()">주소찾기</button></div>
 							
-            				<div class="col-md-12 form-group"><input type="tel" class="form-control"  id="memberPhone" name="memberPhone" placeholder="전화번호" onfocus="this.placeholder = ''" onblur="this.placeholder = '전화번호'"></div>
+            				<div class="col-md-12 form-group"><input type="tel" class="form-control"  id="memberPhone" name="memberPhone" placeholder="전화번호" onfocus="this.placeholder = ''" onblur="this.placeholder = '전화번호'" value="${member.member_phone}"></div>
     			          	<font class="member_font_padding" id="phone_check" size="2"></font>
-							<div class="col-md-12 form-group"><input type="text" class="form-control" id="memberEmail" name="memberEmail" placeholder="이메일 주소" onfocus="this.placeholder = ''" onblur="this.placeholder = '이메일 주소'"></div>
+							<div class="col-md-12 form-group"><input type="text" class="form-control" id="memberEmail" name="memberEmail" placeholder="이메일 주소" onfocus="this.placeholder = ''" onblur="this.placeholder = '이메일 주소'"value="${member.member_email}"></div>
     			          	<font class="member_font_padding" id="mail_check" size="2"></font>
-	            			<div class="col-md-12 form-group"><input type="password" class="form-control" class="memberPassword" id="memberPassword" name="memberPassword" placeholder="비밀번호" onfocus="this.placeholder = ''" onblur="this.placeholder = '비밀번호'"></div>
+	            			<div class="col-md-12 form-group"><input type="password" class="form-control" class="memberPassword" id="memberPassword" name="memberPassword" placeholder="비밀번호" onfocus="this.placeholder = ''" onblur="this.placeholder = '비밀번호'"value="${member.member_password}"></div>
     			          	<font class="member_font_padding" id="password_check" size="2"></font>
-    			          	<div class="col-md-12 form-group"><input type="password" class="form-control" class="memberPassword" id="userPwChk" name="memberPassword" placeholder="비밀번호확인" onfocus="this.placeholder = ''" onblur="this.placeholder = '비밀번호확인'"></div>
+    			          	<div class="col-md-12 form-group"><input type="password" class="form-control" class="memberPassword" id="userPwChk" name="memberPassword" placeholder="비밀번호확인" onfocus="this.placeholder = ''" onblur="this.placeholder = '비밀번호확인'"value="${member.member_password}"></div>
     			          	<font class="member_font_padding" id="chkNotice" size="2" style="height: 30px;width: 100%;"></font>
     			          	<img class="author_img rounded-circle mypageUpdate_img" src="${member.member_profile }"alt="" width="200px" height="200">
 							<div class="col-md-10 form-group"><input type="file" class="mypageUdate_type"></div>

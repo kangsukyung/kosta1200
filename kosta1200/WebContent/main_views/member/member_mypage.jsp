@@ -54,9 +54,10 @@
             <div class="head">프로필</div>
             <ul class="main-categories">
 					<div>
-							<a href="${pageContext.request.contextPath}/Member/MemberUpdate_form.do"><img class="author_img rounded-circle" src="${member.member_profile }"alt="" width="130" height="130"></a>
 							<c:if test="${member!=null }">
-								<h4>${member.member_nickname}님 프로필</h4>
+								<a href="${pageContext.request.contextPath}/Member/MemberUpdate_form.do"><img class="author_img rounded-circle" 
+								src="${member.member_profile}"alt="" width="130" height="130"></a>
+								<h4 style=" padding-top: 10px;"> ${member.member_nickname}님 프로필</h4>
 							</c:if>
 							<div class="social_icon">
 							<br>

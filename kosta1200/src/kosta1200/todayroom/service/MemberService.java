@@ -6,6 +6,9 @@ import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 
 import kosta1200.todayroom.dao.MemberDAO;
 import kosta1200.todayroom.vo.MemberVO;
@@ -35,7 +38,7 @@ public class MemberService {
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
-		
+					
 		MemberVO member=new MemberVO();
 		member.setMember_address(request.getParameter("memberAddress"));
 		member.setMember_email(request.getParameter("memberEmail"));
@@ -44,11 +47,11 @@ public class MemberService {
 		member.setMember_nickname(request.getParameter("memberNickname"));
 		member.setMember_password(request.getParameter("memberPassword"));
 		member.setMember_phone(request.getParameter("memberPhone"));
+		member.setMember_profile("../../main_resource/img/member/member_basic.png");
 		
 		return dao.MemberSignup(member);
 	}
 	public MemberVO MemberLogin(HttpServletRequest request,HttpServletResponse response){
-		System.out.println("login");
 		try {
 			request.setCharacterEncoding("utf-8");
 		} catch (UnsupportedEncodingException e) {
@@ -58,7 +61,18 @@ public class MemberService {
 		member.setMember_id(request.getParameter("name"));
 		member.setMember_password(request.getParameter("password"));
 
-		
 		return dao.MemberLogin(member);
+	}
+	
+	public int MemberUpdate(HttpServletRequest request, HttpServletResponse response) {
+		MemberVO member=new MemberVO();
+		member.setMember_address(request.getParameter("memberAddress"));
+		member.setMember_email(request.getParameter("memberEmail"));
+		member.setMember_name(request.getParameter("memberName"));
+		member.setMember_nickname(request.getParameter("memberNickname"));
+		member.setMember_password(request.getParameter("memberPassword"));
+		member.setMember_phone(request.getParameter("memberPhone"));
+		member.setMember_profile(request.getParameter(""));
+		return 0;
 	}
 }

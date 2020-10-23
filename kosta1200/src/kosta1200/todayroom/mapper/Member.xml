@@ -16,7 +16,7 @@
 	</select>
 	
 	<insert id="MemberSignup" parameterType="member">
-		insert into member values(SEQ_MEMBER_MEMBER_SEQ.nextval,#{member_id},#{member_nickname},#{member_name},#{member_address},#{member_phone},#{member_email},'1',#{member_password},'','') 
+		insert into member values(SEQ_MEMBER_MEMBER_SEQ.nextval,#{member_id},#{member_nickname},#{member_name},#{member_address},#{member_phone},#{member_email},'1',#{member_password},'',#{member_profile}) 
 	</insert>
 	
 	<select id="MemberLogin" parameterType="member" resultType="member">
