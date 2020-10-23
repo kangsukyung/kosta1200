@@ -8,9 +8,16 @@
 			#{board_content}, sysdate, #{board_picture}, #{board_thumbnail}, #{board_classification}, '0', '0')
 	</insert>
 	
+	<insert id="insertRoomwarming" parameterType="roomwarming">
+		insert into roomwarming values(SEQ_BOARD_BOARD_SEQ.CURRVAL, #{roomwarming_classification}, #{roomwarming_space},
+            #{roomwarming_style}, #{roomwarming_color}, #{roomwarming_budget}, #{roomwarming_type})
+	</insert>
+	
+	<insert id="insertKnowhow" parameterType="knowhow">
+		insert into knowhow values(SEQ_BOARD_BOARD_SEQ.CURRVAL, #{knowhow_style})
+	</insert>
 
-
- </mapper>
+</mapper>
 
 
 
