@@ -2,6 +2,7 @@ package kosta1200.todayroom.service;
 
 import java.io.File;
 
+
 import javax.servlet.http.HttpServletRequest;
 
 import com.oreilly.servlet.MultipartRequest;
@@ -10,6 +11,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import kosta1200.todayroom.dao.BoardDAO;
 import kosta1200.todayroom.vo.BoardVO;
 import kosta1200.todayroom.vo.ImageUtil;
+import kosta1200.todayroom.vo.KnowhowVO;
 import kosta1200.todayroom.vo.RoomwarmingVO;
 
 public class BoardService {
@@ -38,6 +40,7 @@ public class BoardService {
 		board.setBoard_picture("aa");
 		board.setBoard_thumbnail("thumbnail_image");
 		board.setBoard_classification(multi.getParameter("classification"));
+		System.out.println(multi.getParameter("classification"));
 		
 		//파일 업로드 DB(파일이름 저장) 
 		if (multi.getFilesystemName("thumbnail_image") != null) {//파일이 업로드 되었을 때 이름을 알려주는 메소드
@@ -64,29 +67,36 @@ public class BoardService {
 			}
 			
 		}
+		int result1 = dao.insertBoard(board);
 
-		return dao.insertBoard(board);
+		int result2 = -1;
+		if (multi.getParameter("roomwarming_classification") != null) {
+			RoomwarmingVO room = new RoomwarmingVO();
+			room.setRoomwarming_type(multi.getParameter("roomwarming_type"));//공간		
+			room.setRoomwarming_classification(multi.getParameter("roomwarming_classification"));//분류=작업
+			room.setRoomwarming_space(multi.getParameter("roomwarming_space")+"평");//평수
+			room.setRoomwarming_style(multi.getParameter("roomwarming_style"));//스타일
+			room.setRoomwarming_color(multi.getParameter("roomwarming_color"));//컬러
+			room.setRoomwarming_budget(multi.getParameter("roomwarming_budget")+"만원");//예산
+			
+			result2 = dao.insertRoomwarming(room);
+		}
+		
+		int result3 = -1;
+		if (multi.getParameter("knowhow_style") != null) {
+			KnowhowVO knowhow = new KnowhowVO();
+			knowhow.setKnowhow_style(multi.getParameter("knowhow_style"));
+			
+			result3 = dao.insertKnowhow(knowhow);
+		}
+		
+		if(result1 > 0 || result2 > 0 || result3 > 0) {
+			return 1;
+		}else {
+			return -1;
+		}
 		
 	}
-	
-	public int insertRoomwarmingService(HttpServletRequest request) throws Exception {
-		request.setCharacterEncoding("utf-8");
-		
-		String uploadPath = request.getRealPath("upload");
-		int size = 20 * 1024 * 1024;//20MB
-				
-		MultipartRequest multi = new MultipartRequest(request, uploadPath, size, 
-				"utf-8", new DefaultFileRenamePolicy());
-		
-		RoomwarmingVO room = new RoomwarmingVO();
-		room.setRoomwarming_classification(multi.getParameter("roomwarming_classification"));//분류=작업
-		room.setRoomwarming_space(multi.getParameter("roomwarming_space"));//평수
-		room.setRoomwarming_style(multi.getParameter("roomwarming_style"));//스타일
-		room.setRoomwarming_color(multi.getParameter("roomwarming_color"));//컬러
-		room.setRoomwarming_budget(multi.getParameter("roomwarming_budget"));//예산
-		room.setRoomwarming_type(multi.getParameter("roomwarming_type"));//공간
-		
-		return dao.insertRoomwarming(room);
-	}
+
 	
 }

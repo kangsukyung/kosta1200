@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import kosta1200.todayroom.action.Action;
 import kosta1200.todayroom.action.ActionForward;
+import kosta1200.todayroom.action.CommentsDeleteAction;
 import kosta1200.todayroom.action.CommentsInsertAction;
 import kosta1200.todayroom.action.CommentsListAction;
+import kosta1200.todayroom.action.CommentsUpdateAction;
 
 /**
  * Servlet implementation class CommentsController
@@ -45,6 +47,20 @@ public class CommentsController extends HttpServlet {
 			}
     	}else if(command.equals("CommentsInsertAction.do")){
     		action = new CommentsInsertAction();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+    	}else if(command.equals("CommentsUpdateAction.do")){
+    		action = new CommentsUpdateAction();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+    	}else if(command.equals("CommentsDeleteAction.do")){
+    		action = new CommentsDeleteAction();
     		try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

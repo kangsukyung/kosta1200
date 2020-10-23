@@ -24,6 +24,48 @@ public class CommentsService {
 	public List<CommentsVO> listCommentsService()throws Exception{
 		return dao.listComments();
 	}
+
+//	public int deleteCommentsService()
+	
+	
+	public int updateCommentsService(HttpServletRequest request,int comments_seq) throws Exception{
+		System.out.println("SERVICE 에서 comments_seq :: "+comments_seq);
+		
+		String uploadPath = request.getRealPath("upload");
+		System.out.println(uploadPath);
+		int size = 20 * 1024 * 1024;
+		
+		MultipartRequest multi = new MultipartRequest(request, uploadPath, size, "utf-8", new DefaultFileRenamePolicy());
+		CommentsVO commentsvo = new CommentsVO();
+		
+		commentsvo.setComments_content(multi.getParameter("comments_content"));
+		commentsvo.setComments_picture("");
+		
+		//나중에 메서드로 빼도 될듯
+		if(multi.getFilesystemName("comments_picture") != null){
+			String comments_picture = (String)multi.getFilesystemName("comments_picture");
+			commentsvo.setComments_picture(comments_picture);
+		
+			//썸네일 이미지(gif,jpg) => aa.gif , aa.jpg 일 때만
+			String pattern = comments_picture.substring(comments_picture.indexOf(".")+1);//gif
+			String head = comments_picture.substring(0, comments_picture.indexOf("."));//aa
+			
+			//원본 파일객체
+			String imagePath = uploadPath + "\\" + comments_picture;
+			File src = new File(imagePath);//원본파일객체에 대한 내용
+			
+			//썸네일 파일객체
+			String thumPath = uploadPath + "\\" + head + "_small." + pattern;
+			File dest = new File(thumPath);
+			
+			if(pattern.equals("gif") || pattern.equals("jpg")||pattern.equals("png")){
+				ImageUtil.resize(src, dest, 100, ImageUtil.RATIO);//썸네일 이미지 생성됨
+			}
+			
+		}
+		return dao.updateComments(commentsvo);
+	}
+	
 	
 	public int CommentsInsertService(HttpServletRequest request)throws Exception{
 		

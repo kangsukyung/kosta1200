@@ -1,6 +1,7 @@
 package kosta1200.todayroom.dao;
 
 import java.io.InputStream;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -36,7 +37,7 @@ public class ProductInquiryDAO {
 		SqlSession session = getSqlSessionFactory().openSession();
 		
 		try {
-			re = session.getMapper(kosta1200.todayroom.mapper.ProductInquiryMapper.class).insertProductInquery(product_inquiryVO);
+			re = session.getMapper(kosta1200.todayroom.mapper.ProductInquiryMapper.class).insertProductInquiry(product_inquiryVO);
 			
 			if(re>0) {
 				session.commit();
@@ -53,5 +54,25 @@ public class ProductInquiryDAO {
 		}
 		
 		return re;
+	}
+	
+	public List<Product_inquiryVO> listProductInquiry(){
+		List<Product_inquiryVO> list = null;
+		SqlSession session = getSqlSessionFactory().openSession();
+		
+		try {
+			list = session.getMapper(kosta1200.todayroom.mapper.ProductInquiryMapper.class).listProductInquiry();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			if(session!=null) {
+				session.close();
+			}
+		}
+		
+		
+		return list;
 	}
 }
