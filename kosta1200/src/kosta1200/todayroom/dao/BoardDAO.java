@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kosta1200.todayroom.mapper.BoardMapper;
 import kosta1200.todayroom.vo.BoardVO;
+import kosta1200.todayroom.vo.RoomwarmingVO;
 
 public class BoardDAO {
 	
@@ -55,4 +56,24 @@ public class BoardDAO {
 		return re;
 	}
 	
+	public int insertRoomwarming(RoomwarmingVO room) {
+		int re = -1;
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		try {
+			re = sqlSession.getMapper(BoardMapper.class).insertRoomwarming(room);
+			if(re >  0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
+		return re;
+	}
 }

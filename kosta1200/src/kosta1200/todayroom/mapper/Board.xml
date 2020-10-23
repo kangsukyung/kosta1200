@@ -7,7 +7,13 @@
 		insert into board values(SEQ_BOARD_BOARD_SEQ.nextval, 1, #{board_title}, 
 			#{board_content}, sysdate, #{board_picture}, #{board_thumbnail}, #{board_classification}, '0', '0')
 	</insert>
-</mapper>
+	
+ 	<!-- <insert id="insertRoomwarming" parameterType="roomwarming">
+ 		insert into roomwarming values(SEQ_BOARD_BOARD_SEQ, #{roomwarming_classification}, #{roomwarming_space},
+ 			#{roomwarming_style}, #{roomwarming_color}, #{roomwarming_budget}, #{roomwarming_type})
+ 	</insert> -->
+
+ </mapper>
 
 
 

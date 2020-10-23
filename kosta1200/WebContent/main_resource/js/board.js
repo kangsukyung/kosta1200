@@ -1,4 +1,4 @@
-$(function() {
+/*$(function() {
 	product_sort();
 })
 
@@ -15,18 +15,38 @@ function product_sort() {
 		$("#select3").empty();
 		if (this.value == "bang") {
 			$.ajax({
-				url : "category.json",
+				url : "../main_resource/js/category.json",
 				type : "get",
 				dataType : "json",
 				success : function(data) {
+					console.log(data);
 					$.each(data, function(idx, item) {
 						productAdd(item);
 					})
 				},
 				error: function(request, status, error) {
-					alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+					console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 				}
 			})
 		}
 	})
+}*/
+
+$(function() {
+	$("#select_option").on("change", function() {
+		$("#select3").empty();
+		if (this.value == "bang") {
+			$("#select3").hide().load("../main_resource/js/a.html", function() {
+				$(this).fadeIn().trigger("create");
+				background_color_ch();
+			});
+		}
+		return false;
+	});
+});
+
+background_color_ch = function() {
+	var background_color_ch = document.getElementById("board_color_select_option");
+	background_color_ch.style.backgroundColor = background_color_ch.value;
 }
+

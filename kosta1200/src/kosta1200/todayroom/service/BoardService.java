@@ -10,6 +10,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import kosta1200.todayroom.dao.BoardDAO;
 import kosta1200.todayroom.vo.BoardVO;
 import kosta1200.todayroom.vo.ImageUtil;
+import kosta1200.todayroom.vo.RoomwarmingVO;
 
 public class BoardService {
 	private static BoardService service = new BoardService();
@@ -63,9 +64,29 @@ public class BoardService {
 			}
 			
 		}
-		
+
 		return dao.insertBoard(board);
 		
+	}
+	
+	public int insertRoomwarmingService(HttpServletRequest request) throws Exception {
+		request.setCharacterEncoding("utf-8");
+		
+		String uploadPath = request.getRealPath("upload");
+		int size = 20 * 1024 * 1024;//20MB
+				
+		MultipartRequest multi = new MultipartRequest(request, uploadPath, size, 
+				"utf-8", new DefaultFileRenamePolicy());
+		
+		RoomwarmingVO room = new RoomwarmingVO();
+		room.setRoomwarming_classification(multi.getParameter("roomwarming_classification"));//분류=작업
+		room.setRoomwarming_space(multi.getParameter("roomwarming_space"));//평수
+		room.setRoomwarming_style(multi.getParameter("roomwarming_style"));//스타일
+		room.setRoomwarming_color(multi.getParameter("roomwarming_color"));//컬러
+		room.setRoomwarming_budget(multi.getParameter("roomwarming_budget"));//예산
+		room.setRoomwarming_type(multi.getParameter("roomwarming_type"));//공간
+		
+		return dao.insertRoomwarming(room);
 	}
 	
 }
