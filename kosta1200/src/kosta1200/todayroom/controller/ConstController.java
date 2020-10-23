@@ -36,6 +36,7 @@ public class ConstController extends HttpServlet {
 		
 		System.out.println(uri);
 		System.out.println(command);
+		System.out.println("11");
 
 		Action action = null;
 		ActionForward forward = null;

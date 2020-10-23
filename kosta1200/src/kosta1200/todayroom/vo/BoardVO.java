@@ -1,5 +1,3 @@
-
-
 package kosta1200.todayroom.vo;
 
 import java.io.Serializable;
@@ -121,6 +119,4 @@ public class BoardVO implements Serializable {
 				+ ", board_thumbnail=" + board_thumbnail + ", board_classification=" + board_classification
 				+ ", board_views=" + board_views + ", board_scraps=" + board_scraps + "]";
 	}
-
-	
 }
