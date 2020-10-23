@@ -21,9 +21,13 @@
 	
 	
 	<update id="updateProduct" parameterType="Product">
-		update product set product_name=#{product_name}, product_price=#{product_price}
+		update product set product_name=#{product_name}, product_price=#{product_price}, product_lcategory=#{product_lcategory}, product_scategory=#{product_scategory}
 			where product_seq = #{product_seq}
 	</update>
+	
+	<delete id="deleteProduct" parameterType="Product">
+		delete from product where product_seq = #{product_seq}
+	</delete>
 	
 	
 

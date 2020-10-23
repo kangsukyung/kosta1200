@@ -74,20 +74,24 @@ public class ProductService {
 	}//end insertProduct
 	
 	public List<ProductVO> listProductService() throws Exception{
+		
 		List<ProductVO> list = dao.listProduct();
 		
 		return list;
-	}//end listBoardService
+	}//end listProductService
 	
 	public ProductVO detailProductService(int product_seq)throws Exception{
 		return dao.detailProduct(product_seq);
 	}
 	
-	/*
-	 * public int updateProductervice(ProductVO productVO) throws Exception{ return
-	 * dao. }
-	 */
 	
+	public int updateProductervice(ProductVO productVO) throws Exception{ 
+		return dao.updateProduct(productVO);
+	}
+	 
+	public int deleteProductervice(ProductVO productVO) {
+		return dao.deleteProduct(productVO);
+	}
 	
 	
 	

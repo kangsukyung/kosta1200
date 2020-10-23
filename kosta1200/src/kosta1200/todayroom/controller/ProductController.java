@@ -11,11 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import kosta1200.todayroom.action.Action;
 import kosta1200.todayroom.action.ActionForward;
+import kosta1200.todayroom.action.ProductDeleteAction;
 import kosta1200.todayroom.action.ProductDetailAction;
 import kosta1200.todayroom.action.ProductInsertAction;
 import kosta1200.todayroom.action.ProductInsertActionForm;
 import kosta1200.todayroom.action.ProductListAction;
 import kosta1200.todayroom.action.ProductUpdateAction;
+import kosta1200.todayroom.action.ProductUpdateActionForm;
 
 
 @WebServlet("/Product/*")
@@ -66,8 +68,22 @@ public class ProductController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+    	} else if(command.equals("ProductUpdateActionForm.do")) {
+    		action = new ProductUpdateActionForm();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
     	} else if(command.equals("ProductUpdateAction.do")) {
     		action = new ProductUpdateAction();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+    	} else if(command.equals("ProductDeleteAction.do")) {
+    		action = new ProductDeleteAction();
     		try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
