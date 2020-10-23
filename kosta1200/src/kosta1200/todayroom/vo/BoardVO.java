@@ -1,3 +1,4 @@
+
 package kosta1200.todayroom.vo;
 
 import java.io.Serializable;
@@ -123,3 +124,4 @@ public class BoardVO implements Serializable {
 	
 
 }
+
