@@ -3,6 +3,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,11 +55,22 @@
             <div class="head">프로필</div>
             <ul class="main-categories">
 					<div>
-							<c:if test="${member!=null }">
-								<a href="${pageContext.request.contextPath}/Member/MemberUpdate_form.do"><img class="author_img rounded-circle" 
-								src="${member.member_profile}"alt="" width="130" height="130"></a>
-								<h4 style=" padding-top: 10px;"> ${member.member_nickname}님 프로필</h4>
-							</c:if>
+					<c:if test="${member.member_profile!=null}">
+						<c:set var="head" value="${fn:substring(member.member_profile,0, fn:length(member.member_profile)-4) }"></c:set>
+						<c:set var="pattern" value="${fn:substring(member.member_profile, fn:length(head)+1, fn:length(member.member_profile))}"></c:set>
+						<c:choose>
+							<c:when test="${pattern=='jpg' || pattern=='png' || pattern=='gif' }">
+								<a href="${pageContext.request.contextPath}/Member/MemberUpdate_form.do"><img class="author_img rounded-circle" src="/kosta1200/upload/${member.member_profile}" alt="" width="130" height="130"></a>
+							</c:when>
+							<c:otherwise>
+								<c:out value="NO IMAGE"></c:out>
+							</c:otherwise>
+						</c:choose>					
+					</c:if>
+					<c:if test="${member.member_profile ==null}">
+						<a href="${pageContext.request.contextPath}/Member/MemberUpdate_form.do"><img class="author_img rounded-circle" src="../../upload/member_basic.png" alt="" width="130" height="130"></a>
+					</c:if>
+							<h4 style=" padding-top: 10px;">${member.member_nickname}님 프로필</h4>
 							<div class="social_icon">
 							<br>
 								<a href="#"> <i class="ti-heart"> 좋아요</i></a> 

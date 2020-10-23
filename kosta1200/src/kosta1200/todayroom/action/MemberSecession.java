@@ -4,22 +4,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kosta1200.todayroom.service.MemberService;
-import kosta1200.todayroom.vo.MemberVO;
 
-public class MemberUpdate_Action implements Action{
+public class MemberSecession implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward=new ActionForward();
 		MemberService service=MemberService.getInstance();
-		
-		MemberVO member=service.MemberUpdate(request, response);
+			
+		int re=service.MemberSecession(request, response);
 		
 		request.getSession().invalidate();
-		request.getSession().setAttribute("member", member);
-			
-		forward.setRedirect(false);
-		forward.setPath("MemberUpdate_form.do");
+		forward.setRedirect(true);
+		forward.setPath("../main_views/member/member_login.jsp");
 		return forward;
 	}
 

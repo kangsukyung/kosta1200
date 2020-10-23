@@ -16,6 +16,7 @@ import kosta1200.todayroom.action.MemberLogin;
 import kosta1200.todayroom.action.MemberLogin_Action;
 import kosta1200.todayroom.action.MemberLogout;
 import kosta1200.todayroom.action.MemberNickNameCheck;
+import kosta1200.todayroom.action.MemberSecession;
 import kosta1200.todayroom.action.MemberSignup_Action;
 import kosta1200.todayroom.action.MemberUpdate_Action;
 import kosta1200.todayroom.action.MemberUpdate_form;
@@ -98,6 +99,14 @@ public class MemberController extends HttpServlet {
 				e.printStackTrace();
 			}
 
+		}else if(command.equals("MemberSecession.do")) {
+			try {
+				action=new MemberSecession();
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 		}
 			
     	if(forward!=null) {

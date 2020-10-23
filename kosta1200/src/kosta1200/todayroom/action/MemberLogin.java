@@ -13,8 +13,8 @@ public class MemberLogin implements Action{
 		ActionForward forward=new ActionForward();
 		MemberService service=MemberService.getInstance();
 		MemberVO member=service.MemberLogin(request, response);
+		
 		if(member!=null) {
-			System.out.println("1");
 			request.getSession().setAttribute("member", member);
 			forward.setRedirect(true);
 			forward.setPath("../main_views/member/member_mypage.jsp");//마이페이지

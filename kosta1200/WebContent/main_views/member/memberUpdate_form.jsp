@@ -3,6 +3,8 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,10 +56,23 @@
             <div class="head">프로필</div>
             <ul class="main-categories">
 					<div>
-							<a href="${pageContext.request.contextPath}/Member/MemberUpdate_form.do"><img class="author_img rounded-circle" src="${member.member_profile }"alt="" width="130" height="130"></a>
-							<c:if test="${member!=null }">
-								<h4 style=" padding-top: 10px;">${member.member_nickname}님 프로필</h4>
-							</c:if>
+					<c:if test="${member.member_profile!=null}">
+						<c:set var="head" value="${fn:substring(member.member_profile,0, fn:length(member.member_profile)-4) }"></c:set>
+						<c:set var="pattern" value="${fn:substring(member.member_profile, fn:length(head)+1, fn:length(member.member_profile))}"></c:set>
+						<c:choose>
+							<c:when test="${pattern=='jpg' || pattern=='png' || pattern=='gif' }">
+								<a href="${pageContext.request.contextPath}/Member/MemberUpdate_form.do"><img class="author_img rounded-circle" src="/kosta1200/upload/${member.member_profile}"alt="" width="130" height="130"></a>
+							</c:when>
+							<c:otherwise>
+								<c:out value="NO IMAGE"></c:out>
+							</c:otherwise>
+						</c:choose>					
+					</c:if>
+					
+					<c:if test="${member.member_profile ==null}">
+						<a href="${pageContext.request.contextPath}/Member/MemberUpdate_form.do"><img class="author_img rounded-circle" src="../../upload/member_basic.png"alt="" width="130" height="130"></a>
+					</c:if>
+							<h4 style=" padding-top: 10px;">${member.member_nickname}님 프로필</h4>
 							<div class="social_icon">
 							<br>
 								<a href="#"> <i class="ti-heart"> 좋아요</i></a> 
@@ -80,8 +95,8 @@
         </div>
         <div class="col-xl-9 col-lg-8 col-md-7">
           <section class="lattest-product-area pb-40 category-list">
-            		<a href="#" style="float:right;">회원탈퇴</a>
-						<form class="row login_form" action="${pageContext.request.contextPath}/Member/MemberUpdate_Action.do?=" id="register_form" >
+            		<a href="${pageContext.request.contextPath}/Member/MemberSecession.do?seq=${member.member_seq }" style="float:right;">회원탈퇴</a>
+						<form method="POST" class="row login_form" action="${pageContext.request.contextPath}/Member/MemberUpdate_Action.do" id="register_form"  enctype="multipart/form-data">
 							<input type="hidden" name="seq" value="${member.member_seq }">
 							<div class="col-md-12 form-group member_signup"><input type="text" class="form-control-member_singup" id="memberNickname" name="memberNickname"  placeholder="별명" onfocus="this.placeholder = ''" onblur="this.placeholder = '별명'" value="${member.member_nickname}">
 							<button type="button" class="memberName_btn">중복확인</button></div>
@@ -96,8 +111,23 @@
     			          	<font class="member_font_padding" id="password_check" size="2"></font>
     			          	<div class="col-md-12 form-group"><input type="password" class="form-control" class="memberPassword" id="userPwChk" name="memberPassword" placeholder="비밀번호확인" onfocus="this.placeholder = ''" onblur="this.placeholder = '비밀번호확인'"value="${member.member_password}"></div>
     			          	<font class="member_font_padding" id="chkNotice" size="2" style="height: 30px;width: 100%;"></font>
-    			          	<img class="author_img rounded-circle mypageUpdate_img" src="${member.member_profile }"alt="" width="200px" height="200">
-							<div class="col-md-10 form-group"><input type="file" class="mypageUdate_type"></div>
+    			          	
+    			     <c:if test="${member.member_profile!=null}">
+						<c:set var="head" value="${fn:substring(member.member_profile,0, fn:length(member.member_profile)-4) }"></c:set>
+						<c:set var="pattern" value="${fn:substring(member.member_profile, fn:length(head)+1, fn:length(member.member_profile))}"></c:set>
+						<c:choose>
+							<c:when test="${pattern=='jpg' || pattern=='png' || pattern=='gif' }">
+	    			          	<img class="author_img rounded-circle mypageUpdate_img" src="/kosta1200/upload/${member.member_profile}""alt="" width="200px" height="200">
+							</c:when>
+							<c:otherwise>
+								<c:out value="NO IMAGE"></c:out>
+							</c:otherwise>
+						</c:choose>					
+					</c:if>
+					<c:if test="${member.member_profile ==null}">
+		    			<img class="author_img rounded-circle mypageUpdate_img" src="../../upload/member_basic.png" alt="" width="200px" height="200">
+					</c:if>
+							<div class="col-md-10 form-group"><input type="file" class="mypageUdate_type" name="member_profile"></div>
 							<div class="col-md-10 form-group">
 								<button type="submit" value="submit" class="button button-register w-100 mypageUdate_button_color">회원 정보수정</button>
 							</div>

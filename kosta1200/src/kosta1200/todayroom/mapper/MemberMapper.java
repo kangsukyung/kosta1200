@@ -7,4 +7,8 @@ public interface MemberMapper {
 	MemberVO MemberNickNameCheck(String name);
 	int MemberSignup(MemberVO member);
 	MemberVO MemberLogin(MemberVO member);
+	int MemberUpdate(MemberVO member);
+	MemberVO MemberUpdate_select(MemberVO member);
+	int MemberSecession(int seq);
+	MemberVO ratingInspection(MemberVO member);
 }
