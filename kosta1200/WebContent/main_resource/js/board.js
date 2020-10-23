@@ -36,10 +36,16 @@ $(function() {
 	$("#select_option").on("change", function() {
 		$("#select3").empty();
 		if (this.value == "bang") {
-			$("#select3").hide().load("../main_resource/js/a.html", function() {
+			$("#select3").hide().load("../main_resource/js/board_bang.html", function() {
 				$(this).fadeIn().trigger("create");
 				background_color_ch();
 			});
+		}else if (this.value == "knowhow") {
+			$("#select3").hide().load("../main_resource/js/board_knowhow.html", function() {
+				$(this).fadeIn();
+			});
+		}else if (this.value == "qa") {
+			$("#select3").empty();
 		}
 		return false;
 	});

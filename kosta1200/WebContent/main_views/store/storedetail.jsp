@@ -63,7 +63,7 @@
 				<div class="col-lg-6">
 					<div class="owl-carousel owl-theme s_Product_carousel">
 						<div class="single-prd-item">
-						
+
 							<img class="img-fluid"
 								src="${pageContext.request.contextPath}/upload/${board.board_picture}"
 								alt="">
@@ -81,7 +81,7 @@
 						<h3>${board.board_title }</h3>
 						<c:forEach items="${list }" var="product" varStatus="status"
 							begin="0" end="0">
-							<h2 class="product_price">${product.product_price }원 외</h2>
+							<h2 class="product_price">${product.product_price }원외</h2>
 						</c:forEach>
 						<button class="production-selling-header_action_button_hw"
 							type="button">
@@ -116,33 +116,68 @@
 							<ul
 								class="production-select-list production-select-dropdown__list">
 								<c:forEach items="${list }" var="product" varStatus="status">
-								<li class="production-select-list__item"><button value="${product.product_seq }"
-										class="production-select-item" type="button">
-										<div class="production-select-item__index">${status.count }</div>
-										<div class="production-select-item__image">
-											<img class="image" alt=""
-												src="${pageContext.request.contextPath}/upload/${product.product_fname}"
-												>
-										</div>
-										<div class="production-select-item__contents">
-											<span class="production-select-item__contents__name">
-												${product.product_name }</span><span
-												class="production-item-price production-select-item__contents__price"><span
-												class="production-item-price__price">${product.product_price } 원</span></span>
-										</div>
-									</button></li>
-									</c:forEach>
+									<li class="production-select-list__item"><button
+											value="${product.product_seq }"
+											class="production-select-item" id="product_seq" type="button">
+											<div class="production-select-item__index">${status.count }</div>
+											<div class="production-select-item__image">
+												<img class="image" id="product_image" alt=""
+													src="${pageContext.request.contextPath}/upload/${product.product_fname}">
+											</div>
+											<div class="production-select-item__contents">
+												<span class="production-select-item__contents__name"
+													id="product_name"> ${product.product_name }</span><span
+													class="production-item-price production-select-item__contents__price"><span
+													class="production-item-price__price" id="product_price">${product.product_price }
+														원</span></span>
+											</div>
+										</button></li>
+								</c:forEach>
 							</ul>
 						</div>
-						
-						<div class="basket-list">
-						
-						</div>
-						
-						
+
+						<ul class="selling-option-form-content__list">
+							<c:forEach items="${list }" var="product" varStatus="status">
+								<li><article class="selling-option-item">
+										<h1 class="selling-option-item__production">${product.product_name }</h1>
+										<button class="selling-option-item__delete" type="button"
+											aria-label="삭제">
+											<svg width="12" height="12" viewBox="0 0 12 12"
+												fill="currentColor" preserveAspectRatio="xMidYMid meet">
+											<path fill-rule="nonzero"
+													d="M6 4.6L10.3.3l1.4 1.4L7.4 6l4.3 4.3-1.4 1.4L6 7.4l-4.3 4.3-1.4-1.4L4.6 6 .3 1.7 1.7.3 6 4.6z"></path></svg>
+										</button>
+										<div class="selling-option-item__controls">
+											<div class="selling-option-item__quantity">
+												<div class="input-group select-input option-count-input">
+													<select class="form-control"><option value="1">1</option>
+														<option value="2">2</option>
+														<option value="3">3</option>
+														<option value="4">4</option>
+														<option value="5">5</option>
+														<option value="6">6</option>
+														<option value="7">7</option>
+														<option value="8">8</option>
+														<option value="9">9</option>
+														</select>
+												</div>
+											</div>
+											<p class="selling-option-item__price">
+												<span class="selling-option-item__price__number" >${product.product_price }</span>원
+											</p>
+										</div>
+									</article></li>
+							</c:forEach>
+						</ul>
+						<p class="selling-option-form-content__price">
+							<span class="selling-option-form-content__price__left">총 주문금액</span><span
+								class="selling-option-form-content__price__right"><span
+								class="selling-option-form-content__price__number">82,800</span>원</span>
+						</p>
+
 						<div class="product_count">
-							<a class="button normal-btn" href="BasketListAction.do?">장바구니에 담기</a> <a
-								class="button primary-btn" href="#">구매하기</a>
+							<a class="button normal-btn" href="BasketListAction.do?">장바구니에
+								담기</a> <a class="button primary-btn" href="#">구매하기</a>
 						</div>
 					</div>
 				</div>
@@ -165,7 +200,7 @@
 			<div class="tab-content" id="myTabContent">
 				<div class="tab-pane fade" id="home" role="tabpanel"
 					aria-labelledby="home-tab">
-					<p>${board.board_content } </p>
+					<p>${board.board_content }</p>
 				</div>
 				<div class="tab-pane fade" id="contact" role="tabpanel"
 					aria-labelledby="contact-tab">
@@ -427,6 +462,6 @@
 		src="${pageContext.request.contextPath}/main_resource/js/main.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/main_resource/js/store_detail.js"></script>
-		
+
 </body>
 </html>

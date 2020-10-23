@@ -230,3 +230,173 @@
 .production-select-item__contents__badges>svg {
     margin-right: 4px;
 }
+
+.selling-option-item {
+    position: relative;
+    margin: 0 0 8px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 6px;
+}
+
+.selling-option-item__production {
+    margin: 0 0 10px;
+    padding: 0 22px 0 0;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #424242;
+    max-height: 40px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.selling-option-item__production+.selling-option-item__name {
+    font-size: 13px;
+}
+
+.selling-option-item__delete {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    background: none;
+    border: none;
+    font-size: 0;
+    transition: opacity .1s;
+    color: #757575;
+}
+
+.selling-option-item__controls {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    justify-content: space-between;
+}
+
+.select-input>.form-control>option {
+    color: #424242;
+}
+
+.option-count-input.select-input>.form-control {
+    padding-right: 30px;
+}
+
+.production-selling-option-form__form .selling-option-form-content__list {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -moz-box-flex: 1;
+    -moz-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+.selling-option-item__price {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 24px;
+    color: #424242;
+}
+
+.option-count-input.manual.form-control, .option-count-input.select-input>.form-control {
+    height: 24px;
+    padding: 0 10px;
+    font-size: 13px;
+    line-height: 22px;
+    border-radius: 3px;
+    text-align: center;
+    font-family: Tahoma,sans;
+}
+
+.select-input.input-group>.form-control {
+    width: 100%;
+}
+
+.select-input>.form-control {
+    width: 100%;
+    padding-right: 30px;
+    background-image: none;
+}
+
+.form-control {
+    transition: .2s border-color, .2s box-shadow, .2s background-color;
+    display: block;
+    box-sizing: border-box;
+    height: 40px;
+    width: 100%;
+    padding: 0 15px;
+    line-height: 40px;
+    border-radius: 4px;
+    border: solid 1px #dbdbdb;
+    background-color: #ffffff;
+    color: #424242;
+    font-size: 12px;
+}
+
+.option-count-input {
+    width: 80px;
+}
+
+.select-input {
+    position: relative;
+}
+
+.selling-option-form-content__price {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+@media (min-width: 768px)
+.selling-option-form-content__price__right {
+    font-size: 20px;
+}
+
+.selling-option-form-content__price__left, .selling-option-form-content__price__right {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    font-weight: 700;
+    color: #000;
+}
