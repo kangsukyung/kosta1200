@@ -80,6 +80,7 @@
         </div>
         <div class="col-xl-9 col-lg-8 col-md-7">
           <section class="lattest-product-area pb-40 category-list">
+            		<a href="#" style="float:right;">회원탈퇴</a>
 						<form class="row login_form" action="${pageContext.request.contextPath}/Member/MemberSignup_Action.do" id="register_form" >
     			          	<font class="member_font_padding" id="id_check" size="2"></font>
 							<div class="col-md-12 form-group member_signup"><input type="text" class="form-control-member_singup" id="memberNickname" name="memberNickname" placeholder="별명" onfocus="this.placeholder = ''" onblur="this.placeholder = '별명'">
@@ -94,7 +95,7 @@
 	            			<div class="col-md-12 form-group"><input type="password" class="form-control" class="memberPassword" id="memberPassword" name="memberPassword" placeholder="비밀번호" onfocus="this.placeholder = ''" onblur="this.placeholder = '비밀번호'"></div>
     			          	<font class="member_font_padding" id="password_check" size="2"></font>
     			          	<div class="col-md-12 form-group"><input type="password" class="form-control" class="memberPassword" id="userPwChk" name="memberPassword" placeholder="비밀번호확인" onfocus="this.placeholder = ''" onblur="this.placeholder = '비밀번호확인'"></div>
-    			          	<font class="member_font_padding" id="chkNotice" size="2"></font>
+    			          	<font class="member_font_padding" id="chkNotice" size="2" style="height: 30px;width: 100%;"></font>
     			          	<img class="author_img rounded-circle mypageUpdate_img" src="${member.member_profile }"alt="" width="200px" height="200">
 							<div class="col-md-10 form-group"><input type="file" class="mypageUdate_type"></div>
 							<div class="col-md-10 form-group">
