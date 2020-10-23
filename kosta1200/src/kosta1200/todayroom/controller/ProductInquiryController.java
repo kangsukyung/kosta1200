@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import kosta1200.todayroom.action.Action;
 import kosta1200.todayroom.action.ActionForward;
 import kosta1200.todayroom.action.InsertProductInquiryAction;
+import kosta1200.todayroom.action.ListProductInquiryAction;
 
 /**
  * Servlet implementation class ProductInquiryController
@@ -41,6 +42,14 @@ public class ProductInquiryController extends HttpServlet {
 
 		if (command.equals("insertProductInquiry.do")) {
 			action = new InsertProductInquiryAction();
+
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("listProductInquiry.do")) {
+			action = new ListProductInquiryAction();
 
 			try {
 				forward = action.execute(request, response);

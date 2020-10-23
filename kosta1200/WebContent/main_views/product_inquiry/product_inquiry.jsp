@@ -48,7 +48,7 @@
 							<label for="message-text" class="control-label">문의내용</label>
 							<textarea class="form-control" id="message-text" name="pi_content"></textarea>
 						</div>
-						<input hidden="hidden" name="member_seq" value="1">
+						<input hidden="hidden" name="member_seq" value="1"> <!-- value 값 추후 조정 필요 -->
 						<input hidden="hidden" name="product_seq" value="1">
 					</form>
 					<div>문의내용에 대한 답변은 ‘마이페이지 &gt; 나의 쇼핑 &gt; 나의 문의내역’ 또는 ‘상품
