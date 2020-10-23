@@ -23,7 +23,7 @@
 </head>
 <body>
   <!--================ Start Header Menu Area =================-->
-
+	<jsp:include page="../header.jsp"></jsp:include>
 	<!--================ End Header Menu Area =================-->
 
 	<!-- ================ start banner area ================= -->	
@@ -174,7 +174,7 @@
             <div class="row row_product_hw col-lg-4">
                 <div class="card text-center card-product">
                   <div class="card-product__img">
-                    <img class="card-img" src="${pageContext.request.contextPath}/main_resource/img/product/product1.png" alt="상품이미지">
+                    <img class="card-img" src="${pageContext.request.contextPath}/upload/${board.board_picture}" alt="상품이미지">
                     <ul class="card-product__imgOverlay">
                       <li><button><i class="ti-search"></i></button></li>
                       <li><button><i class="ti-shopping-cart"></i></button></li>
@@ -340,7 +340,7 @@
 
 
   <!--================ Start footer Area  =================-->	
-
+	<jsp:include page="../footer.jsp"></jsp:include>
 	<!--================ End footer Area  =================-->
 
 

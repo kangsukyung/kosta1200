@@ -34,13 +34,12 @@ public class StoreDAO {
 		
 	}
 	
-	public List<ProductVO> listProduct() {
+	public List<ProductVO> listProduct(int seq) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		List<ProductVO> list = null;
 		
 		try {
-			list = sqlSession.getMapper(StoreMapper.class).listProduct();
-			System.out.println(list);
+			list = sqlSession.getMapper(StoreMapper.class).listProduct(seq);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -55,7 +54,6 @@ public class StoreDAO {
 		
 		try {
 			list = sqlSession.getMapper(StoreMapper.class).listStore();
-			System.out.println(list);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
