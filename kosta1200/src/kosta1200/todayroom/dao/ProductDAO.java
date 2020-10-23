@@ -92,7 +92,27 @@ public class ProductDAO {
 		return productVO;
 	}//end detailProduct
 	
-	
+	public int updateProduct(ProductVO productVO) {
+		int re = -1; //-1은 잘 들어가지 않았다는 뜻
+		SqlSession sqlSession = getSqlSessionFactory().openSession(); //sqlSession이 있어야 마이바티스랑 대화를 한다!!
+		
+		try {
+			re = sqlSession.getMapper(ProductMapper.class).updateProduct(productVO);
+			//트랜잭션처리 꼭 해야함~!~!~!~!~!~!!~!
+			if(re > 0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		return re;
+	}
 	
 	
 	

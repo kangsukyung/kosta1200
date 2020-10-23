@@ -83,7 +83,10 @@ public class ProductService {
 		return dao.detailProduct(product_seq);
 	}
 	
-	
+	/*
+	 * public int updateProductervice(ProductVO productVO) throws Exception{ return
+	 * dao. }
+	 */
 	
 	
 	

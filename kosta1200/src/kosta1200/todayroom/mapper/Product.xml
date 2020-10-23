@@ -20,6 +20,11 @@
 	</select>
 	
 	
+	<update id="updateProduct" parameterType="Product">
+		update product set product_name=#{product_name}, product_price=#{product_price}
+			where product_seq = #{product_seq}
+	</update>
+	
 	
 
 

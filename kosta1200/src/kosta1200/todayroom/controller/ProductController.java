@@ -15,6 +15,7 @@ import kosta1200.todayroom.action.ProductDetailAction;
 import kosta1200.todayroom.action.ProductInsertAction;
 import kosta1200.todayroom.action.ProductInsertActionForm;
 import kosta1200.todayroom.action.ProductListAction;
+import kosta1200.todayroom.action.ProductUpdateAction;
 
 
 @WebServlet("/Product/*")
@@ -60,6 +61,13 @@ public class ProductController extends HttpServlet {
 			}
     	} else if(command.equals("ProductDetailAction.do")) {
     		action = new ProductDetailAction();
+    		try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+    	} else if(command.equals("ProductUpdateAction.do")) {
+    		action = new ProductUpdateAction();
     		try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
