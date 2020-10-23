@@ -13,6 +13,7 @@ public class Board_insertAction implements Action {
 		BoardService service = BoardService.getInstance();
 				
 		service.insertBoardService(request);
+		service.insertRoomwarmingService(request);
 		
 		String path = "listAction.do";
 		forward.setRedirect(true);
