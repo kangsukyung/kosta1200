@@ -8,9 +8,22 @@
 	
 	<insert id="insertProduct" parameterType="Product">
 		insert into product values(SEQ_PRODUCT_PRODUCT_SEQ.nextval, #{product_name}, #{product_price}, #{product_lcategory},
-									 #{product_scategory}, 2500, 2, null)
+									 #{product_scategory}, 2500, 2, #{product_fname})
 	</insert>
 	
+	<select id="listProduct" resultType="Product">
+		select * from product order by product_seq desc
+	</select>
+	
+	<select id="detailProduct" parameterType="int" resultType="Product">
+		select * from product where product_seq = #{product_seq}
+	</select>
+	
+	
+	<update id="updateProduct" parameterType="Product">
+		update product set product_name=#{product_name}, product_price=#{product_price}
+			where product_seq = #{product_seq}
+	</update>
 	
 	
 

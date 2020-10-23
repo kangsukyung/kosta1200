@@ -17,7 +17,7 @@
     float: none;
 }
 
-.dropdown{
+.dropdown_bang_selection{
 	position: absolute;
 	margin: 10px 10px;
 }
@@ -49,4 +49,39 @@
 
 #color_btn{
 	border-radius: 5em;
+}
+
+.board_select_option{
+	-webkit-tap-highlight-color: transparent;
+    background-color: #fff;
+    border-radius: 5px;
+    border: solid 1px #e8e8e8;
+    box-sizing: border-box;
+    clear: both;
+    cursor: pointer;
+    display: block;
+    float: left;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: normal;
+    height: 42px;
+    line-height: 40px;
+    outline: none;
+    padding-left: 18px;
+    padding-right: 30px;
+    position: relative;
+    text-align: left !important;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+    width: auto;
+    color: currentColor;
+}
+
+#board_color_select_option{
+	    background-color: aliceblue;
 }

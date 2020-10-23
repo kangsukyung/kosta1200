@@ -6,8 +6,13 @@
 
 <mapper namespace="kosta1200.todayroom.mapper.CommentsMapper">
 
-<select id="listComments" resultType="comments" parameterType="int">
+<select id="listComments" resultType="comments">
 	select * from comments
 </select>
+
+<insert id="insertComments" parameterType="comments">
+	insert into comments values(seq_comments_comments_seq.nextval, #{comments_content}, #{comments_picture},11,21,1)
+</insert>
+<!--  #{board_seq}, #{member_seq}, #{admin_seq}  -->
 
 </mapper>

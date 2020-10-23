@@ -46,3 +46,66 @@
 #ksk_row{
 	margin-top: 20px !important;
 }
+
+
+
+.ProductList{
+	width: 65%;
+    height: 400px;
+}
+
+#ProductList_box{
+	padding: 50px 10px;	
+}
+
+#ProductList_area{
+	margin-top: -40px;
+	height: 380px;	
+}
+
+#ProductList_btn1{
+	background-color: lightgray !important;
+	margin-bottom: 10px;
+}
+
+
+#ProductList_btn2{
+	background-color: lightgray !important;
+}
+
+
+#ProductList_detail{
+	padding: 7px;
+}
+
+
+
+.ProductFname {
+    border: solid;
+    width: 200px;
+    height: 210px;
+    float: left;
+}
+
+.ProductDetail {
+    border: solid;
+    width: 450px;
+    height: 210px;
+    margin-bottom: 5px;
+    margin-left: 212px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

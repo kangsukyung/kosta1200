@@ -40,7 +40,9 @@ public class BoardController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else if (command.equals("board_insert.do")) {
+		}
+    	
+    	if (command.equals("board_insert.do")) {
 			action = new Board_insertAction();
 			
 			try {
