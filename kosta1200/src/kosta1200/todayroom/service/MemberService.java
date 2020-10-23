@@ -48,6 +48,7 @@ public class MemberService {
 		return dao.MemberSignup(member);
 	}
 	public MemberVO MemberLogin(HttpServletRequest request,HttpServletResponse response){
+		System.out.println("login");
 		try {
 			request.setCharacterEncoding("utf-8");
 		} catch (UnsupportedEncodingException e) {

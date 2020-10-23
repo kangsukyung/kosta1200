@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import kosta1200.todayroom.dao.StoreDAO;
 import kosta1200.todayroom.vo.BoardVO;
@@ -19,10 +18,8 @@ public class StoreService {
 		return service;
 	}
 	
-	public List<ProductVO> listProductService(HttpServletRequest request) throws Exception{
-		request.setCharacterEncoding("utf-8");
-		List<ProductVO> list = dao.listProduct();
-		return list;
+	public List<ProductVO> listProductService(int seq) throws Exception{
+		return dao.listProduct(seq);
 	}
 	
 	public int FilterPriceService(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -38,7 +35,7 @@ public class StoreService {
 		return list;
 	}
 	
-	public BoardVO detailStoreService(int seq) {
+	public BoardVO detailStoreService(int seq) throws Exception{
 		return dao.detailStore(seq);
 	}
 }

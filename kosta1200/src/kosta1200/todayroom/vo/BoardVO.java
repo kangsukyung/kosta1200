@@ -1,3 +1,4 @@
+
 package kosta1200.todayroom.vo;
 
 import java.io.Serializable;

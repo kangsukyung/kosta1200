@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Aroma Shop - Home</title>
-  <link rel="icon" href="${pageContext.request.contextPath}/main_resource/img/Fevicon.png" type="image/png">
+  <link rel="icon" href="../main_resource/img/Fevicon.png" type="image/png">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/vendors/bootstrap/bootstrap.min.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/vendors/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/vendors/themify-icons/themify-icons.css">
@@ -24,7 +24,7 @@
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <a class="navbar-brand logo_h" href="index.html"><img src="../main_resource/img/logo.png" alt=""></a>
+          <a class="navbar-brand logo_h" href="index.html"><img src="${pageContext.request.contextPath}/main_resource/img/logo.png" alt=""></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -77,7 +77,7 @@
               <li class="nav-item"><a href="#" class="msk-id"><button onclick="location.href ='${pageContext.request.contextPath}/Member/MemberLogout.do'">로그아웃</button></a></li>
 		</c:when>
 		<c:otherwise>
-              <li class="nav-item"><a href="#" class="msk-id">로그인</a></li>
+              <li class="nav-item"><a href="${pageContext.request.contextPath}/Member/MemberLogout.do" class="msk-id">로그인</a></li>
               <li class="nav-item"><a href="#" class="msk-id">회원가입</a></li>
 		</c:otherwise>
 	</c:choose>
