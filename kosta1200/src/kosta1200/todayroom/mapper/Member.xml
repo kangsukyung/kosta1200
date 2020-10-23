@@ -16,11 +16,31 @@
 	</select>
 	
 	<insert id="MemberSignup" parameterType="member">
-		insert into member values(SEQ_MEMBER_MEMBER_SEQ.nextval,#{member_id},#{member_nickname},#{member_name},#{member_address},#{member_phone},#{member_email},'1',#{member_password},'','') 
+		insert into member values(SEQ_MEMBER_MEMBER_SEQ.nextval,#{member_id},#{member_nickname},#{member_name},#{member_address},#{member_phone},#{member_email},'1',#{member_password},'',#{member_profile}) 
 	</insert>
 	
 	<select id="MemberLogin" parameterType="member" resultType="member">
 		select * from member where member_Id=#{member_id} AND member_password=#{member_password}
+	</select>
+	<update id="MemberUpdate" parameterType="member">
+		update member 
+		set member_nickname=#{member_nickname},
+			member_name=#{member_name},
+			member_address=#{member_address},
+			member_phone=#{member_phone}, 
+			member_email=#{member_email},
+			member_profile=#{member_profile},
+			member_password=#{member_password}
+			where member_seq=#{member_seq}
+	</update>
+	<select id="MemberUpdate_select" parameterType="member" resultType="member">
+		select * from member where member_seq=#{member_seq}
+	</select>
+	<update id="MemberSecession" parameterType="int">
+		update member set member_rating='0' where member_seq=#{seq}
+	</update>
+	<select id="ratingInspection" parameterType="member" resultType="member">
+		select * from member where member_rating='0'
 	</select>
 </mapper>
 

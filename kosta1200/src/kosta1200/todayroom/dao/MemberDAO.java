@@ -97,6 +97,7 @@ public class MemberDAO {
 		SqlSession sqlSession=getSqlSessionFactory().openSession();
 		try {
 			membervo=sqlSession.getMapper(MemberMapper.class).MemberLogin(member);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -106,5 +107,49 @@ public class MemberDAO {
 		}
 		return membervo;
 	}
+	public MemberVO MemberUpdate(MemberVO member) {
+		MemberVO membervo=null;
+		int re=-1;
+		SqlSession sqlSession=getSqlSessionFactory().openSession();
+		
+		try {
+			re=sqlSession.getMapper(MemberMapper.class).MemberUpdate(member);
+			if(re>0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+			membervo=sqlSession.getMapper(MemberMapper.class).MemberUpdate_select(member);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession!= null) {
+				sqlSession.close();
+			}
+		}
+		return membervo;
+	}
+	
+	public int MemberSecession(int seq) {
+		int re=-1;
+		SqlSession sqlSession=getSqlSessionFactory().openSession();
+		
+		try {
+			re=sqlSession.getMapper(MemberMapper.class).MemberSecession(seq);
+			if(re>0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession!= null) {
+				sqlSession.close();
+			}
+		}
+		return re;
+	}
+
 	
 }

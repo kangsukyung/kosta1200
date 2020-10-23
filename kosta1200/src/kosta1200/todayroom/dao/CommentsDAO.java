@@ -72,4 +72,29 @@ public class CommentsDAO {
 		
 		return list;
 	}
+	
+	
+	public int updateComments(CommentsVO commentsvo) {
+		int re = -1;
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		System.out.println("어디");
+		try {
+			re = sqlSession.getMapper(CommentsMapper.class).updateComments(commentsvo);
+			System.out.println("re : "+ re);
+			if(re > 0) {
+				System.out.println("까지");
+				sqlSession.commit();
+			}else {
+				System.out.println("오지");
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		return re;
+	}
 }

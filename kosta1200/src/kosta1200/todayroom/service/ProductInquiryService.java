@@ -1,5 +1,7 @@
 package kosta1200.todayroom.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import kosta1200.todayroom.dao.ProductInquiryDAO;
@@ -27,5 +29,13 @@ public class ProductInquiryService {
 		re=dao.insertProductInquiry(VO);
 		
 		return re;
+	}
+	
+	public void listProductInquiryService(HttpServletRequest request) {
+		List<Product_inquiryVO> list = null;
+		
+		list = dao.listProductInquiry();
+		
+		request.setAttribute("list", list);
 	}
 }

@@ -10,5 +10,5 @@ public interface CommentsMapper {
 	
 	int insertComments(CommentsVO commentsvo);
 	
-	
+	int updateComments(CommentsVO commentsvo);
 }

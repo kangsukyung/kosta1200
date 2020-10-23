@@ -17,7 +17,7 @@
 		data-target="#exampleModal">문의하기</button>
 
 	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -28,11 +28,7 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<form method="POST" id="my-form">
-						<!--           <div class="form-group"> -->
-						<!--             <label for="recipient-name" class="control-label">Recipient:</label> -->
-						<!--             <input type="text" class="form-control" id="recipient-name"> -->
-						<!--           </div> -->
+					<form id="my-form">
 						<div class="btn-group btn-group-toggle" data-toggle="buttons">
 							<label class="btn btn-default btn-lg"> <input
 								type="radio" name="pi_type" value="product"> 상품
@@ -52,14 +48,13 @@
 							<label for="message-text" class="control-label">문의내용</label>
 							<textarea class="form-control" id="message-text" name="pi_content"></textarea>
 						</div>
-						<input hidden="hidden" name="member_seq" value="1">
+						<input hidden="hidden" name="member_seq" value="1"> <!-- value 값 추후 조정 필요 -->
 						<input hidden="hidden" name="product_seq" value="1">
 					</form>
 					<div>문의내용에 대한 답변은 ‘마이페이지 &gt; 나의 쇼핑 &gt; 나의 문의내역’ 또는 ‘상품
 						상세페이지’에서 확인 가능합니다.</div>
 				</div>
 				<div class="modal-footer">
-					<!--         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
 					<button type="submit" form="my-form" class="btn btn-primary" id="inquiry-submit">문의하기</button>
 				</div>
 			</div>
