@@ -11,7 +11,7 @@ $(function() {
 
    $(".production-select-list__item").on("click","button", function() {
       alert(this.value); //product.product_seq
-      $(".basket-list").hide().load("../sss.html", function() {
+      $(".basket-list").hide().load("../sss.html",this.value, function() {
     	  $(this).fadeIn().trigger("create");
       	});
       return false;
