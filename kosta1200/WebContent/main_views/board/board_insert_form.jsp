@@ -31,7 +31,7 @@
 <body>
 <section>
 	<jsp:include page="../header.jsp"></jsp:include>
- </section>
+</section>
   <!-- ================ start banner area ================= -->	
 	<section class="blog-banner-area" id="category">
 		<div class="container h-100">
@@ -72,7 +72,7 @@
 													<option value="">선택해주세요.</option>
 													<option value="bang">방들이</option>
 													<option value="knowhow">노하우</option>
-													<option value="QA">질문과 답변</option>
+													<option value="qa">질문과 답변</option>
 												</select>
 											</div>
 											
@@ -83,7 +83,14 @@
 							</div>
 							
 							<div class="select33" id="select3">
+								
+							
+							
 								<h1>어떤식으로 나오나요.</h1>
+							
+							
+							
+							
 							</div>
 					
 							<div class="col-md-12 form-group">

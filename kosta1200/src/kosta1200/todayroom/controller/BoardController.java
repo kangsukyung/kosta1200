@@ -13,6 +13,7 @@ import kosta1200.todayroom.action.Action;
 import kosta1200.todayroom.action.ActionForward;
 import kosta1200.todayroom.action.Board_insertAction;
 import kosta1200.todayroom.action.Board_insertActionForm;
+import kosta1200.todayroom.action.Board_listAction;
 
 @WebServlet("/board/*")
 public class BoardController extends HttpServlet {
@@ -34,17 +35,20 @@ public class BoardController extends HttpServlet {
     	
     	if (command.equals("board_insertActionForm.do")) {
 			action = new Board_insertActionForm();
-			
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}
-    	
-    	if (command.equals("board_insert.do")) {
+		}else if (command.equals("board_insert.do")) {
 			action = new Board_insertAction();
-			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("listAction.do")) {
+			action = new Board_listAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
