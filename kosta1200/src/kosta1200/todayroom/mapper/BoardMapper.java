@@ -5,4 +5,5 @@ import kosta1200.todayroom.vo.RoomwarmingVO;
 
 public interface BoardMapper {
 	int insertBoard(BoardVO board);
+	int insertRoomwarming(RoomwarmingVO room);
 }
