@@ -1,18 +1,17 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="kosta1200.todayroom.mapper.BoardMapper">
-
-<!-- 	<insert id="insertBoard" parameterType="Board"> -->
-<!-- 		insert into board values(SEQ_BOARD_BOARD_SEQ.nextval, SEQ_MEMBER_MEMBER_SEQ.nextval, #{title},  -->
-<!-- 			#{content}, sysdate, #{}, #{thumbnail_image}, #{classification}, 0, 0) -->
-<!-- 	</insert> -->
-	
-	<insert id="insertBoard" parameterType="Roomwarming">
-		insert into ROOMWARMING values(SEQ_BOARD_BOARD_SEQ, #{classification}, #{space}, #{style}, #{color}, #{budget}, #{type})
+	<insert id="insertBoard" parameterType="board">
+		insert into board values(SEQ_BOARD_BOARD_SEQ.nextval, 1, #{board_title}, 
+			#{board_content}, sysdate, #{board_picture}, #{board_thumbnail}, #{board_classification}, '0', '0')
 	</insert>
-</mapper>
+	
+
+
+ </mapper>
 
 
 
