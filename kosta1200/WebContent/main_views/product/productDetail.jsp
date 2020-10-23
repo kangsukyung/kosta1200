@@ -159,7 +159,7 @@
 
 						</div>
 									<div class="form-group text-center text-md-right mt-3" id="ksk_btn">
-										<a href="ProductDetailAction.do?product_seq=${productVO.product_seq}">글 수정</a>
+										<a href="ProductUpdateActionForm.do?product_seq=${productVO.product_seq}">글 수정</a>
 										<input type="submit" class="button button--active button-review" value="삭제">
 									</div>
 						
