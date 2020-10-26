@@ -17,6 +17,37 @@
 		insert into knowhow values(SEQ_BOARD_BOARD_SEQ.CURRVAL, #{knowhow_style})
 	</insert>
 
+	<select id="listBoard" resultType="board">
+		select * from board
+	</select>
+	
+	<select id="listRoomwarming" resultType="roomwarming">
+		select * from roomwarming
+	</select>
+	
+	<select id="listKnowhow" resultType="knowhow">
+		select * from knowhow
+	</select>
+	
+	<select id="ListMember" resultType="member">
+		select * from member
+	</select>
+	
+	<select id="listDetailBoard" parameterType="int" resultType="board">
+		select * from board where board_seq = #{board_seq}
+	</select>
+	
+	<select id="listDetailMember" parameterType="int" resultType="member">
+		select * from member m, board b where m.member_seq = b.member_seq and board_seq = #{board_seq}
+	</select>
+	
+	<select id="DetailRoomwarming" parameterType="int" resultType="roomwarming">
+		select * from roomwarming r, board b where r.board_seq = b.board_seq and board_seq = #{board_seq}
+	</select>
+	
+	<select id="DetailKnowhow" parameterType="int" resultType="knowhow">
+		select * from knowhow k, board b where k.board_seq = b.board_seq and board_seq = #{board_seq}
+	</select>
 </mapper>
 
 

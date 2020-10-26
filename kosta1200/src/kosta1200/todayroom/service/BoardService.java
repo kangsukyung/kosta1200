@@ -1,7 +1,7 @@
 package kosta1200.todayroom.service;
 
 import java.io.File;
-
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,6 +12,7 @@ import kosta1200.todayroom.dao.BoardDAO;
 import kosta1200.todayroom.vo.BoardVO;
 import kosta1200.todayroom.vo.ImageUtil;
 import kosta1200.todayroom.vo.KnowhowVO;
+import kosta1200.todayroom.vo.MemberVO;
 import kosta1200.todayroom.vo.RoomwarmingVO;
 
 public class BoardService {
@@ -28,6 +29,7 @@ public class BoardService {
 		
 		//파일업로드(경로가 어디냐, 파일크기가 어느정도냐, 인코딩방식, 파일이름이 중첩되었을 때 정책)
 		String uploadPath = request.getRealPath("upload");
+		System.out.println(uploadPath);
 		int size = 20 * 1024 * 1024;//20MB
 				
 		MultipartRequest multi = new MultipartRequest(request, uploadPath, size, 
@@ -97,6 +99,36 @@ public class BoardService {
 		}
 		
 	}
-
 	
+	public List<BoardVO> listBoardService()throws Exception{
+		return dao.listBoard();
+	}
+	
+	public List<RoomwarmingVO> listRoomwarmingService()throws Exception{
+		return dao.listRoomwarming();
+	}
+	
+	public List<KnowhowVO> listKnowhowService()throws Exception {
+		return dao.listKnowhow();
+	}
+	
+	public List<MemberVO> ListMemberService()throws Exception {
+		return dao.ListMember();
+	}
+	
+	public BoardVO listDetailBoardService(int seq)throws Exception{
+		return dao.listDetailBoard(seq);
+	}
+	
+	public MemberVO listDetailMemberService(int seq)throws Exception{
+		return dao.listDetailMember(seq);
+	}
+	
+	public RoomwarmingVO DetailRoomwarmingService(int seq)throws Exception{
+		return dao.DetailRoomwarming(seq);
+	}
+	
+	public KnowhowVO DetailKnowhowService(int seq)throws Exception{
+		return dao.DetailKnowhow(seq);
+	}
 }
