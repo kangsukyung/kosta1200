@@ -9,7 +9,7 @@ $(function(){
 				return;
 			}
 			
-			location.href='searchResult.do?keyword='+keyword;
+			location.href='listAction.do?keyword='+keyword;
 		})
 	});
 });

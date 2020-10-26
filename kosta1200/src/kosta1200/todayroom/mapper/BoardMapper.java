@@ -15,7 +15,7 @@ public interface BoardMapper {
 	int insertRoomwarming(RoomwarmingVO room);
 	int insertKnowhow(KnowhowVO knowhow);
 	
-	List<BoardVO> listBoard();
+	List<BoardVO> listBoard(String keyword);
 	List<RoomwarmingVO> listRoomwarming();
 	List<KnowhowVO> listKnowhow();
 	List<MemberVO> ListMember();
