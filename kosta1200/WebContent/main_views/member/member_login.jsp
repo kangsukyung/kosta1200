@@ -43,7 +43,7 @@
 					<nav aria-label="breadcrumb" class="banner-breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="#">커뮤니티</a></li>
-              <li class="breadcrumb-item active" aria-current="page"><a href="#">회원가입</a></li>
+              <li class="breadcrumb-item active" aria-current="page"><a href="${pageContext.request.contextPath}/Member/MemberSignup_Form.do">회원가입</a></li>
             </ol>
           </nav>
 				</div>
@@ -58,7 +58,7 @@
 						<div class="hover">
 							<h4>웹사이트에 처음 방문하셨나요??</h4>
 							<p>First time visiting the website?</p>
-							<a class="button button-account" href="register.html">회원 가입하러 가기</a>
+							<a class="button button-account" href="${pageContext.request.contextPath}/Member/MemberSignup_Form.do">회원 가입하러 가기</a>
 						</div>
 					</div>
 				</div>
@@ -77,7 +77,6 @@
 								<button type="submit" value="submit" class="button button-login w-100">로그인</button>
 								<a href="#" class="id_found">아이디 찾기</a>
 								<a href="#" class="pw_found">비밀번호 찾기</a>
-								
 							</div>
 						</form>
 					</div>

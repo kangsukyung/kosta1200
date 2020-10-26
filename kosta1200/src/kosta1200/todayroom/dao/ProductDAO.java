@@ -8,7 +8,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import kosta1200.todayroom.mapper.BoardMapper;
 import kosta1200.todayroom.mapper.ProductMapper;
+import kosta1200.todayroom.vo.BoardVO;
 import kosta1200.todayroom.vo.ProductVO;
 
 public class ProductDAO {
@@ -32,6 +34,27 @@ public class ProductDAO {
 		return new SqlSessionFactoryBuilder().build(in);
 		
 	}// end SqlSessionFactory
+	
+	public int insertBoard(BoardVO boardVO) {
+		int re = -1;
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		try {
+			re = sqlSession.getMapper(ProductMapper.class).insertBoard(boardVO);
+			if(re >  0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
+		return re;
+	}
 	
 	
 	public int insertProduct(ProductVO productVO) {

@@ -17,6 +17,8 @@ public class ProductListAction implements Action {
 		
 		List<ProductVO> list = service.listProductService();
 		
+		System.out.println(list);
+		
 		request.setAttribute("list", list);
 		
 		forward.setRedirect(false);

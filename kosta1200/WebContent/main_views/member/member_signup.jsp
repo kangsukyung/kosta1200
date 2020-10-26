@@ -36,8 +36,8 @@
 					<h1>회원가입</h1>
 					<nav aria-label="breadcrumb" class="banner-breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">커뮤니티</a></li>
-              <li class="breadcrumb-item active" aria-current="page">로그인</li>
+              <li class="breadcrumb-item">커뮤니티</li>
+              <li class="breadcrumb-item active" aria-current="page"><a href="${pageContext.request.contextPath}/Member/MemberLogin_Action.do">로그인</a></a></li>
             </ol>
           </nav>
 				</div>
@@ -56,7 +56,7 @@
 						<div class="hover">
 							<h4>이미계정이 있습니까?</h4>
 							<p>Already have an account?</p>
-							<a class="button button-account" href="login.html">로그인</a>
+							<a class="button button-account" href="${pageContext.request.contextPath}/Member/MemberLogin_Action.do">로그인</a>
 						</div>
 					</div>
 				</div>

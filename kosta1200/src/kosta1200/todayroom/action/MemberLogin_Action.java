@@ -12,7 +12,7 @@ public class MemberLogin_Action implements Action{
 		ActionForward forward=new ActionForward();
 		MemberService service=MemberService.getInstance();
 		
-		forward.setRedirect(true);
+		forward.setRedirect(false);
 		forward.setPath("../main_views/member/member_login.jsp");
 		return forward;
 	}

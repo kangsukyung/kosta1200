@@ -39,9 +39,23 @@
 	<update id="MemberSecession" parameterType="int">
 		update member set member_rating='0' where member_seq=#{seq}
 	</update>
-	<select id="ratingInspection" parameterType="member" resultType="member">
-		select * from member where member_rating='0'
-	</select>
+	<insert id="ConstractorSignup" parameterType="contractor">
+		insert into contractor values(SEQ_CONTRACTOR_CONTRACTOR_SEQ.nextval,#{contractor_bname},#{contractor_name},#{contractor_address},#{member_seq},0) 
+	</insert>
+	<update id="Constractor_Rating" parameterType="int">
+		update member set member_rating='3' where member_seq=#{seq}
+	</update>
+	<insert id="VendorSignup" parameterType="vendor">
+		insert into vendor values(SEQ_VENDOR_VENDOR_SEQ.nextval, #{vendor_name},#{vendor_license},#{vendor_category},#{vendor_introduction},#{member_seq},0)
+	</insert>
+	<update id="Vender_Rating" parameterType="int">
+		update member set member_rating='2' where member_seq=#{seq}
+	</update>
+	
+	<insert id="OneInquiry" parameterType="oneInquiry">
+		insert into ONE_INQUIRY values(SEQ_ONE_INQUIRY_OI_SEQ.nextval, #{oi_title},#{oi_content},#{oi_answer},#{member_seq},0)
+	</insert>
+	
 </mapper>
 
 

@@ -12,8 +12,11 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kosta1200.todayroom.dao.MemberDAO;
+import kosta1200.todayroom.vo.ContractorVO;
 import kosta1200.todayroom.vo.ImageUtil;
 import kosta1200.todayroom.vo.MemberVO;
+import kosta1200.todayroom.vo.One_inquiryVO;
+import kosta1200.todayroom.vo.VendorVO;
 
 public class MemberService {
 	private static MemberService service=new MemberService();
@@ -105,7 +108,54 @@ public class MemberService {
 	
 	public int MemberSecession(HttpServletRequest request,HttpServletResponse response ) {
 		int seq=Integer.parseInt(request.getParameter("seq"));
-		System.out.println("1");
 		return dao.MemberSecession(seq);
+	}
+	
+	public int ConstractorSignup(HttpServletRequest request,HttpServletResponse response) {
+		try {
+			request.setCharacterEncoding("utf-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		ContractorVO constractor=new ContractorVO();
+		constractor.setMember_seq(Integer.parseInt(request.getParameter("seq")));
+		constractor.setContractor_address(request.getParameter("memberAddress"));
+		constractor.setContractor_bname(request.getParameter("bname"));
+		constractor.setContractor_name(request.getParameter("name"));
+		
+		return dao.ConstractorSignup(constractor);
+	}
+	
+	public int VenderSignup_Action(HttpServletRequest request,HttpServletResponse response) {
+		try {
+			request.setCharacterEncoding("utf-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+
+		VendorVO vender=new VendorVO();
+		vender.setVendor_name(request.getParameter("name"));
+		vender.setVendor_license(request.getParameter("license"));
+		vender.setVendor_introduction(request.getParameter("memberAddress"));
+		vender.setVendor_category(request.getParameter("category"));
+		vender.setMember_seq(Integer.parseInt(request.getParameter("seq")));
+		
+		return dao.VendorSignup_Action(vender);
+	}
+	public int OneInquiry(HttpServletRequest request,HttpServletResponse response) {
+		try {
+			request.setCharacterEncoding("utf-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+
+		One_inquiryVO inquiry=new One_inquiryVO();
+		inquiry.setMember_seq(Integer.parseInt(request.getParameter("seq")));
+		inquiry.setOi_title(request.getParameter("title"));
+		inquiry.setOi_content(request.getParameter("contents"));
+		inquiry.setOi_answer("");
+		
+		return dao.OneInquiry(inquiry);
 	}
 }

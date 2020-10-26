@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
@@ -30,7 +31,22 @@ public class CommentsDAO {
 		return new SqlSessionFactoryBuilder().build(in);
 	}
 	
-	
+	public List<CommentsVO> listComments(int startRow){
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		
+		List<CommentsVO> list = null;
+		try {
+			list = sqlSession.getMapper(CommentsMapper.class).listComments(new RowBounds(startRow, 3));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
+		return list;
+	}	
 	
 	public int insertComments(CommentsVO commentsvo){
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
@@ -50,27 +66,6 @@ public class CommentsDAO {
 			}
 		}
 		return re;
-	}
-	
-	
-	
-	
-	
-	public List<CommentsVO> listComments(){
-		SqlSession sqlSession = getSqlSessionFactory().openSession();
-		
-		List<CommentsVO> list = null;
-		try {
-			list = sqlSession.getMapper(CommentsMapper.class).listComments();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			if(sqlSession != null) {
-				sqlSession.close();
-			}
-		}
-		
-		return list;
 	}
 	
 	
@@ -95,6 +90,44 @@ public class CommentsDAO {
 				sqlSession.close();
 			}
 		}
+		return re;
+	}
+
+	public int DeleteComments(CommentsVO commentsvo) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		int re = -1;
+		try {
+			re = sqlSession.getMapper(CommentsMapper.class).deleteComments(commentsvo);
+			System.out.println("re : "+ re);
+			if(re > 0){
+				sqlSession.commit();//들어온 값이 있으면 커밋
+			}else{
+				sqlSession.rollback();//들어온 값이 없으면 롤백
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally{
+			if(sqlSession != null){
+				sqlSession.close();
+			}
+		}
+		return re;
+	}
+	
+	public int countComments(){
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		int re = 0;
+		try {
+			re = sqlSession.getMapper(CommentsMapper.class).countComments();
+			System.out.println("re :: "+ re);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
 		return re;
 	}
 }

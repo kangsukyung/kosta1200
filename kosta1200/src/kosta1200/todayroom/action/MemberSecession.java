@@ -11,13 +11,19 @@ public class MemberSecession implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward=new ActionForward();
 		MemberService service=MemberService.getInstance();
-			
-		int re=service.MemberSecession(request, response);
+		response.setContentType("text/html; charset=UTF-8"); 
 		
+		int re=service.MemberSecession(request, response);
 		request.getSession().invalidate();
-		forward.setRedirect(true);
-		forward.setPath("../main_views/member/member_login.jsp");
-		return forward;
+		if(re>0) {
+			response.getWriter().print("<script>alert('회원 탈퇴가 완료되었습니다.'); location.href='MemberLogin_Action.do'</script>");
+			return null;
+		}else {
+			forward.setRedirect(false);
+			forward.setPath("MemberLogin_Action.do");
+			return forward;
+		}
+		
 	}
 
 }

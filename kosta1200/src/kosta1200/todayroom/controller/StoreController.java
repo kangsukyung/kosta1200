@@ -71,7 +71,6 @@ public class StoreController extends HttpServlet {
     		}
     	}
     	
-    	
     	if (forward != null) {
     		if(forward.isRedirect()) {
     			response.sendRedirect(forward.getPath());

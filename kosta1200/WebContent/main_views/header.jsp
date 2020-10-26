@@ -62,13 +62,13 @@
               	<li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"aria-expanded="false">고객센터</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="#">1:1 문의</a></li>
+                  <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/Member/OneInquiry_Form.do">1:1 문의</a></li>
                   <li class="nav-item"><a class="nav-link" href="#">1:1 문의 내역</a></li>
                 </ul>
               </li>
             </ul>
             <ul class="nav-shop">
-              <li class="nav-item"><button><i class="ti-search"></i></button></li>
+              <li class="nav-item" id="hw-search"><form id="hw-searchbar" action=""><input name="keyword" placeholder="검색어 입력"></form><button><i class="ti-search"></i></button></li>
               <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle"></span></button> </li>
 	
 	<c:choose>
@@ -77,11 +77,19 @@
               <li class="nav-item"><a href="#" class="msk-id"><button onclick="location.href ='${pageContext.request.contextPath}/Member/MemberLogout.do'">로그아웃</button></a></li>
 		</c:when>
 		<c:otherwise>
-              <li class="nav-item"><a href="${pageContext.request.contextPath}/Member/MemberLogout.do" class="msk-id">로그인</a></li>
-              <li class="nav-item"><a href="#" class="msk-id">회원가입</a></li>
+              <li class="nav-item"><a href="${pageContext.request.contextPath}/Member/MemberLogin_Action.do" class="msk-id">로그인</a></li>
+              <li class="nav-item"><a href="${pageContext.request.contextPath}/Member/MemberSignup_Form.do" class="msk-id">회원가입</a></li>
 		</c:otherwise>
 	</c:choose>
+	
+	<c:choose>
+		<c:when test="${member!=null }">
               <li class="nav-item"><a class="button button-header" href="#">글쓰기</a></li>
+		</c:when>
+		<c:otherwise>
+              <li class="nav-item"><a class="button button-header" href="${pageContext.request.contextPath}/Member/MemberLogin_Action.do">글쓰기</a></li>
+		</c:otherwise>
+	</c:choose>
             </ul>
           </div>
         </div>
@@ -97,5 +105,6 @@
   <script src="${pageContext.request.contextPath}/main_resource/vendors/jquery.ajaxchimp.min.js"></script>
   <script src="${pageContext.request.contextPath}/main_resource/vendors/mail-script.js"></script>
   <script src="${pageContext.request.contextPath}/main_resource/js/main.js"></script>
+  <script src="${pageContext.request.contextPath}/main_resource/js/header.js"></script>
 </body>
 </html>

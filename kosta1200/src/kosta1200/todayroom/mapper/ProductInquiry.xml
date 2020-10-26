@@ -9,6 +9,10 @@
 	</insert>
 	
 	<select id="listProductInquiry" resultType="productInquiry">
-		select * from product_inquiry order by desc
+		select * from product_inquiry order by pi_seq desc
 	</select>
+	
+	<update id="insertProductInquiryAnswer" parameterType="productInquiry">
+		update product_inquiry set pi_answer=#{pi_answer} where pi_seq=#{pi_seq}
+	</update>
 </mapper>

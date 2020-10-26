@@ -23,4 +23,8 @@
 	delete from comments where comments_seq = #{comments_seq}
 </delete>
 
+<select id="countComments" resultType="int">
+	select count(*) from comments
+</select>
+
 </mapper>

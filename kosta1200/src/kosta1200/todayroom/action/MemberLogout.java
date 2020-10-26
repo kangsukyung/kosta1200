@@ -9,12 +9,12 @@ public class MemberLogout implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ActionForward forward=new ActionForward();
+		response.setContentType("text/html; charset=UTF-8"); 
 		request.getSession().invalidate();
 		
-		forward.setRedirect(false);
-		forward.setPath("MemberLogin_Action.do");
-		return forward;
+		response.getWriter().print("<script>alert('로그아웃 하셨습니다'); location.href='MemberLogin_Action.do'</script>");
+
+		return null;
 
 	}
 

@@ -33,7 +33,7 @@ public class CommentsController extends HttpServlet {
 		String contextPath = request.getContextPath();
 		//System.out.println(contextPath);
     	String command = requestURI.substring(contextPath.length()+10);
-    	System.out.println(command);
+    	//System.out.println(command);
     	
     	Action action = null;
     	ActionForward forward = null;
