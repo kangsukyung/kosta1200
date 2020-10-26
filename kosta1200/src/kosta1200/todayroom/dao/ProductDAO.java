@@ -39,7 +39,7 @@ public class ProductDAO {
 		int re = -1;
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		try {
-			re = sqlSession.getMapper(BoardMapper.class).insertBoard(boardVO);
+			re = sqlSession.getMapper(ProductMapper.class).insertBoard(boardVO);
 			if(re >  0) {
 				sqlSession.commit();
 			}else {
