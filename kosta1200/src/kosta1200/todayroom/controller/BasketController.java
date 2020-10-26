@@ -8,18 +8,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kosta1200.todayroom.action.Action;
 import kosta1200.todayroom.action.ActionForward;
-import kosta1200.todayroom.action.Store_DetailAction;
-import kosta1200.todayroom.action.Store_ListAction;
-import kosta1200.todayroom.action.Store_ListStoreAction;
+import kosta1200.todayroom.action.BasketListActionForm;
 
-@WebServlet("/store/*")
-public class StoreController extends HttpServlet {
+@WebServlet("/basket/*")
+public class BasketController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public StoreController() {
+    public BasketController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,49 +26,23 @@ public class StoreController extends HttpServlet {
     public void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	String requestURI = request.getRequestURI();
     	String contextPath = request.getContextPath();
-    	String command = requestURI.substring(contextPath.length()+7);
-    	    	
+    	String command = requestURI.substring(contextPath.length()+8);
+    	
     	System.out.println(command);
 		
     	Action action = null;
     	ActionForward forward = null;
     	
-    	if (command.equals("listAction.do")) {
-  		
-    		action = new Store_ListAction();
-    		try {
+       	if (command.equals("BasketListActionForm.do")) {
+       		action = new BasketListActionForm();
+       		try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-    	}
+       	}
     	
-    	if (command.equals("listStoreAction.do")) {		
-    		action = new Store_ListStoreAction();
-    		try {
-    			forward = action.execute(request, response);
-    		} catch (Exception e) {
-    			e.printStackTrace();
-    		}
-    	}
     	
-    	if (command.equals("filterPrice.do")) {
-    		action = new Store_ListAction();
-    		try {
-    			forward = action.execute(request, response);
-    		} catch (Exception e) {
-    			e.printStackTrace();
-    		}
-    	}
-    	
-    	if (command.equals("StoreDetailAction.do")) {
-    		action = new Store_DetailAction();
-    		try {
-    			forward = action.execute(request, response);
-    		} catch (Exception e) {
-    			e.printStackTrace();
-    		}
-    	}
     	
     	if (forward != null) {
     		if(forward.isRedirect()) {
@@ -80,15 +53,18 @@ public class StoreController extends HttpServlet {
     		}
     	}
     	
+    	
     }
     
     
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doProcess(request, response);
 	}
 
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doProcess(request, response);
 	}
 
