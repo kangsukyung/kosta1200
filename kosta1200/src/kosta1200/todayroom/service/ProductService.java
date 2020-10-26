@@ -8,6 +8,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kosta1200.todayroom.dao.ProductDAO;
+import kosta1200.todayroom.vo.BoardVO;
 import kosta1200.todayroom.vo.ImageUtil;
 import kosta1200.todayroom.vo.ProductVO;
 
@@ -30,9 +31,15 @@ public class ProductService {
 		int size = 20 * 1024 * 1024; //20MB
 				
 			MultipartRequest multi =
-					new MultipartRequest(request, uploadPath, size, 
-							"utf-8", new DefaultFileRenamePolicy());
+					new MultipartRequest(request, uploadPath, size, "utf-8", new DefaultFileRenamePolicy());
 		
+		BoardVO boardVO = new BoardVO();
+		boardVO.setBoard_title(multi.getParameter("board_title"));
+		boardVO.setBoard_content(multi.getParameter("board_content"));
+		boardVO.setBoard_classification(multi.getParameter("classification"));
+		
+		int re1 = dao.insertBoard(boardVO);
+			
 		ProductVO productVO = new ProductVO();
 		productVO.setProduct_name(multi.getParameter("product_name"));
 		productVO.setProduct_price(Integer.parseInt(multi.getParameter("product_price")));
@@ -68,8 +75,16 @@ public class ProductService {
 						ImageUtil.resize(src, dest, 100, ImageUtil.RATIO); //썸네일이미지생성
 					}			
 				}
+				
 		
-		return dao.insertProduct(productVO);
+		
+		int re2 = dao.insertProduct(productVO);
+		
+		if(re1==1 & re2==1) {
+			return 1;
+		}else {
+			return -1;
+		}
 	
 	}//end insertProduct
 	

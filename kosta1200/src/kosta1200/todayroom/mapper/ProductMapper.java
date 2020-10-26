@@ -2,6 +2,7 @@ package kosta1200.todayroom.mapper;
 
 import java.util.List;
 
+import kosta1200.todayroom.vo.BoardVO;
 import kosta1200.todayroom.vo.ProductVO;
 
 public interface ProductMapper {
@@ -10,5 +11,6 @@ public interface ProductMapper {
 	ProductVO detailProduct(int product_seq);
 	int updateProduct(ProductVO productvo);
 	int deleteProduct(ProductVO productvo);
+	int insertBoard(BoardVO boardVO);
 
 }

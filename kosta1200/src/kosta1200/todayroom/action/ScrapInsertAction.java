@@ -3,25 +3,22 @@ package kosta1200.todayroom.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kosta1200.todayroom.service.ScrapService;
 
-import kosta1200.todayroom.service.ProductService;
-
-public class ProductInsertAction implements Action {
+public class ScrapInsertAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = new ActionForward();
+		ScrapService service = ScrapService.getInstance(); //서비스 객체 받아오기
 		
-		ProductService service = ProductService.getInstance();
+		service.insertScrapService(request);
 		
-		service.insertProduct(request);
-		
-		forward.setRedirect(true); 
-		forward.setPath("ProductListAction.do");
+		forward.setRedirect(true);
+		forward.setPath("ListAction.do");
 		
 		
 		return forward;
-
 	}
 
 }
