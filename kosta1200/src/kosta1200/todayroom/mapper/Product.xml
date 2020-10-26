@@ -6,10 +6,15 @@
 <mapper namespace="kosta1200.todayroom.mapper.ProductMapper">
 	<cache />
 	
-	<insert id="insertProduct" parameterType="Product">
-		insert into product values(SEQ_PRODUCT_PRODUCT_SEQ.nextval, #{product_name}, #{product_price}, #{product_lcategory},
-									 #{product_scategory}, 2500, 2, #{product_fname})
+	<insert id="insertBoard" parameterType="Board">
+		insert into board values(SEQ_BOARD_BOARD_SEQ.nextval, 1, #{board_title}, #{board_content}, sysdate, 'null', 'null', #{board_classification}, '0', '0')
 	</insert>
+	<insert id="insertProduct" parameterType="Product">
+		insert into product values(SEQ_PRODUCT_PRODUCT_SEQ.nextval, #{product_name}, #{product_price}, #{product_lcategory}, #{product_scategory}, 2500, SEQ_BOARD_BOARD_SEQ.CURRVAL, #{product_fname})
+	</insert>
+	
+	
+	
 	
 	<select id="listProduct" resultType="Product">
 		select * from product order by product_seq desc

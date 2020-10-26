@@ -139,7 +139,7 @@
 													</c:otherwise>
 													</c:choose>
 											</c:if>
-
+									<div id="product_list_in_list">		
 										<label>글번호 : ${productVO.board_seq }<br></label>									
 										<label>상품명 : ${productVO.product_name }<br></label>
 										<label>가   격 : ${productVO.product_price }<br></label>
@@ -149,6 +149,7 @@
 										<a href="ProductDeleteAction.do?product_seq=${productVO.product_seq}">삭제하기</a>
 										</div>
 										</c:forEach>
+									</div>
 								</div>
 								
 							</div>
