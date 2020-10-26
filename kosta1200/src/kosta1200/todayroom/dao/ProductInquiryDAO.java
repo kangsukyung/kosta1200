@@ -75,4 +75,29 @@ public class ProductInquiryDAO {
 		
 		return list;
 	}
+	
+	public int insertProductInquiryAnswer(Product_inquiryVO product_inquiryVO) {
+		int re = -1;
+		
+		SqlSession session = getSqlSessionFactory().openSession();
+		
+		try {
+			re = session.getMapper(kosta1200.todayroom.mapper.ProductInquiryMapper.class).insertProductInquiryAnswer(product_inquiryVO);
+			
+			if(re>0) {
+				session.commit();
+			}else {
+				session.rollback();
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			if(session!=null) {
+				session.close();
+			}
+		}
+		
+		return re;
+	} 
 }

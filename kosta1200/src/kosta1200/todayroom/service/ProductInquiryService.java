@@ -31,11 +31,26 @@ public class ProductInquiryService {
 		return re;
 	}
 	
-	public void listProductInquiryService(HttpServletRequest request) {
+	public List<Product_inquiryVO> listProductInquiryService() {
 		List<Product_inquiryVO> list = null;
 		
 		list = dao.listProductInquiry();
 		
-		request.setAttribute("list", list);
+//		request.setAttribute("list", list);
+		
+		return list;
 	}
+	
+	public int insertProductInquiryAnswerService(HttpServletRequest request) {
+		int re =-1;
+		
+		Product_inquiryVO VO = new Product_inquiryVO();
+		
+		VO.setPi_seq(Integer.parseInt(request.getParameter("pi_seq")));
+		VO.setPi_answer(request.getParameter("pi_answer"));
+		
+		re=dao.insertProductInquiryAnswer(VO);
+		
+		return re;
+	} 
 }
