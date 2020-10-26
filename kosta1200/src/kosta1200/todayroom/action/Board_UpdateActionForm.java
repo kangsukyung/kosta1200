@@ -20,7 +20,10 @@ public class Board_UpdateActionForm implements Action {
 		request.setAttribute("board", board);
 		
 		RoomwarmingVO room = service.DetailRoomwarmingService(seq);
-		KnowhowVO knowhow = sevice.DetailKnowhowService(seq);
+		request.setAttribute("room", room);
+		
+		KnowhowVO knowhow = service.DetailKnowhowService(seq);
+		request.setAttribute("knowhow", knowhow);
 		
 		String path = "/main_views/board/board_update_form.jsp";
 		forward.setPath(path);

@@ -103,15 +103,7 @@
 													
 													<div class="selectoption">
 														<select class="board_select_option" name="roomwarming_type">
-															<option value="선택해주세요.">선택해주세요.</option>
-															<option value="원룸">원룸</option>
-															<option value="안방">안방</option>
-															<option value="거실">거실</option>
-															<option value="서재">서재</option>
-															<option value="드레스룸">드레스룸</option>
-															<option value="주방">주방</option>
-															<option value="화장실">화장실</option>
-															<option value="베란다">베란다</option>
+															<option value="${room.roomwarming_type }">${room.roomwarming_type }</option>
 														</select>
 													</div>
 												
@@ -129,9 +121,7 @@
 													
 													<div class="selectoption">
 														<select class="board_select_option" name="roomwarming_classification">
-															<option value="">선택해주세요.</option>
-															<option value="셀프">셀프</option>
-															<option value="전문가">전문가</option>
+															<option value="${room.roomwarming_classification }">${room.roomwarming_classification }</option>
 														</select>
 													</div>
 												
@@ -148,7 +138,7 @@
 													</div>
 													
 													<div class="selectoption">
-														<input type="text" name="roomwarming_space"> 평
+														<input type="text" name="roomwarming_space" value="${room.roomwarming_space }"> 평
 													</div>
 												
 												</div>
@@ -165,18 +155,7 @@
 													
 													<div class="selectoption">
 														<select class="board_select_option" name="roomwarming_style">
-															<option value="">선택해주세요.</option>
-															<option value="모던">모던</option>
-															<option value="미니멀&심플">미니멀&심플</option>
-															<option value="내추럴">내추럴</option>
-															<option value="북유럽">북유럽</option>
-															<option value="빈티지&레트로">빈티지&레트로</option>
-															<option value="클래식&엔틱">클래식&엔틱</option>
-															<option value="프렌치&프로방스">프렌치&프로방스</option>
-															<option value="러블리&로맨틱">러블리&로맨틱</option>
-															<option value="인더스트리얼">인더스트리얼</option>
-															<option value="한국&아시아">한국&아시아</option>
-															<option value="유니크&믹스매치">유니크&믹스매치</option>
+															<option value="${room.roomwarming_style }">${room.roomwarming_style }</option>
 														</select>
 													</div>
 												
@@ -194,13 +173,7 @@
 													
 													<div class="selectoption">
 														<select class="board_select_option" id="board_color_select_option" name="roomwarming_color" onchange="background_color_ch();">
-															<option value="aliceblue" style="background-color: aliceblue;">선택해주세요.</option>
-															<option value="red" style="background-color:red ;">red</option>
-															<option value="orange" style="background-color:orange ;">orange</option>
-															<option value="yellow" style="background-color:yellow ;">yellow</option>
-															<option value="green" style="background-color:green ;">green</option>
-															<option value="blue" style="background-color:blue ;">blue</option>
-															<option value="purple" style="background-color:purple ;">purple</option>
+															<option value="${room.roomwarming_color }">${room.roomwarming_color }</option>
 														</select>
 													</div>
 												
@@ -217,7 +190,7 @@
 													</div>
 													
 													<div class="selectoption">
-														<input type="text" name="roomwarming_budget"> 만원
+														<input type="text" name="roomwarming_budget" value="${room.roomwarming_budget }"> 만원
 													</div>
 												
 												</div>
@@ -239,16 +212,7 @@
 													
 													<div class="selectoption">
 														<select class="board_select_option" name="knowhow_style">
-															<option value="">선택해주세요.</option>
-															<option value="시공정보">시공정보</option>
-															<option value="꾸미기팁">꾸미기팁</option>
-															<option value="청소">청소</option>
-															<option value="DIY&리폼">DIY&리폼</option>
-															<option value="이거어때">이거어때</option>
-															<option value="생활정보">생활정보</option>
-															<option value="건축&주택">건축&주택</option>
-															<option value="상업공간">상업공간</option>
-															<option value="지식백과">지식백과</option>
+															<option value="${knowhow.knowhow_style }">${knowhow.knowhow_style }</option>
 														</select>
 													</div>
 												
@@ -266,21 +230,21 @@
 							
 							
 							</div>
-					
+							<h1>${board.board_thumbnail }</h1>
 							<div class="col-md-12 form-group">
-								<input type="file" class="form-control" id="thumbnail_image" name="thumbnail_image" placeholder="Thumbnail image">
+								<input type="file" class="form-control" id="thumbnail_image" name="thumbnail_image" placeholder="Thumbnail image" value="${board.board_thumbnail }">
 				            </div>
 				            
 				            <div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="title" name="title" placeholder="제목을 입력해주세요.">
+								<input type="text" class="form-control" id="title" name="title" placeholder="제목을 입력해주세요." value="${board.board_title }">
 				            </div>
 				            
 				            <div class="col-md-12 form-group">
-								<textarea rows="30%" cols="70" class="form-control" id="contents" name="content" placeholder="내용을 입력해주세요."></textarea>
+								<textarea rows="30%" cols="70" class="form-control" id="contents" name="content" placeholder="내용을 입력해주세요.">${board.board_content }</textarea>
 							</div>
 							
 							<div class="col-md-12 form-group">
-								<button type="submit" value="submit" class="button button-register w-100">글 등록</button>
+								<button type="submit" value="submit" class="button button-register w-100">글 수정</button>
 							</div>
 						</form>
 					</div>
