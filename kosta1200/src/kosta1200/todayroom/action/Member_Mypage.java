@@ -8,7 +8,7 @@ public class Member_Mypage implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward=new ActionForward();
-		forward.setRedirect(true);
+		forward.setRedirect(false);
 		forward.setPath("../main_views/member/member_mypage.jsp");
 		return forward;
 	}
