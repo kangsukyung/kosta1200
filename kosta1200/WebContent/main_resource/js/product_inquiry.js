@@ -31,4 +31,42 @@ $(function(){
 		});
 		
 	});
+	
+	$('.btn-reply').on('click', function(e){
+		e.preventDefault();
+		
+		$(this).parent().parent().parent().parent().find($('form')).remove();
+		
+		var hidden = $(this).parent().parent().find('.inquiry-seq').text();
+		
+		var html = '';
+		html += '<form action="">';
+		html += '<input hidden="hidden" name="pi_seq" value="'+hidden+'">';
+		html += '<input name="pi_answer" placeholder="답변하기">';
+		html += '<button>답글 등록</button></form>';
+		
+		$(this).parent().parent().append(html);
+	});
+	
+	$('.comment-list').on('click', 'form button', function(e){
+		e.preventDefault();
+		
+		console.log("1");
+		
+		$.ajax({
+			url : "productInquiry/insertProductInquiryAnswer.do",
+			type : "post",
+			data : $(this).parent().serialize(),
+			success : function(data){
+				console.log(data);
+				if(data>0){
+					alert("등록되었습니다.");
+					location.reload();
+				}else{
+					alert("답변 등록에 실패하였습니다.");
+				}
+			}
+			
+		});
+	});
 })

@@ -125,7 +125,7 @@
 								
 								<div class="desc">
 										<c:forEach var="productVO" items="${list}">
-										
+										<div>
 											<c:if test="${productVO.product_fname != null }">
 												<c:set var="head" value="${fn:substring(productVO.product_fname, 0, fn:length(productVO.product_fname)-4) }"></c:set>
 												<c:set var="pattern" value="${fn:substring(productVO.product_fname, fn:length(head) +1, fn:length(productVO.product_fname)) }"></c:set>
@@ -140,9 +140,14 @@
 													</c:choose>
 											</c:if>
 
-									
-										<label>상품명 : <a href="ProductDetailAction.do?product_seq=${productVO.product_seq}">${productVO.product_name }</a></label><br>
-										
+										<label>글번호 : ${productVO.board_seq }<br></label>									
+										<label>상품명 : ${productVO.product_name }<br></label>
+										<label>가   격 : ${productVO.product_price }<br></label>
+										<label>대분류 : ${productVO.product_lcategory }<br></label>
+										<label>소분류 : ${productVO.product_scategory }<br></label>
+										<a href="ProductUpdateActionForm.do?product_seq=${productVO.product_seq}">수정하기</a>
+										<a href="ProductDeleteAction.do?product_seq=${productVO.product_seq}">삭제하기</a>
+										</div>
 										</c:forEach>
 								</div>
 								
@@ -154,6 +159,7 @@
 					</div>
 			</div>
 		</div>
+	</div>
 	</section>
 	<!--================Blog Area =================-->
 

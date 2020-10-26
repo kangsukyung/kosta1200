@@ -15,64 +15,59 @@ import kosta1200.todayroom.action.CommentsDeleteAction;
 import kosta1200.todayroom.action.CommentsInsertAction;
 import kosta1200.todayroom.action.CommentsListAction;
 import kosta1200.todayroom.action.CommentsUpdateAction;
+import kosta1200.todayroom.action.ReviewDeleteAction;
+import kosta1200.todayroom.action.ReviewInsertAction;
+import kosta1200.todayroom.action.ReviewListAction;
 
 /**
- * Servlet implementation class CommentsController
+ * Servlet implementation class ReviewController
  */
-@WebServlet("/Comments/*" )
-public class CommentsController extends HttpServlet {
+@WebServlet("/Review/*")
+public class ReviewController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	public CommentsController() {
+       
+    public ReviewController() {
         super();
     }
 
-	private void doProcess(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+    private void doProcess(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		String requestURI = request.getRequestURI();
-		//System.out.println(requestURI);
 		String contextPath = request.getContextPath();
-		//System.out.println(contextPath);
-    	String command = requestURI.substring(contextPath.length()+10);
-    	//System.out.println(command);
-    	
+    	String command = requestURI.substring(contextPath.length()+8);
+    	System.out.println(command);
     	Action action = null;
     	ActionForward forward = null;
-    	
-    	if(command.equals("CommentsListAction.do")){
-    		action = new CommentsListAction();
+
+    	if(command.equals("ReviewListAction.do")){
+    		System.out.println("리스트액션으로 이동");
+    		action = new ReviewListAction();
     		try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-    	}else if(command.equals("CommentsInsertAction.do")){
-    		action = new CommentsInsertAction();
+    	}else if(command.equals("ReviewInsertAction.do")){
+    		action = new ReviewInsertAction();
     		try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-    	}else if(command.equals("CommentsUpdateAction.do")){
-    		action = new CommentsUpdateAction();
+    	/*}else if(command.equals("ReviewUpdateAction.do")){
+    		action = new ReviewUpdateAction();
     		try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
-			}
-    	}else if(command.equals("CommentsDeleteAction.do")){
-    		action = new CommentsDeleteAction();
+			}*/
+    	}else if(command.equals("ReviewDeleteAction.do")){
+    		action = new ReviewDeleteAction();
     		try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
     	}
-    	
-    	
-    	
-    	
-    	
-    	
     	
     	if(forward != null){
     		if(forward.isRedirect()){
@@ -83,22 +78,15 @@ public class CommentsController extends HttpServlet {
     		}
     	}
     	
-    	
-    	
-    	
-    	
-	}
-	
-	
-	
-	
+    }
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		response.getWriter().append("Served at: ").append(request.getContextPath());
 		doProcess(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
 	}
-
 
 }

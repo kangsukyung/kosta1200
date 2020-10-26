@@ -114,7 +114,29 @@ public class ProductDAO {
 		return re;
 	}
 	
-	
+	public int deleteProduct(ProductVO productVO) {
+		int re = -1;
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		
+		try {
+			re = sqlSession.getMapper(ProductMapper.class).deleteProduct(productVO);
+			//트랜잭션
+			if(re > 0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
+		return re;
+		
+	}
 	
 	
 	

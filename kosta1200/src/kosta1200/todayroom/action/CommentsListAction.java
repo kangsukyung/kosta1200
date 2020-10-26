@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kosta1200.todayroom.service.CommentsService;
 import kosta1200.todayroom.vo.CommentsVO;
+import kosta1200.todayroom.vo.Comments_PagingVO;
 
 public class CommentsListAction implements Action{
 	
@@ -15,9 +16,10 @@ public class CommentsListAction implements Action{
 		ActionForward forward = new ActionForward();
 		CommentsService service = CommentsService.getInstance();
 		
-		//int board_seq = Integer.parseInt(request.getParameter("board_seq"));
-		List<CommentsVO> list = service.listCommentsService();
-		request.setAttribute("comments", list);
+		
+		Comments_PagingVO list = service.listCommentsService(request);
+		System.out.println("list안에 :: "+ list);
+		request.setAttribute("list", list);
 		
 		forward.setRedirect(false);
 		forward.setPath("/main_views/comments/comments.jsp");

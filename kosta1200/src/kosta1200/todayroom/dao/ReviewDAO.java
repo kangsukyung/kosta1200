@@ -10,12 +10,14 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kosta1200.todayroom.mapper.CommentsMapper;
+import kosta1200.todayroom.mapper.ReviewMapper;
 import kosta1200.todayroom.vo.CommentsVO;
+import kosta1200.todayroom.vo.ReviewVO;
 
-public class CommentsDAO {
-	private static CommentsDAO dao = new CommentsDAO();
+public class ReviewDAO {
+private static ReviewDAO dao = new ReviewDAO();
 	
-	public static CommentsDAO getInstance(){
+	public static ReviewDAO getInstance(){
 		return dao;
 	}
 	
@@ -31,28 +33,12 @@ public class CommentsDAO {
 		return new SqlSessionFactoryBuilder().build(in);
 	}
 	
-	public List<CommentsVO> listComments(int startRow){
-		SqlSession sqlSession = getSqlSessionFactory().openSession();
-		
-		List<CommentsVO> list = null;
-		try {
-			list = sqlSession.getMapper(CommentsMapper.class).listComments(new RowBounds(startRow, 3));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			if(sqlSession != null) {
-				sqlSession.close();
-			}
-		}
-		
-		return list;
-	}	
-	
-	public int insertComments(CommentsVO commentsvo){
+	//insert
+	public int insertReview(ReviewVO reviewvo){
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		int re = -1;
 		try {
-			re = sqlSession.getMapper(CommentsMapper.class).insertComments(commentsvo);
+			re = sqlSession.getMapper(ReviewMapper.class).insertReview(reviewvo);
 			if(re > 0){
 				sqlSession.commit();//들어온 값이 있으면 커밋
 			}else{
@@ -68,13 +54,32 @@ public class CommentsDAO {
 		return re;
 	}
 	
+	//list
+	public List<ReviewVO> listReview(int startRow) {
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		
+		List<ReviewVO> list = null;
+		try {
+			list = sqlSession.getMapper(ReviewMapper.class).listReview(new RowBounds(startRow, 3));
+			System.out.println("dao에서 list : "+list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
+		return list;
+	}
 	
-	public int updateComments(CommentsVO commentsvo) {
+	//update
+	public int updateReview(ReviewVO reviewvo) {
 		int re = -1;
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		System.out.println("어디");
 		try {
-			re = sqlSession.getMapper(CommentsMapper.class).updateComments(commentsvo);
+			re = sqlSession.getMapper(ReviewMapper.class).updateReview(reviewvo);
 			System.out.println("re : "+ re);
 			if(re > 0) {
 				System.out.println("까지");
@@ -92,12 +97,13 @@ public class CommentsDAO {
 		}
 		return re;
 	}
-
-	public int DeleteComments(CommentsVO commentsvo) {
+	
+	//delete
+	public int DeleteReview(ReviewVO reviewvo) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		int re = -1;
 		try {
-			re = sqlSession.getMapper(CommentsMapper.class).deleteComments(commentsvo);
+			re = sqlSession.getMapper(ReviewMapper.class).deleteReview(reviewvo);
 			System.out.println("re : "+ re);
 			if(re > 0){
 				sqlSession.commit();//들어온 값이 있으면 커밋
@@ -114,11 +120,12 @@ public class CommentsDAO {
 		return re;
 	}
 	
-	public int countComments(){
+	
+	public int countReview(){
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		int re = 0;
 		try {
-			re = sqlSession.getMapper(CommentsMapper.class).countComments();
+			re = sqlSession.getMapper(ReviewMapper.class).countReview();
 			System.out.println("re :: "+ re);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -130,4 +137,19 @@ public class CommentsDAO {
 		
 		return re;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
