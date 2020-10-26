@@ -177,7 +177,7 @@
 						</p>
 
 						<div class="product_count">
-							<a class="button normal-btn" href="BasketListActionForm.do?product_seq=${product.product_seq }">장바구니에 담기</a>
+							<a class="button normal-btn" href="BasketListActionForm.do?product_seq">장바구니에 담기</a>
  							<a class="button primary-btn" href="#">구매하기</a>
 
 						</div>

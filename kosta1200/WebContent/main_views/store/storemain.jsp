@@ -170,7 +170,7 @@
           <!-- End Filter Bar -->
           <!-- Start Best Seller -->
           <section class="lattest-product-area pb-40 category-list ">
- 				<c:forEach items="${list.board_title }" var="board">                  
+ 				<c:forEach items="${list}" var="board">                  
             <div class="row row_product_hw col-lg-4">
                 <div class="card text-center card-product">
                   <div class="card-product__img">

@@ -44,7 +44,7 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">스토어</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="#">카테고리</a>
+                  <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/store/listStoreAction.do">카테고리</a>
                   </li>
                   <li class="nav-item"><a class="nav-link" href="#">특가</a></li>
                   <li class="nav-item"><a class="nav-link" href="#">베스트</a></li>
