@@ -68,7 +68,7 @@
               </li>
             </ul>
             <ul class="nav-shop">
-              <li class="nav-item"><button><i class="ti-search"></i></button></li>
+              <li class="nav-item" id="hw-search"><form id="hw-searchbar" action=""><input name="keyword" placeholder="검색어 입력"></form><button><i class="ti-search"></i></button></li>
               <li class="nav-item"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle"></span></button> </li>
 	
 	<c:choose>
@@ -97,5 +97,6 @@
   <script src="${pageContext.request.contextPath}/main_resource/vendors/jquery.ajaxchimp.min.js"></script>
   <script src="${pageContext.request.contextPath}/main_resource/vendors/mail-script.js"></script>
   <script src="${pageContext.request.contextPath}/main_resource/js/main.js"></script>
+  <script src="${pageContext.request.contextPath}/main_resource/js/header.js"></script>
 </body>
 </html>

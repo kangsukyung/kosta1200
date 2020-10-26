@@ -7,4 +7,5 @@ import kosta1200.todayroom.vo.Product_inquiryVO;
 public interface ProductInquiryMapper {
 	int insertProductInquiry(Product_inquiryVO product_inquiryVO);
 	List<Product_inquiryVO> listProductInquiry();
+	int insertProductInquiryAnswer(Product_inquiryVO product_inquiryVO);
 }
