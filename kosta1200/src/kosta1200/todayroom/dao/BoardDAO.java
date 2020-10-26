@@ -102,12 +102,12 @@ public class BoardDAO {
 		return re;
 	}
 	
-	public List<BoardVO> listBoard() {
+	public List<BoardVO> listBoard(String keyword) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		List<BoardVO> list = null;
 		
 		try {
-			list = sqlSession.getMapper(BoardMapper.class).listBoard();
+			list = sqlSession.getMapper(BoardMapper.class).listBoard(keyword);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {

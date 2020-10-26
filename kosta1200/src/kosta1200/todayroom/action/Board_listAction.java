@@ -18,7 +18,7 @@ public class Board_listAction implements Action {
 		ActionForward forward = new ActionForward();
 		BoardService service = BoardService.getInstance();
 		
-		List<BoardVO> list = service.listBoardService();
+		List<BoardVO> list = service.listBoardService(request);
 //		List<RoomwarmingVO> list2 = service.listRoomwarmingService();
 //		List<KnowhowVO> list3 = service.listKnowhowService();
 		List<MemberVO> list4 =service.ListMemberService();
