@@ -18,3 +18,11 @@
 	justify-content: unset;	
 }
 
+.single-comment_jsb{
+	border-bottom: 1px solid #ededed;
+	padding-top:20px;
+}
+
+.blog_item_jsb{
+	margin-bottom:10px!important;
+}

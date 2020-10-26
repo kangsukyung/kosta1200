@@ -11,16 +11,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Aroma Shop - Blog Details</title>
-<link rel="icon" href="${pageContext.request.contextPath}//main_resource/img/Fevicon.png" type="image/png">
+<link rel="icon" href="${pageContext.request.contextPath}/main_resource/img/Fevicon.png" type="image/png">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/vendors/bootstrap/bootstrap.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}//main_resource/vendors/fontawesome/css/all.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}//main_resource/vendors/themify-icons/themify-icons.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}//main_resource/vendors/linericon/style.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}//main_resource/vendors/owl-carousel/owl.theme.default.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}//main_resource/vendors/owl-carousel/owl.carousel.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/vendors/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/vendors/themify-icons/themify-icons.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/vendors/linericon/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/vendors/owl-carousel/owl.theme.default.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/vendors/owl-carousel/owl.carousel.min.css">
 
-<link rel="stylesheet" href="${pageContext.request.contextPath}//main_resource/css/style.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}//main_resource/css/comments.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/css/style.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/css/comments.css">
 <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script>
 $("#btn_comments_Update").click(function(){
@@ -33,7 +33,7 @@ $("#btn_comments_Update").click(function(){
 
 <div class="col-lg-12 comments_div_jsb">
 	<div class="comments-area comments_list_jsb">
-		<h4>댓글</h4>
+		<h4>댓글 ${list.totalCount}</h4>
 		<div class="comment-list">
 			<div class="user d-flex comments_insert_jsb">
 				<c:forEach var="m" items="${member}">
@@ -54,8 +54,9 @@ $("#btn_comments_Update").click(function(){
 					</form>
 				</div>
 			</div>
-			<c:forEach var="c" items="${comments}">
-				<div class="single-comment justify-content-between d-flex">
+			<%-- <c:if test="${listSize > 0 } "> --%>
+			<c:forEach var="c" items="${list.list}">
+				<div class="single-comment justify-content-between d-flex single-comment_jsb">
 					<div class="user justify-content-between d-flex">
 						<div class="desc">
 						<input type="hidden" name="seq" value="${c.comments_seq}">
@@ -78,46 +79,80 @@ $("#btn_comments_Update").click(function(){
 									</c:choose>
 							</c:if>
 							<p id="comments_content" class="comment">${c.comments_content}</p>
-							<a type="button" id="btn_comments_Update" class="date" href="CommentsUpdateAction.do?seq=${c.comments_seq}">수정하기</a>
-							<a type="button" id="btn_comments_Delete" class="date" href="CommentsDeleteAction.do?seq=${c.comments_seq}">삭제하기</a>
+							<a type="button" id="btn_comments_Update" class="date" href="CommentsUpdateAction.do?comments_seq=${c.comments_seq}">수정하기</a>
+							<a type="button" id="btn_comments_Delete" class="date" href="CommentsDeleteAction.do?comments_seq=${c.comments_seq}">삭제하기</a>
 						</div>
 					</div>
 				</div>
 			</c:forEach>
+			<%-- </c:if>
+			<c:if test="${listSize == 0 || listSize == null}">
+				댓글이 없습니다
+			</c:if> --%>
 		</div>
 
 		<nav class="blog-pagination justify-content-center d-flex">
 		<ul class="pagination">
-			<li class="page-item"><a href="#" class="page-link"
-				aria-label="Previous"> <span aria-hidden="true"> <span
-						class="lnr lnr-chevron-left"></span>
-				</span>
-			</a></li>
-			<li class="page-item"><a href="#" class="page-link">01</a></li>
-			<li class="page-item active"><a href="#" class="page-link">02</a>
-			</li>
-			<li class="page-item"><a href="#" class="page-link">03</a></li>
-			<li class="page-item"><a href="#" class="page-link">04</a></li>
-			<li class="page-item"><a href="#" class="page-link">09</a></li>
-			<li class="page-item"><a href="#" class="page-link" aria-label="Next"> 
-			<span aria-hidden="true">
-			<span class="lnr lnr-chevron-right"></span>
-				</span>
-			</a></li>
+			<c:if test="${list.startPage > 5 }">
+				<li class="page-item">
+					<a href="CommentsListAction.do?pageNum=${list.startPage - 1}" class="page-link" aria-label="Previous"> 
+						<span aria-hidden="true">
+							<span class="lnr lnr-chevron-left" ></span>
+						</span>
+					</a>
+				</li>
+			</c:if>
+			
+			<c:forEach var="pageNo" begin="${list.startPage}" end="${list.endPage}">
+				<c:if test="${list.requestPage == pageNo}"><b></c:if>
+					<li class="page-item">
+						<a href="CommentsListAction.do?pageNum=${pageNo}" class="page-link"  id="page-item-pageno">${pageNo}</a>
+					</li>
+				<c:if test="${list.requestPage == pageNo}"></b></c:if>
+			</c:forEach>
+			
+			<c:if test="${list.endPage < list.totalPageCount}">
+				<li class="page-item">
+					<a href="CommentsListAction.do?pageNum=${list.endPage + 1}" class="page-link" aria-label="Next"> 
+						<span aria-hidden="true">
+							<span class="lnr lnr-chevron-right"></span>
+						</span>
+					</a>
+				</li>
+			</c:if>
 		</ul>
 		</nav>
+		
+		<!-- paging처리 -->
+		<!-- 이전이라는 글자가 나올지 안나올지 -->
+		<%-- <c:if test="${list.startPage > 5 }">
+			<a href="CommentsListAction.do?pageNum=${list.startPage - 1}">[이전]</a>
+		</c:if>
+		
+		<!-- 페이지목록 -->
+		<c:forEach var="pageNo" begin="${list.startPage}" end="${list.endPage}">
+			<c:if test="${list.requestPage == pageNo}"><b></c:if>
+				<a href="CommentsListAction.do?pageNum=${pageNo}">[${pageNo}]</a>
+			<c:if test="${list.requestPage == pageNo}"></b></c:if>
+		</c:forEach>
+		
+		<!-- 이후라는 글자가 나올지 안나올지 -->
+		<c:if test="${list.endPage < list.totalPageCount}">
+			<a href="CommentsListAction.do?pageNum=${list.endPage + 1}">[이후]</a>
+		</c:if> --%>
 	</div>
 </div>
 
-	<script src="../../main_resource/vendors/jquery/jquery-3.2.1.min.js"></script>
-	<script src="../../main_resource/vendors/skrollr.min.js"></script>
+	<script src="${pageContext.request.contextPath}/main_resource/vendors/jquery/jquery-3.2.1.min.js"></script>
+	<script src="${pageContext.request.contextPath}/main_resource/vendors/skrollr.min.js"></script>
 	<script
-		src="../../main_resource/vendors/owl-carousel/owl.carousel.min.js"></script>
+		src="${pageContext.request.contextPath}/main_resource/vendors/owl-carousel/owl.carousel.min.js"></script>
 	<script
-		src="../../main_resource/vendors/nice-select/jquery.nice-select.min.js"></script>
-	<script src="../../main_resource/vendors/jquery.ajaxchimp.min.js"></script>
-	<script src="../../main_resource/vendors/mail-script.js"></script>
-	<script src="../../main_resource/js/main.js"></script>
+		src="${pageContext.request.contextPath}/main_resource/vendors/nice-select/jquery.nice-select.min.js"></script>
+	<script src="${pageContext.request.contextPath}/main_resource/vendors/jquery.ajaxchimp.min.js"></script>
+	<script src="${pageContext.request.contextPath}/main_resource/vendors/mail-script.js"></script>
+	<script src="${pageContext.request.contextPath}/main_resource/js/main.js"></script>
+	<script src="${pageContext.request.contextPath}/main_resource/js/comments.js"></script>
 </body>
 
 
