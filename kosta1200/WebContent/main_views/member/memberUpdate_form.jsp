@@ -36,7 +36,7 @@
 					<h1>마이페이지</h1>
 					<nav aria-label="breadcrumb" class="banner-breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">마이페이지</a></li>
+              <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/Member/Member_Mypage.do">마이페이지</a></li>
               <li class="breadcrumb-item active" aria-current="page">설정</li>
             </ol>
           </nav>
@@ -84,11 +84,11 @@
           <div class="sidebar-filter">
             <div class="top-filter-head">카테고리</div>
  				<ul class="list cat-list mypage_category_list">
-					<li><a href="#" class="d-flex justify-content-between"><p>프로필</p></a></li>
+					<li><a href="${pageContext.request.contextPath}/Member/Member_Mypage.do"><p>프로필</p></a></li>
 					<li><a href="#" class="d-flex justify-content-between"><p>주문목록</p></a></li>
-					<li><a href="#" class="d-flex justify-content-between"><p>설정</p></a></li>
-					<li><a href="#" class="d-flex justify-content-between"><p>전문가 신청</p></a></li>
-					<li><a href="#" class="d-flex justify-content-between"><p>판매자 신청</p></a></li>
+					<li><a href="${pageContext.request.contextPath}/Member/MemberUpdate_form.do" class="d-flex justify-content-between"><p>설정</p></a></li>
+					<li><a href="${pageContext.request.contextPath}/Member/ConstractorSignup_form.do" class="d-flex justify-content-between"><p>전문가 신청</p></a></li>
+					<li><a href="${pageContext.request.contextPath}/Member/VendorSignup_form.do" class="d-flex justify-content-between"><p>판매자 신청</p></a></li>
 					<li><a href="#" class="d-flex justify-content-between"><p>스토어 목록</p></a></li>			
 				</ul>
           </div>

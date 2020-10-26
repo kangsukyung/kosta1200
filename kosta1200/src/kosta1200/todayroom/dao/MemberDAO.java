@@ -9,8 +9,12 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import kosta1200.todayroom.action.ConstractorSignup_Action;
 import kosta1200.todayroom.mapper.MemberMapper;
+import kosta1200.todayroom.vo.ContractorVO;
 import kosta1200.todayroom.vo.MemberVO;
+import kosta1200.todayroom.vo.One_inquiryVO;
+import kosta1200.todayroom.vo.VendorVO;
 
 
 
@@ -136,6 +140,77 @@ public class MemberDAO {
 		try {
 			re=sqlSession.getMapper(MemberMapper.class).MemberSecession(seq);
 			if(re>0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession!= null) {
+				sqlSession.close();
+			}
+		}
+		return re;
+	}
+	
+	public int ConstractorSignup(ContractorVO constractor) {
+		int re=-1;
+		int re1=-1;
+		SqlSession sqlSession=getSqlSessionFactory().openSession();
+		int seq=constractor.getMember_seq();
+		try {
+			re=sqlSession.getMapper(MemberMapper.class).ConstractorSignup(constractor);
+			re1=sqlSession.getMapper(MemberMapper.class).Constractor_Rating(seq);
+			if(re>0 && re1>0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession!= null) {
+				sqlSession.close();
+			}
+		}
+		
+		return re;
+	}
+	
+	public int VendorSignup_Action(VendorVO vender) {
+		int re=-1;
+		int re1=-1;
+		SqlSession sqlSession=getSqlSessionFactory().openSession();
+		int seq=vender.getMember_seq();
+		try {
+			re=sqlSession.getMapper(MemberMapper.class).VendorSignup(vender);
+			re1=sqlSession.getMapper(MemberMapper.class).Vender_Rating(seq);
+			
+			System.out.println(re+"_____"+re1);
+			if(re>0 && re1>0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession!= null) {
+				sqlSession.close();
+			}
+		}
+		return re;
+	}
+	
+	public int OneInquiry(One_inquiryVO inquiry) {
+		int re=-1;
+		SqlSession sqlSession=getSqlSessionFactory().openSession();
+		try {
+			re=sqlSession.getMapper(MemberMapper.class).OneInquiry(inquiry);
+			
+			System.out.println(re);
+			if(re>0 ) {
 				sqlSession.commit();
 			}else {
 				sqlSession.rollback();

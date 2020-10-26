@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import kosta1200.todayroom.action.Action;
 import kosta1200.todayroom.action.ActionForward;
+import kosta1200.todayroom.action.ConstractorSignup_Action;
+import kosta1200.todayroom.action.ConstractorSignup_form;
 import kosta1200.todayroom.action.MemberIdCheckList;
 import kosta1200.todayroom.action.MemberLogin;
 import kosta1200.todayroom.action.MemberLogin_Action;
@@ -18,8 +20,14 @@ import kosta1200.todayroom.action.MemberLogout;
 import kosta1200.todayroom.action.MemberNickNameCheck;
 import kosta1200.todayroom.action.MemberSecession;
 import kosta1200.todayroom.action.MemberSignup_Action;
+import kosta1200.todayroom.action.MemberSignup_Form;
 import kosta1200.todayroom.action.MemberUpdate_Action;
 import kosta1200.todayroom.action.MemberUpdate_form;
+import kosta1200.todayroom.action.Member_Mypage;
+import kosta1200.todayroom.action.OneInquiry_Action;
+import kosta1200.todayroom.action.OneInquiry_Form;
+import kosta1200.todayroom.action.VendorSignup_Action;
+import kosta1200.todayroom.action.VendorSignup_form;
 
 
 @WebServlet("/Member/*")
@@ -39,7 +47,6 @@ public class MemberController extends HttpServlet {
 		ActionForward forward = null;
 		
 		System.out.println(command);
-		System.out.println("1");
 
 		if (command.equals("MemberIdCheckList.do")) {//아이디 중복체크
 			try {
@@ -107,6 +114,62 @@ public class MemberController extends HttpServlet {
 				e.printStackTrace();
 			}
 			
+		}else if(command.equals("ConstractorSignup_Action.do")) {
+			try {
+				action=new ConstractorSignup_Action();
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(command.equals("ConstractorSignup_form.do")) {
+			try {
+				action=new ConstractorSignup_form();
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}			
+		}else if(command.equals("Member_Mypage.do")) {
+			try {
+				action=new Member_Mypage();
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}			
+		}else if(command.equals("MemberSignup_form.do")) {
+			try {
+				action=new MemberSignup_Form();
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}			
+		}else if(command.equals("VenderSignup_Action.do")) {
+			try {
+				action=new VendorSignup_Action();
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}			
+		}else if(command.equals("VendorSignup_form.do")) {
+			try {
+				action=new VendorSignup_form();
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}	
+		}else if(command.equals("OneInquiry_Action.do")) {
+			try {
+				action=new OneInquiry_Action();
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}	
+		}else if(command.equals("OneInquiry_Form.do")) {
+			try {
+				action=new OneInquiry_Form();
+				forward=action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 			
     	if(forward!=null) {

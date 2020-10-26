@@ -1,7 +1,6 @@
 package kosta1200.todayroom.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.websocket.Session;
 
 import kosta1200.todayroom.service.MemberService;
 import kosta1200.todayroom.vo.MemberVO;
@@ -13,18 +12,24 @@ public class MemberLogin implements Action{
 		ActionForward forward=new ActionForward();
 		MemberService service=MemberService.getInstance();
 		MemberVO member=service.MemberLogin(request, response);
+		response.setContentType("text/html; charset=UTF-8"); 
 		
 		if(member!=null) {
-			request.getSession().setAttribute("member", member);
-			forward.setRedirect(true);
-			forward.setPath("../main_views/member/member_mypage.jsp");//마이페이지
-			
+			if(member.getMember_rating().equals("0")) {
+				response.getWriter().print("<script>alert('탈퇴처리된 회원입니다.'); location.href='MemberLogin_Action.do'</script>");
+				return null;
+			}else {
+				request.getSession().setAttribute("member", member);
+				response.getWriter().print("<script>alert('로그인 하셨습니다'); location.href='Member_Mypage.do'</script>");
+				return null;
+			}
 		}else if(member==null){
-			forward.setRedirect(false);
-			forward.setPath("MemberLogin_Action.do");
+			response.getWriter().print("<script>alert('아이디 비밀번호를 확인해주세요'); location.href='MemberLogin_Action.do'</script>");
+			return null;
 		}
 		
-		return forward;
+		return null;
+		
 	}
 
 }

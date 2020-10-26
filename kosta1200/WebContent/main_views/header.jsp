@@ -62,7 +62,7 @@
               	<li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"aria-expanded="false">고객센터</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="#">1:1 문의</a></li>
+                  <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/Member/OneInquiry_Form.do">1:1 문의</a></li>
                   <li class="nav-item"><a class="nav-link" href="#">1:1 문의 내역</a></li>
                 </ul>
               </li>
@@ -77,11 +77,19 @@
               <li class="nav-item"><a href="#" class="msk-id"><button onclick="location.href ='${pageContext.request.contextPath}/Member/MemberLogout.do'">로그아웃</button></a></li>
 		</c:when>
 		<c:otherwise>
-              <li class="nav-item"><a href="${pageContext.request.contextPath}/Member/MemberLogout.do" class="msk-id">로그인</a></li>
-              <li class="nav-item"><a href="#" class="msk-id">회원가입</a></li>
+              <li class="nav-item"><a href="${pageContext.request.contextPath}/Member/MemberLogin_Action.do" class="msk-id">로그인</a></li>
+              <li class="nav-item"><a href="${pageContext.request.contextPath}/Member/MemberSignup_Form.do" class="msk-id">회원가입</a></li>
 		</c:otherwise>
 	</c:choose>
+	
+	<c:choose>
+		<c:when test="${member!=null }">
               <li class="nav-item"><a class="button button-header" href="#">글쓰기</a></li>
+		</c:when>
+		<c:otherwise>
+              <li class="nav-item"><a class="button button-header" href="${pageContext.request.contextPath}/Member/MemberLogin_Action.do">글쓰기</a></li>
+		</c:otherwise>
+	</c:choose>
             </ul>
           </div>
         </div>

@@ -39,7 +39,6 @@
 	<mappers>
 <!-- 	<mapper resource="kosta1200/todayroom/mapper/Admin.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Basket.xml"/>
-		<mapper resource="kosta1200/todayroom/mapper/Contractor.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Faq.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Follow.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Knowhow.xml"/>
@@ -50,7 +49,7 @@
 		<mapper resource="kosta1200/todayroom/mapper/Shipping.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Shoporder.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Roomwarming.xml"/>
-		<mapper resource="kosta1200/todayroom/mapper/Vendor.xml"/> -->
+		 -->
 		
 		<mapper resource="kosta1200/todayroom/mapper/Board.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/ProductInquiry.xml"/>

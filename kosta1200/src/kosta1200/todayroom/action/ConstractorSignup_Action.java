@@ -1,29 +1,28 @@
 package kosta1200.todayroom.action;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kosta1200.todayroom.service.MemberService;
 
-public class MemberSecession implements Action{
+public class ConstractorSignup_Action implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward=new ActionForward();
 		MemberService service=MemberService.getInstance();
 		response.setContentType("text/html; charset=UTF-8"); 
+
+		int re=service.ConstractorSignup(request, response);
 		
-		int re=service.MemberSecession(request, response);
-		request.getSession().invalidate();
 		if(re>0) {
-			response.getWriter().print("<script>alert('회원 탈퇴가 완료되었습니다.'); location.href='MemberLogin_Action.do'</script>");
-			return null;
+			response.getWriter().print("<script>alert('전문가신청이 완료되었습니다.'); location.href='Member_Mypage.do'</script>");
 		}else {
-			forward.setRedirect(false);
-			forward.setPath("MemberLogin_Action.do");
-			return forward;
+			response.getWriter().print("<script>alert('에러 전문가신청을 다시해주세요.'); location.href='Member_Mypage.do'</script>");
 		}
 		
+		return null;
 	}
 
 }
