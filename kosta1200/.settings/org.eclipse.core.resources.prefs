@@ -2,6 +2,7 @@
 <<<<<<<=HEAD
 >>>>>>>=refs/heads/yhw
 eclipse.preferences.version=1
+encoding//WebContent/main_views/basket/basketaddlist.jsp=UTF-8
 encoding//src/kosta1200/todayroom/action=UTF-8
 encoding//src/kosta1200/todayroom/dao/MemberDAO.java=UTF-8
 encoding/<project>=UTF-8

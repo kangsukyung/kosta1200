@@ -41,7 +41,7 @@
 		<div class="container h-100">
 			<div class="blog-banner">
 				<div class="text-center">
-					<h1>Shop Single</h1>
+					<h1>제품 상세 페이지</h1>
 					<nav aria-label="breadcrumb" class="banner-breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -117,7 +117,7 @@
 								class="production-select-list production-select-dropdown__list">
 								<c:forEach items="${list }" var="product" varStatus="status">
 									<li class="production-select-list__item"><button
-											value="${product.product_seq }"
+											value="${status.count}"
 											class="production-select-item" id="product_seq" type="button">
 											<div class="production-select-item__index">${status.count }</div>
 											<div class="production-select-item__image">
@@ -138,7 +138,7 @@
 
 						<ul class="selling-option-form-content__list">
 							<c:forEach items="${list }" var="product" varStatus="status">
-								<li><article class="selling-option-item">
+								<li><article class="selling-option-item" id ="${status.count }">
 										<h1 class="selling-option-item__production">${product.product_name }</h1>
 										<button class="selling-option-item__delete" type="button"
 											aria-label="삭제">
@@ -147,10 +147,11 @@
 											<path fill-rule="nonzero"
 													d="M6 4.6L10.3.3l1.4 1.4L7.4 6l4.3 4.3-1.4 1.4L6 7.4l-4.3 4.3-1.4-1.4L4.6 6 .3 1.7 1.7.3 6 4.6z"></path></svg>
 										</button>
-										<div class="selling-option-item__controls">
+										<div class="selling-option-item__controls" id ="${status.count }">
 											<div class="selling-option-item__quantity">
 												<div class="input-group select-input option-count-input">
-													<select class="form-control"><option value="1">1</option>
+													<select class="form-control" id ="${status.count }"><option value="0">수량</option>
+														<option value="1">1</option>
 														<option value="2">2</option>
 														<option value="3">3</option>
 														<option value="4">4</option>
@@ -158,12 +159,12 @@
 														<option value="6">6</option>
 														<option value="7">7</option>
 														<option value="8">8</option>
-														<option value="9">9</option>
 														</select>
 												</div>
 											</div>
-											<p class="selling-option-item__price">
-												<span class="selling-option-item__price__number" >${product.product_price }</span>원
+											<p class="selling-option-item__price" >
+												<span class="selling-option-item__price__number" id = "${status.count }">0</span>원
+												<span class="product-one-price" hidden="" >${product.product_price }</span>
 											</p>
 										</div>
 									</article></li>
@@ -172,12 +173,13 @@
 						<p class="selling-option-form-content__price">
 							<span class="selling-option-form-content__price__left">총 주문금액</span><span
 								class="selling-option-form-content__price__right"><span
-								class="selling-option-form-content__price__number">82,800</span>원</span>
+								class="selling-option-form-content__price__number">0</span>원</span>
 						</p>
 
 						<div class="product_count">
-							<a class="button normal-btn" href="BasketListAction.do?">장바구니에
-								담기</a> <a class="button primary-btn" href="#">구매하기</a>
+							<a class="button normal-btn" href="BasketListActionForm.do?product_seq=${product.product_seq }">장바구니에 담기</a>
+ 							<a class="button primary-btn" href="#">구매하기</a>
+
 						</div>
 					</div>
 				</div>
