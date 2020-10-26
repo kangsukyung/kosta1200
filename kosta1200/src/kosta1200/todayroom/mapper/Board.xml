@@ -17,8 +17,14 @@
 		insert into knowhow values(SEQ_BOARD_BOARD_SEQ.CURRVAL, #{knowhow_style})
 	</insert>
 
-	<select id="listBoard" resultType="board">
+	<select id="listBoard" resultType="board" parameterType="String">
 		select * from board
+		
+		<where>
+			<if test="value != null">
+				board_title LIKE #{value}
+			</if>
+		</where>
 	</select>
 	
 	<select id="listRoomwarming" resultType="roomwarming">

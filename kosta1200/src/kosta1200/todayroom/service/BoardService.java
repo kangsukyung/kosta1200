@@ -100,8 +100,10 @@ public class BoardService {
 		
 	}
 	
-	public List<BoardVO> listBoardService()throws Exception{
-		return dao.listBoard();
+	public List<BoardVO> listBoardService(HttpServletRequest request)throws Exception{
+		request.setCharacterEncoding("utf-8");
+		
+		return dao.listBoard("%"+request.getParameter("keyword")+"%");
 	}
 	
 	public List<RoomwarmingVO> listRoomwarmingService()throws Exception{
