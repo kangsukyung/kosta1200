@@ -35,7 +35,7 @@
               <li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">커뮤니티</a>
 	              <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="#">방들이</a></li>
+                  <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/">방들이</a></li>
                   <li class="nav-item"><a class="nav-link" href="#">노하우</a></li>
                   <li class="nav-item"><a class="nav-link" href="#">질문과답변</a></li>
                 </ul>
@@ -62,8 +62,16 @@
               	<li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"aria-expanded="false">고객센터</a>
                 <ul class="dropdown-menu">
+                <c:choose>
+					<c:when test="${member!=null }">
                   <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/Member/OneInquiry_Form.do">1:1 문의</a></li>
                   <li class="nav-item"><a class="nav-link" href="#">1:1 문의 내역</a></li>
+					</c:when>
+					<c:otherwise>
+                  <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/Member/MemberLogin_Action.do">1:1 문의</a></li>
+                  <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/Member/MemberLogin_Action.do">1:1 문의 내역</a></li>
+					</c:otherwise>                
+                </c:choose>
                 </ul>
               </li>
             </ul>
@@ -84,7 +92,7 @@
 	
 	<c:choose>
 		<c:when test="${member!=null }">
-              <li class="nav-item"><a class="button button-header" href="#">글쓰기</a></li>
+              <li class="nav-item"><a class="button button-header" href="${pageContext.request.contextPath}/board/board_insertActionForm.do">글쓰기</a></li>
 		</c:when>
 		<c:otherwise>
               <li class="nav-item"><a class="button button-header" href="${pageContext.request.contextPath}/Member/MemberLogin_Action.do">글쓰기</a></li>
