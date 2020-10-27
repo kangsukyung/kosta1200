@@ -30,6 +30,8 @@
 	href="${pageContext.request.contextPath}/main_resource/css/style.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/main_resource/css/storemain.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/main_resource/css/product_inquiry.css">
 </head>
 <body>
 	<!--================ Start Header Menu Area =================-->
@@ -117,8 +119,8 @@
 								class="production-select-list production-select-dropdown__list">
 								<c:forEach items="${list }" var="product" varStatus="status">
 									<li class="production-select-list__item"><button
-											value="${status.count}"
-											class="production-select-item" id="product_seq" type="button">
+											value="${status.count}" class="production-select-item"
+											id="product_seq" type="button">
 											<div class="production-select-item__index">${status.count }</div>
 											<div class="production-select-item__image">
 												<img class="image" id="product_image" alt=""
@@ -138,7 +140,8 @@
 
 						<ul class="selling-option-form-content__list">
 							<c:forEach items="${list }" var="product" varStatus="status">
-								<li><article class="selling-option-item" id ="${status.count }">
+								<li><article class="selling-option-item"
+										id="${status.count }">
 										<h1 class="selling-option-item__production">${product.product_name }</h1>
 										<button class="selling-option-item__delete" type="button"
 											aria-label="삭제">
@@ -147,10 +150,12 @@
 											<path fill-rule="nonzero"
 													d="M6 4.6L10.3.3l1.4 1.4L7.4 6l4.3 4.3-1.4 1.4L6 7.4l-4.3 4.3-1.4-1.4L4.6 6 .3 1.7 1.7.3 6 4.6z"></path></svg>
 										</button>
-										<div class="selling-option-item__controls" id ="${status.count }">
+										<div class="selling-option-item__controls"
+											id="${status.count }">
 											<div class="selling-option-item__quantity">
 												<div class="input-group select-input option-count-input">
-													<select class="form-control" id ="${status.count }"><option value="0">수량</option>
+													<select class="form-control" id="${status.count }"><option
+															value="0">수량</option>
 														<option value="1">1</option>
 														<option value="2">2</option>
 														<option value="3">3</option>
@@ -159,26 +164,28 @@
 														<option value="6">6</option>
 														<option value="7">7</option>
 														<option value="8">8</option>
-														</select>
+													</select>
 												</div>
 											</div>
-											<p class="selling-option-item__price" >
-												<span class="selling-option-item__price__number" id = "${status.count }">0</span>원
-												<span class="product-one-price" hidden="" >${product.product_price }</span>
+											<p class="selling-option-item__price">
+												<span class="selling-option-item__price__number"
+													id="${status.count }">0</span>원 <span
+													class="product-one-price" hidden="">${product.product_price }</span>
 											</p>
 										</div>
 									</article></li>
 							</c:forEach>
 						</ul>
 						<p class="selling-option-form-content__price">
-							<span class="selling-option-form-content__price__left">총 주문금액</span><span
-								class="selling-option-form-content__price__right"><span
+							<span class="selling-option-form-content__price__left">총
+								주문금액</span><span class="selling-option-form-content__price__right"><span
 								class="selling-option-form-content__price__number">0</span>원</span>
 						</p>
 
 						<div class="product_count">
-							<a class="button normal-btn" href="BasketListActionForm.do?product_seq=${product.product_seq }">장바구니에 담기</a>
- 							<a class="button primary-btn" href="#">구매하기</a>
+							<a class="button normal-btn"
+								href="BasketListActionForm.do?product_seq">장바구니에 담기</a> <a
+								class="button primary-btn" href="#">구매하기</a>
 
 						</div>
 					</div>
@@ -198,7 +205,59 @@
 				<li class="nav-item"><a class="nav-link active" id="review-tab"
 					data-toggle="tab" href="#review" role="tab" aria-controls="review"
 					aria-selected="false">리뷰</a></li>
+				<li>
+					<button type="button" class="btn btn-primary" id="inquiry-button" data-toggle="modal"
+						data-target="#exampleModal">문의하기</button>
+				</li>
 			</ul>
+			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+				aria-labelledby="exampleModalLabel" aria-hidden="true"
+				data-backdrop="static">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title" id="exampleModalLabel">상품 문의하기</h4>
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<form id="my-form">
+								<div class="btn-group btn-group-toggle" data-toggle="buttons">
+									<label class="btn btn-default btn-lg"> <input
+										type="radio" name="pi_type" value="product"> 상품
+									</label> <label class="btn btn-default btn-lg"> <input
+										type="radio" name="pi_type" value="shipping"> 배송
+									</label> <label class="btn btn-default btn-lg"> <input
+										type="radio" name="pi_type" value="return"> 반품
+									</label> <label class="btn btn-default btn-lg"> <input
+										type="radio" name="pi_type" value="exchange"> 교환
+									</label> <label class="btn btn-default btn-lg"> <input
+										type="radio" name="pi_type" value="refund"> 환불
+									</label> <label class="btn btn-default btn-lg"> <input
+										type="radio" name="pi_type" value="etc"> 기타
+									</label>
+								</div>
+								<div class="form-group">
+									<label for="message-text" class="control-label">문의내용</label>
+									<textarea class="form-control" id="message-text"
+										name="pi_content"></textarea>
+								</div>
+								<input hidden="hidden" name="member_seq" value="1">
+								<!-- value 값 추후 조정 필요 -->
+								<input hidden="hidden" name="product_seq" value="1">
+							</form>
+							<div>문의내용에 대한 답변은 ‘마이페이지 &gt; 나의 쇼핑 &gt; 나의 문의내역’ 또는 ‘상품
+								상세페이지’에서 확인 가능합니다.</div>
+						</div>
+						<div class="modal-footer">
+							<button type="submit" form="my-form" class="btn btn-primary"
+								id="inquiry-submit">문의하기</button>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="tab-content" id="myTabContent">
 				<div class="tab-pane fade" id="home" role="tabpanel"
 					aria-labelledby="home-tab">
@@ -467,6 +526,8 @@
 		src="${pageContext.request.contextPath}/main_resource/js/main.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/main_resource/js/store_detail.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/main_resource/js/product_inquiry.js"></script>
 
 </body>
 </html>
