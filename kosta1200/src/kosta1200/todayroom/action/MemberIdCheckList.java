@@ -10,8 +10,11 @@ public class MemberIdCheckList implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		MemberService service=MemberService.getInstance();
-		int num=service.MemberIdCheckList(request, response); 
-		
+		response.setContentType("text/html; charset=UTF-8"); 
+
+		int num=service.MemberIdCheckList(request, response);
+		System.out.println("1");
+		System.out.println(num);
 		response.getWriter().print(num);
 		return null;
 	}

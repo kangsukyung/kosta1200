@@ -3,6 +3,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kosta1200.todayroom.service.MemberService;
+import kosta1200.todayroom.vo.BoardVO;
 import kosta1200.todayroom.vo.MemberVO;
 
 public class MemberLogin implements Action{
@@ -19,6 +20,8 @@ public class MemberLogin implements Action{
 				response.getWriter().print("<script>alert('탈퇴처리된 회원입니다.'); location.href='MemberLogin_Action.do'</script>");
 				return null;
 			}else {
+				BoardVO room=service.MyRoomList(member);
+//				BoardVO knowhow=service.MyKnowhowList(member);
 				request.getSession().setAttribute("member", member);
 				response.getWriter().print("<script>alert('로그인 하셨습니다'); location.href='Member_Mypage.do'</script>");
 				return null;
