@@ -56,7 +56,13 @@
 		insert into ONE_INQUIRY values(SEQ_ONE_INQUIRY_OI_SEQ.nextval, #{oi_title},#{oi_content},#{oi_answer},#{member_seq},0)
 	</insert>
 	
-</mapper>
+	<select id="MyRoomList" parameterType="int" resultType="board">
+		select * from roomwarming r, board b where b.member_seq=#{seq} AND b.board_seq=r.board_seq
+	</select>
+ 	<select id="MyKnowhowList" parameterType="int" resultType="board">
+ 		select * from board b, Knowhow k where b.member_seq=#{seq} AND b.board_seq=k.board_seq	
+	</select>
+ </mapper>
 
 
 
