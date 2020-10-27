@@ -10,6 +10,8 @@ public class MemberNickNameCheck implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		MemberService service=MemberService.getInstance();
+		response.setContentType("text/html; charset=UTF-8"); 
+
 		int num=service.MemberNickNameCheck(request, response); 
 		
 		response.getWriter().print(num);
