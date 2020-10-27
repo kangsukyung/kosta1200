@@ -22,6 +22,7 @@
 		<if test="value != null and value != '%null%'">
 			where board_title like #{value}
 		</if>
+		order by board_seq desc
 	</select>
 	
 	<select id="listRoomwarming" resultType="roomwarming">
