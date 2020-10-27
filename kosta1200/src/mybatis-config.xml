@@ -44,12 +44,11 @@
 		<mapper resource="kosta1200/todayroom/mapper/Knowhow.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/OneInquiry.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Report.xml"/>
-		<mapper resource="kosta1200/todayroom/mapper/Scrap.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Shipping.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Shoporder.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Roomwarming.xml"/>
 		 -->
-		
+		<mapper resource="kosta1200/todayroom/mapper/Scrap.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Review.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/Board.xml"/>
 		<mapper resource="kosta1200/todayroom/mapper/ProductInquiry.xml"/>
