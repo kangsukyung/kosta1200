@@ -295,7 +295,7 @@
 }
 
 .option-count-input.select-input>.form-control {
-    padding-right: 30px;
+    padding-right: 30px !important;
 }
 
 .production-selling-option-form__form .selling-option-form-content__list {

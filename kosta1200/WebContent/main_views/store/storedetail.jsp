@@ -33,6 +33,7 @@
 </head>
 <body>
 	<!--================ Start Header Menu Area =================-->
+	<jsp:include page="../header.jsp"></jsp:include>
 	<!--================ End Header Menu Area =================-->
 
 	<!-- ================ start banner area ================= -->
@@ -177,7 +178,7 @@
 						</p>
 
 						<div class="product_count">
-							<a class="button normal-btn" href="BasketListActionForm.do?product_seq">장바구니에 담기</a>
+							<a class="button normal-btn" href="/kosta1200/basket/BasketListActionForm.do">장바구니에 담기</a>
  							<a class="button primary-btn" href="#">구매하기</a>
 
 						</div>
@@ -441,7 +442,7 @@
 	<!--================ end related Product area =================-->
 
 	<!--================ Start footer Area  =================-->
-
+	<jsp:include page="../footer.jsp"></jsp:include>
 	<!--================ End footer Area  =================-->
 
 
