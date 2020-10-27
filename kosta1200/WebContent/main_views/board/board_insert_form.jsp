@@ -58,6 +58,8 @@
 					<div class="login_form_inner register_form_inner">
 						<h3>필수 입력 사항</h3>
 						<form class="contents-row login_form" action="board_insert.do" id="contents-register_form" method="post"  enctype="multipart/form-data">
+							<input type="hidden" name="seq" value="${member.member_seq }">
+		
 							<div class="col-md-12 form-group">
 								
 								<div class="contents-form-control">

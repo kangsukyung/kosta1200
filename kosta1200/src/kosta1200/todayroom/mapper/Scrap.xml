@@ -6,9 +6,23 @@
 <mapper namespace="kosta1200.todayroom.mapper.ScrapMapper">
 	<cache />
 	
-	<insert id="insertProduct" parameterType="Scrap">
-		insert into product values(SEQ_SCRAP_SCRAP_SEQ.nextval, #{member_seq}, #{board_seq})
+	<insert id="insertScrap" parameterType="scrap">
+		insert into scrap values(SEQ_SCRAP_SCRAP_SEQ.nextval, #{member_seq}, #{board_seq})
 	</insert>
+	
+	<select id="listScrap" resultType="scrap">
+		SELECT *
+  			FROM scrap s
+  			INNER JOIN board b
+  			ON s.board_seq = b.BOARD_SEQ
+  			INNER JOIN member m
+  			ON s.member_seq = m.member_seq;
+  			
+  			select * from member m, board b, scrap s where #{member_seq}= s.member_seq and b.board_seq = s.board_seq  
+	</select>
+	
+	
+	
 	
 	
 	

@@ -18,6 +18,7 @@ public class CommentsListAction implements Action{
 		
 		
 		Comments_PagingVO list = service.listCommentsService(request);
+		
 		System.out.println("list안에 :: "+ list);
 		request.setAttribute("list", list);
 		

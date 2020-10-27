@@ -26,3 +26,17 @@
 .blog_item_jsb{
 	margin-bottom:10px!important;
 }
+
+#insert_file{
+	width:15px;
+	overflow: hidden;
+}
+
+.thumb img{
+	width : 75% !important;
+}
+
+#insert_content{
+	
+	width : 75% !important;
+}

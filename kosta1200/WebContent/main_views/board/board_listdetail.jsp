@@ -31,6 +31,7 @@
 			<div class="blog-banner">
 				<div class="text-center">
 					<h1>Blog Details
+					${member.member_seq }
 					</h1>
 					<nav aria-label="breadcrumb" class="banner-breadcrumb">
             <ol class="breadcrumb">
@@ -126,9 +127,14 @@
 																			</a>
 																	</li>
 																	<li>
-																			<a href="#">${board.board_scraps } Scraps
+																		<form action="${pageContext.request.contextPath}/Scrap/ScrapInsertAction.do" method="post">
+																			<a type="hidden" href="#">${board.board_scraps } Scraps
+																			<input type="hidden" name="board_seq" value="${board.board_seq }">
+																			<input type="hidden" name="member_seq" value="${member.member_seq }">
 																					<i class="lnr lnr-bubble"></i>
 																			</a>
+																			<input type="submit" value="½ºÅ©·¦ÇÏ±â">
+																		</form>
 																	</li>
 															</ul>
 															<ul class="social-links">
@@ -230,114 +236,31 @@
 											</div>
 									</div>
 									<div class="comments-area">
-											<h4>05 Comments</h4>
-											<div class="comment-list">
-													<div class="single-comment justify-content-between d-flex">
-															<div class="user justify-content-between d-flex">
-																	<div class="thumb">
-																			<img src="${pageContext.request.contextPath}/main_resource/img/blog/c1.jpg" alt="">
-																	</div>
-																	<div class="desc">
-																			<h5>
-																					<a href="#">Emilly Blunt</a>
-																			</h5>
-																			<p class="date">December 4, 2017 at 3:12 pm </p>
-																			<p class="comment">
-																					Never say goodbye till the end comes!
-																			</p>
-																	</div>
-															</div>
-															<div class="reply-btn">
-																	<a href="#" class="btn-reply text-uppercase">reply</a>
-															</div>
-													</div>
-											</div>
-											<div class="comment-list left-padding">
-													<div class="single-comment justify-content-between d-flex">
-															<div class="user justify-content-between d-flex">
-																	<div class="thumb">
-																			<img src="${pageContext.request.contextPath}/main_resource/img/blog/c2.jpg" alt="">
-																	</div>
-																	<div class="desc">
-																			<h5>
-																					<a href="#">Elsie Cunningham</a>
-																			</h5>
-																			<p class="date">December 4, 2017 at 3:12 pm </p>
-																			<p class="comment">
-																					Never say goodbye till the end comes!
-																			</p>
-																	</div>
-															</div>
-															<div class="reply-btn">
-																	<a href="#" class="btn-reply text-uppercase">reply</a>
-															</div>
-													</div>
-											</div>
-											<div class="comment-list left-padding">
-													<div class="single-comment justify-content-between d-flex">
-															<div class="user justify-content-between d-flex">
-																	<div class="thumb">
-																			<img src="${pageContext.request.contextPath}/main_resource/img/blog/c3.jpg" alt="">
-																	</div>
-																	<div class="desc">
-																			<h5>
-																					<a href="#">Annie Stephens</a>
-																			</h5>
-																			<p class="date">December 4, 2017 at 3:12 pm </p>
-																			<p class="comment">
-																					Never say goodbye till the end comes!
-																			</p>
-																	</div>
-															</div>
-															<div class="reply-btn">
-																	<a href="#" class="btn-reply text-uppercase">reply</a>
-															</div>
-													</div>
-											</div>
-											<div class="comment-list">
-													<div class="single-comment justify-content-between d-flex">
-															<div class="user justify-content-between d-flex">
-																	<div class="thumb">
-																			<img src="${pageContext.request.contextPath}/main_resource/img/blog/c4.jpg" alt="">
-																	</div>
-																	<div class="desc">
-																			<h5>
-																					<a href="#">Maria Luna</a>
-																			</h5>
-																			<p class="date">December 4, 2017 at 3:12 pm </p>
-																			<p class="comment">
-																					Never say goodbye till the end comes!
-																			</p>
-																	</div>
-															</div>
-															<div class="reply-btn">
-																	<a href="#" class="btn-reply text-uppercase">reply</a>
-															</div>
-													</div>
-											</div>
-											<div class="comment-list">
-													<div class="single-comment justify-content-between d-flex">
-															<div class="user justify-content-between d-flex">
-																	<div class="thumb">
-																			<img src="${pageContext.request.contextPath}/main_resource/img/blog/c5.jpg" alt="">
-																	</div>
-																	<div class="desc">
-																			<h5>
-																					<a href="#">Ina Hayes</a>
-																			</h5>
-																			<p class="date">December 4, 2017 at 3:12 pm </p>
-																			<p class="comment">
-																					Never say goodbye till the end comes!
-																			</p>
-																	</div>
-															</div>
-															<div class="reply-btn">
-																	<a href="#" class="btn-reply text-uppercase">reply</a>
-															</div>
-													</div>
-											</div>
+										<jsp:include page="../comments/comments.jsp"></jsp:include>
 									</div>
-									<div class="comment-form">
+										<%-- <div class="comment-list">
+											<div class="single-comment justify-content-between d-flex">
+													<div class="user justify-content-between d-flex">
+															<div class="thumb">
+																	<img src="${pageContext.request.contextPath}/main_resource/img/blog/c5.jpg" alt="">
+															</div>
+															<div class="desc">
+																	<h5>
+																			<a href="#">Ina Hayes</a>
+																	</h5>
+																	<p class="date">December 4, 2017 at 3:12 pm </p>
+																	<p class="comment">
+																			Never say goodbye till the end comes!
+																	</p>
+															</div>
+													</div>
+													<div class="reply-btn">
+															<a href="#" class="btn-reply text-uppercase">reply</a>
+													</div>
+											</div>
+										</div> --%>
+									</div>
+									<!-- <div class="comment-form">
 											<h4>Leave a Reply</h4>
 											<form>
 													<div class="form-group form-inline">
@@ -357,7 +280,7 @@
 													</div>
 													<a href="#" class="button button-postComment button--active">Post Comment</a>
 											</form>
-									</div>
+									</div> -->
 							</div>
 							
 							

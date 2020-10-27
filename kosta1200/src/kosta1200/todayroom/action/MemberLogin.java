@@ -1,4 +1,6 @@
 package kosta1200.todayroom.action;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -20,8 +22,12 @@ public class MemberLogin implements Action{
 				response.getWriter().print("<script>alert('탈퇴처리된 회원입니다.'); location.href='MemberLogin_Action.do'</script>");
 				return null;
 			}else {
-				BoardVO room=service.MyRoomList(member);
-//				BoardVO knowhow=service.MyKnowhowList(member);
+				int num=member.getMember_seq();
+				List<BoardVO> room=service.MyRoomList(num);
+				List<BoardVO> knowhow=service.MyKnowhowList(num);
+				request.getSession().setAttribute("room", room);
+				request.getSession().setAttribute("knowhow", knowhow);
+				
 				request.getSession().setAttribute("member", member);
 				response.getWriter().print("<script>alert('로그인 하셨습니다'); location.href='Member_Mypage.do'</script>");
 				return null;

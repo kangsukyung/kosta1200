@@ -15,12 +15,7 @@ public class ScrapService {
 		return service;
 	}
 	
-	public int insertScrapService(HttpServletRequest request)throws Exception{
-		ScrapVO scrapVO = new ScrapVO(); //보드에 추가해야하니간 보드객체 불러야 함
-		
-		scrapVO.setBoard_seq(Integer.parseInt(request.getParameter("board_seq")));
-		scrapVO.setMember_seq(Integer.parseInt(request.getParameter("member_seq")));
-		
+	public int insertScrapService(ScrapVO scrapVO)throws Exception{	
 		return dao.insertScrap(scrapVO);
 		
 	}

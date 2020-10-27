@@ -24,154 +24,206 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/css/ksk_style.css">
 </head>
 <body>	
-	<jsp:include page="../header.jsp"/>
-	<!-- ================ start banner area ================= -->
-	<section class="blog-banner-area" id="blog">
+ 	<jsp:include page="../header.jsp"></jsp:include>
+	<!-- ================ start banner area ================= -->	
+	<section class="blog-banner-area" id="category">
 		<div class="container h-100">
 			<div class="blog-banner">
 				<div class="text-center">
-					<h1>나의 스토어</h1>
+					<h1>마이페이지</h1>
 					<nav aria-label="breadcrumb" class="banner-breadcrumb">
-						<ol class="breadcrumb">
-							<li class="breadcrumb-item"><a href="#">홈</a></li>
-							<li class="breadcrumb-item active" aria-current="page">나의스토어</li>
-						</ol>
-					</nav>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">마이페이지</a></li>
+              <li class="breadcrumb-item active" aria-current="page">상품조회</li>
+            </ol>
+          </nav>
 				</div>
 			</div>
-		</div>
+    </div>
 	</section>
 	<!-- ================ end banner area ================= -->
 
 
-
-	<!--================Blog Area =================-->
-	<section
-		class="blog_area single-post-area py-80px section-margin--small">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-4">
-					<div class="blog_right_sidebar">
-						<aside class="single_sidebar_widget author_widget">
-							<img class="author_img rounded-circle" src="${pageContext.request.contextPath}/main_resource/img/member/member_basicimage.png"alt="">
-							
-							<h4>Charlie Barber</h4>
-							<p>Senior blog writer</p>
+	<!-- ================ category section start ================= -->		  
+  <section class="section-margin--small mb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-3 col-lg-4 col-md-5">
+          <div class="sidebar-categories">
+            <div class="head">프로필</div>
+            <ul class="main-categories">
+					<div>
+					<c:if test="${member.member_profile!=null}">
+						<c:set var="head" value="${fn:substring(member.member_profile,0, fn:length(member.member_profile)-4) }"></c:set>
+						<c:set var="pattern" value="${fn:substring(member.member_profile, fn:length(head)+1, fn:length(member.member_profile))}"></c:set>
+						<c:choose>
+							<c:when test="${pattern=='jpg' || pattern=='png' || pattern=='gif' }">
+								<a href="${pageContext.request.contextPath}/Member/MemberUpdate_form.do"><img class="author_img rounded-circle" src="/kosta1200/upload/${member.member_profile}" alt="" width="130" height="130"></a>
+							</c:when>
+							<c:otherwise>
+								<c:out value="NO IMAGE"></c:out>
+							</c:otherwise>
+						</c:choose>					
+					</c:if>
+					<c:if test="${member.member_profile ==null}">
+						<a href="${pageContext.request.contextPath}/Member/MemberUpdate_form.do"><img class="author_img rounded-circle" src="${pageContext.request.contextPath}/upload/member_basic.png" alt="" width="130" height="130"></a>
+					</c:if>
+							<h4 style=" padding-top: 10px;">${member.member_nickname}님 프로필</h4>
 							<div class="social_icon">
-								<a href="#"> <i class="fab fa-facebook-f"></i>
-								</a> <a href="#"> <i class="fab fa-twitter"></i>
-								</a> <a href="#"> <i class="fab fa-github"></i>
-								</a> <a href="#"> <i class="fab fa-behance"></i>
-								</a>
+							<br>
+								<a href="#"> <i class="ti-heart"> 좋아요</i></a> 
+								<a href="#"> <i class="fab fa-twitter"> 팔로잉</i></a> 
 							</div>
-							<p>Boot camps have its supporters andit sdetractors. Some
-								people do not understand why you should have to spend money on
-								boot camp when you can get. Boot camps have itssuppor ters
-								andits detractors.</p>
-						</aside>
-						<aside class="single_sidebar_widget ads_widget">
-							<a href="#"> <img class="img-fluid" src="img/blog/add.jpg"
-								alt="">
-							</a>
-							<div class="br"></div>
-						</aside>
-						<aside class="single_sidebar_widget post_category_widget">
-							<h4 class="widget_title">Post Catgories</h4>
-							<ul class="list cat-list">
-								<li><a href="#" class="d-flex justify-content-between">
-										<p>프로필</p>
-								</a></li>
-								<li><a href="#" class="d-flex justify-content-between">
-										<p>주문목록</p>
-								</a></li>
-								<li><a href="#" class="d-flex justify-content-between">
-										<p>설정</p>
-								</a></li>
-								<li><a href="#" class="d-flex justify-content-between">
-										<p>전문가신청</p>
-								</a></li>
-								<li><a href="#" class="d-flex justify-content-between">
-										<p>판매자신청</p>
-								</a></li>
-							</ul>
-						</aside>						
-						<aside class="single-sidebar-widget tag_cloud_widget">
-							<h4 class="widget_title">Tag Clouds</h4>
-							<ul class="list">
-								<li><a href="#">Technology</a></li>
-								<li><a href="#">Fashion</a></li>
-								<li><a href="#">Architecture</a></li>
-								<li><a href="#">Fashion</a></li>
-								<li><a href="#">Food</a></li>
-								<li><a href="#">Technology</a></li>
-								<li><a href="#">Lifestyle</a></li>
-								<li><a href="#">Art</a></li>
-								<li><a href="#">Adventure</a></li>
-								<li><a href="#">Food</a></li>
-								<li><a href="#">Lifestyle</a></li>
-								<li><a href="#">Adventure</a></li>
-							</ul>
-						</aside>
 					</div>
-				</div>
-				<!-- <a href="ProductInsertActionForm.do">상품추가</a> -->
+            </ul>
+          </div>
+          <div class="sidebar-filter">
+            <div class="top-filter-head">카테고리</div>
+ 				<ul class="list cat-list mypage_category_list">
+					<li><a href="${pageContext.request.contextPath}/Member/Member_Mypage.do" class="d-flex justify-content-between"><p>프로필</p></a></li>
+					<li><a href="#" class="d-flex justify-content-between"><p>주문목록</p></a></li>
+					<li><a href="${pageContext.request.contextPath}/Member/MemberUpdate_form.do" class="d-flex justify-content-between"><p>설정</p></a></li>
+					<li><a href="${pageContext.request.contextPath}/Member/ConstractorSignup_form.do" class="d-flex justify-content-between"><p>전문가 신청</p></a></li>
+					<li><a href="${pageContext.request.contextPath}/Member/VendorSignup_form.do" class="d-flex justify-content-between"><p>판매자 신청</p></a></li>
+					<c:if test="${member.member_rating eq '2' }">
+					<li><a href="#" class="d-flex justify-content-between"><p>마이스토어</p></a></li>			
+					</c:if>
+				</ul>
+          </div>
+        </div>
+
+
+
 				<div class="ProductList" id="ProductList_box">
 					<div class="comments-area" id="ProductList_area">
-						<h4>등록한 상품 목록 </h4>
-						<div class="single-comment justify-content-between d-flex" id="ProductList_detail">
+						<h4>등록한 상품 목록</h4>
+						<a href="ProductInsertActionForm.do">상품추가</a>
+						<div class="single-comment justify-content-between d-flex"
+							id="ProductList_detail">
 							<div class="user justify-content-between d-flex">
 								<!-- <div class="thumb">
 									<img src="../../main_resource/img/blog/c1.jpg" alt="">
 								</div> -->
-								
+
 								<div class="desc">
-										<c:forEach var="productVO" items="${list}">
-												<c:if test="${productVO.product_fname != null }">
-													<c:set var="head" value="${fn:substring(productVO.product_fname, 0, fn:length(productVO.product_fname)-4) }"></c:set>
-													<c:set var="pattern" value="${fn:substring(productVO.product_fname, fn:length(head) +1, fn:length(productVO.product_fname)) }"></c:set>
-						
-														<c:choose>
-															<c:when test="${pattern == 'png' || pattern == 'gif' || pattern == 'PNG' }">
-															<img src="/kosta1200/upload/${head }_small.${pattern}">
-															</c:when>
-														<c:otherwise>
-															<c:out value="NO IMAGE"></c:out>
-														</c:otherwise>
-														</c:choose>
-														
-												</c:if>
-											<div id="product_list_in_list">		
-												<label>글번호 : ${productVO.board_seq }<br></label>									
-												<label>상품명 : ${productVO.product_name }<br></label>
-												<label>가   격 : ${productVO.product_price }<br></label>
-												<label>대분류 : ${productVO.product_lcategory }<br></label>
-												<label>소분류 : ${productVO.product_scategory }<br></label>
-												<a href="ProductUpdateActionForm.do?product_seq=${productVO.product_seq}">수정하기</a>
-												<a href="ProductDeleteAction.do?product_seq=${productVO.product_seq}">삭제하기</a>
-											</div>
-										</c:forEach>
-									</div>
+									<c:forEach var="productVO" items="${list}">
+										<c:if test="${productVO.product_fname != null }">
+											<c:set var="head"
+												value="${fn:substring(productVO.product_fname, 0, fn:length(productVO.product_fname)-4) }"></c:set>
+											<c:set var="pattern"
+												value="${fn:substring(productVO.product_fname, fn:length(head) +1, fn:length(productVO.product_fname)) }"></c:set>
+
+											<c:choose>
+												<c:when
+													test="${pattern == 'png' || pattern == 'gif' || pattern == 'PNG' }">
+													<img src="/kosta1200/upload/${head }_small.${pattern}">
+												</c:when>
+												<c:otherwise>
+													<c:out value="NO IMAGE"></c:out>
+												</c:otherwise>
+											</c:choose>
+
+										</c:if>
+										<div id="product_list_in_list">
+											<label>글번호 : ${productVO.board_seq }<br></label> <label>상품명
+												: ${productVO.product_name }<br>
+											</label> <label>가 격 : ${productVO.product_price }<br></label> <label>대분류
+												: ${productVO.product_lcategory }<br>
+											</label> <label>소분류 : ${productVO.product_scategory }<br></label>
+											<a
+												href="ProductUpdateActionForm.do?product_seq=${productVO.product_seq}">수정하기</a>
+											<a
+												href="ProductDeleteAction.do?product_seq=${productVO.product_seq}">삭제하기</a>
+										</div>
+									</c:forEach>
 								</div>
 							</div>
 						</div>
 					</div>
+				</div>
+				
+				
+				
+				
+				
+				
+				<!-- 문의목록 -->
+				
+				<div class="ProductList" id="ProductList_box">
+					<div class="comments-area" id="ProductList_area">
+						<h4>등록한 상품 목록</h4>
+						<a href="ProductInsertActionForm.do">상품추가</a>
+						<div class="single-comment justify-content-between d-flex"
+							id="ProductList_detail">
+							<div class="user justify-content-between d-flex">
+								<!-- <div class="thumb">
+									<img src="../../main_resource/img/blog/c1.jpg" alt="">
+								</div> -->
+
+								<div class="desc">
+									<c:forEach var="productVO" items="${list}">
+										<c:if test="${productVO.product_fname != null }">
+											<c:set var="head"
+												value="${fn:substring(productVO.product_fname, 0, fn:length(productVO.product_fname)-4) }"></c:set>
+											<c:set var="pattern"
+												value="${fn:substring(productVO.product_fname, fn:length(head) +1, fn:length(productVO.product_fname)) }"></c:set>
+
+											<c:choose>
+												<c:when
+													test="${pattern == 'png' || pattern == 'gif' || pattern == 'PNG' }">
+													<img src="/kosta1200/upload/${head }_small.${pattern}">
+												</c:when>
+												<c:otherwise>
+													<c:out value="NO IMAGE"></c:out>
+												</c:otherwise>
+											</c:choose>
+
+										</c:if>
+										<div id="product_list_in_list">
+											<label>글번호 : ${productVO.board_seq }<br></label> <label>상품명
+												: ${productVO.product_name }<br>
+											</label> <label>가 격 : ${productVO.product_price }<br></label> <label>대분류
+												: ${productVO.product_lcategory }<br>
+											</label> <label>소분류 : ${productVO.product_scategory }<br></label>
+											<a
+												href="ProductUpdateActionForm.do?product_seq=${productVO.product_seq}">수정하기</a>
+											<a
+												href="ProductDeleteAction.do?product_seq=${productVO.product_seq}">삭제하기</a>
+										</div>
+									</c:forEach>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 			</div>
-		</div>
-	</section>
-	<!--================Blog Area =================-->
+        	</div>
+     </section>
+
+ <jsp:include page="../footer.jsp"></jsp:include>
 
 
-
-	<jsp:include page="../footer.jsp"></jsp:include>
-
-
-	<script src="${pageContext.request.contextPath}/main_resource/vendors/jquery/jquery-3.2.1.min.js"></script>
-	<script src="${pageContext.request.contextPath}/main_resource/vendors/bootstrap/bootstrap.bundle.min.js"></script>
-	<script src="${pageContext.request.contextPath}/main_resource/vendors/skrollr.min.js"></script>
-	<script src="${pageContext.request.contextPath}/main_resource/vendors/owl-carousel/owl.carousel.min.js"></script>
-	<script src="${pageContext.request.contextPath}/main_resource/vendors/nice-select/jquery.nice-select.min.js"></script>
-	<script src="${pageContext.request.contextPath}/main_resource/vendors/jquery.ajaxchimp.min.js"></script>
-	<script src="${pageContext.request.contextPath}/main_resource/vendors/mail-script.js"></script>
-	<script src="${pageContext.request.contextPath}/main_resource/js/main.js"></script>
+  <script src="${pageContext.request.contextPath}/main_resource/vendors/jquery/jquery-3.2.1.min.js"></script>
+  <script src="${pageContext.request.contextPath}/main_resource/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="${pageContext.request.contextPath}/main_resource/vendors/skrollr.min.js"></script>
+  <script src="${pageContext.request.contextPath}/main_resource/vendors/owl-carousel/owl.carousel.min.js"></script>
+  <script src="${pageContext.request.contextPath}/main_resource/vendors/nice-select/jquery.nice-select.min.js"></script>
+  <script src="${pageContext.request.contextPath}/main_resource/vendors/nouislider/nouislider.min.js"></script>
+  <script src="${pageContext.request.contextPath}/main_resource/vendors/jquery.ajaxchimp.min.js"></script>
+  <script src="${pageContext.request.contextPath}/main_resource/vendors/mail-script.js"></script>
+  <script src="${pageContext.request.contextPath}/main_resource/js/main.js"></script>
 </body>
 </html>

@@ -21,33 +21,30 @@
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/css/style.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/main_resource/css/comments.css">
-<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script>
-$("#btn_comments_Update").click(function(){
-	comments_content.
-})
-</script> -->
+
 
 </head>
 <body>
 
 <div class="col-lg-12 comments_div_jsb">
 	<div class="comments-area comments_list_jsb">
-		<h4>댓글 ${list.totalCount}</h4>
+		<h4>댓글 ${list2.totalCount}</h4>
 		<div class="comment-list">
 			<div class="user d-flex comments_insert_jsb">
-				<c:forEach var="m" items="${member}">
+<%-- 				<c:forEach var="m" items="${mlist}"> --%>
 					<div class="thumb">
-						<img src="${m.member_profile}" alt="">
+					<%-- <%= session.getAttribute("member") %> --%>
+						<img src="${pageContext.request.contextPath}/upload/${member.member_profile}" alt="">
+						<%-- <c:out value="${pageContext.request.contextPath}/upload/${member.member_profile}"></c:out> --%>
 					</div>
-				</c:forEach>
+<%-- 				</c:forEach> --%>
 				<div class="form-group col-lg-10 col-md-6 name comments_reply_jsb">
 					<form action="CommentsInsertAction.do" method="POST" enctype="multipart/form-data">
 						<!-- 댓글 입력 -->
 						<input type="text" class="form-control" id="insert_content" 
 						name="comments_content" placeholder="댓글내용을 입력해주세요" onfocus="this.placeholder = ''"
 							onblur="this.placeholder = '댓글내용을 입력해주세요'">
-						<input class="ti-search" type="file" name="comments_picture">
+						<input class="ti-search" type="file" name="comments_picture" id="insert_file">
 						<div class="reply-btn">
 							<input class="btn-reply text-uppercase" type="submit">
 						</div>
@@ -55,13 +52,13 @@ $("#btn_comments_Update").click(function(){
 				</div>
 			</div>
 			<%-- <c:if test="${listSize > 0 } "> --%>
-			<c:forEach var="c" items="${list.list}">
+			<c:forEach var="c" items="${list2.list}">
 				<div class="single-comment justify-content-between d-flex single-comment_jsb">
 					<div class="user justify-content-between d-flex">
 						<div class="desc">
 						<input type="hidden" name="seq" value="${c.comments_seq}">
 							<h5>
-								<a href="#">${c.member_seq}번 글쓴이</a>
+								<a href="Member_Mypage.do?member_seq=${c.member_seq}">${c.member_seq}님</a>
 							</h5>
                                <!-- 썸네일 이미지 -->
                                <c:if test="${c.comments_picture != null }">
@@ -93,9 +90,9 @@ $("#btn_comments_Update").click(function(){
 
 		<nav class="blog-pagination justify-content-center d-flex">
 		<ul class="pagination">
-			<c:if test="${list.startPage > 5 }">
+			<c:if test="${list2.startPage > 5 }">
 				<li class="page-item">
-					<a href="CommentsListAction.do?pageNum=${list.startPage - 1}" class="page-link" aria-label="Previous"> 
+					<a href="CommentsListAction.do?pageNum=${list2.startPage - 1}" class="page-link" aria-label="Previous"> 
 						<span aria-hidden="true">
 							<span class="lnr lnr-chevron-left" ></span>
 						</span>
@@ -103,17 +100,17 @@ $("#btn_comments_Update").click(function(){
 				</li>
 			</c:if>
 			
-			<c:forEach var="pageNo" begin="${list.startPage}" end="${list.endPage}">
-				<c:if test="${list.requestPage == pageNo}"><b></c:if>
+			<c:forEach var="pageNo" begin="${list2.startPage}" end="${list2.endPage}">
+				<c:if test="${list2.requestPage == pageNo}"><b></c:if>
 					<li class="page-item">
 						<a href="CommentsListAction.do?pageNum=${pageNo}" class="page-link"  id="page-item-pageno">${pageNo}</a>
 					</li>
-				<c:if test="${list.requestPage == pageNo}"></b></c:if>
+				<c:if test="${list2.requestPage == pageNo}"></b></c:if>
 			</c:forEach>
 			
-			<c:if test="${list.endPage < list.totalPageCount}">
+			<c:if test="${list2.endPage < list2.totalPageCount}">
 				<li class="page-item">
-					<a href="CommentsListAction.do?pageNum=${list.endPage + 1}" class="page-link" aria-label="Next"> 
+					<a href="CommentsListAction.do?pageNum=${list2.endPage + 1}" class="page-link" aria-label="Next"> 
 						<span aria-hidden="true">
 							<span class="lnr lnr-chevron-right"></span>
 						</span>
@@ -123,23 +120,6 @@ $("#btn_comments_Update").click(function(){
 		</ul>
 		</nav>
 		
-		<!-- paging처리 -->
-		<!-- 이전이라는 글자가 나올지 안나올지 -->
-		<%-- <c:if test="${list.startPage > 5 }">
-			<a href="CommentsListAction.do?pageNum=${list.startPage - 1}">[이전]</a>
-		</c:if>
-		
-		<!-- 페이지목록 -->
-		<c:forEach var="pageNo" begin="${list.startPage}" end="${list.endPage}">
-			<c:if test="${list.requestPage == pageNo}"><b></c:if>
-				<a href="CommentsListAction.do?pageNum=${pageNo}">[${pageNo}]</a>
-			<c:if test="${list.requestPage == pageNo}"></b></c:if>
-		</c:forEach>
-		
-		<!-- 이후라는 글자가 나올지 안나올지 -->
-		<c:if test="${list.endPage < list.totalPageCount}">
-			<a href="CommentsListAction.do?pageNum=${list.endPage + 1}">[이후]</a>
-		</c:if> --%>
 	</div>
 </div>
 

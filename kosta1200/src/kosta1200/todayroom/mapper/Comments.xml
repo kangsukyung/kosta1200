@@ -27,4 +27,8 @@
 	select count(*) from comments
 </select>
 
+<select id="listMember" resultType="member" >
+	select * from member
+</select>
+
 </mapper>

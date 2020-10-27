@@ -4,6 +4,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kosta1200.todayroom.service.BoardService;
+import kosta1200.todayroom.service.CommentsService;
+import kosta1200.todayroom.vo.Comments_PagingVO;
 
 public class Board_DeleteAction implements Action {
 
@@ -13,6 +15,8 @@ public class Board_DeleteAction implements Action {
 		BoardService service = BoardService.getInstance();
 		
 		int seq = Integer.parseInt(request.getParameter("board_seq"));
+		
+		
 		
 		service.deleteRoomwarmingService(seq);
 		service.deleteKnowhowService(seq);

@@ -4,7 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kosta1200.todayroom.service.BoardService;
+import kosta1200.todayroom.service.CommentsService;
 import kosta1200.todayroom.vo.BoardVO;
+import kosta1200.todayroom.vo.Comments_PagingVO;
 import kosta1200.todayroom.vo.MemberVO;
 
 public class Board_listDetailAction implements Action {
@@ -17,6 +19,12 @@ public class Board_listDetailAction implements Action {
 		int seq = Integer.parseInt(request.getParameter("board_seq"));
 		BoardVO board = service.listDetailBoardService(seq);
 		request.setAttribute("board", board);
+		
+		//댓글 리스트 부분
+		CommentsService service2 = CommentsService.getInstance();
+		Comments_PagingVO list2 = service2.listCommentsService(request);
+		System.out.println("list안에 :: "+ list2);
+		request.setAttribute("list2", list2);
 		
 		MemberVO member = service.listDetailMemberService(seq);
 		request.setAttribute("member", member);
