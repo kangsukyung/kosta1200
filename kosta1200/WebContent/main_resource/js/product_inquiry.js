@@ -15,7 +15,7 @@ $(function(){
 		e.preventDefault();
 		
 		$.ajax({
-			url:"../../productInquiry/insertProductInquiry.do",
+			url:"../productInquiry/insertProductInquiry.do",
 			type : "post",
 			data : $('#my-form').serialize(),
 			success : function(data){

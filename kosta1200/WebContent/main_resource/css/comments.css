@@ -26,3 +26,8 @@
 .blog_item_jsb{
 	margin-bottom:10px!important;
 }
+
+#insert_file{
+	width:15px;
+	overflow: hidden;
+}

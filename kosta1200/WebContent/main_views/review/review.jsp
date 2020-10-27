@@ -64,9 +64,9 @@
 
 	<!-- review list start-->
 	<div class="col-lg-8 review_sidebar_jsb">
-		<c:if test="${list.totalCount > 0}">
+		<c:if test="${list2.totalCount > 0}">
 			<div class="review_sidebar_count_jsb" >
-				<h4 >리뷰  ${list.totalCount}개</h4>
+				<h4 >리뷰  ${list2.totalCount}개</h4>
 			</div>
 			<div class="review_sidebar_button_jsb">
 				<a id="popup_open_btn">리뷰쓰기</a>
@@ -85,7 +85,7 @@
 	        	<a class="review_sidebar_alig_jsb">최신순</a>
 	        	<a class="review_sidebar_alig_jsb">최신순</a>
 	        	<a class="review_sidebar_alig_jsb">최신순</a>
-	            <c:forEach var="r" items="${list.list}">
+	            <c:forEach var="r" items="${list2.list}">
 	            <div class="production-review-item__container">
 		            <article class="row blog_item blog_item_jsb">
 		            <div class="thumb">
@@ -125,9 +125,9 @@
 	            </c:forEach>
 	            <nav class="blog-pagination justify-content-center d-flex">
 	                <ul class="pagination">
-	                    <c:if test="${list.startPage > 5 }">
+	                    <c:if test="${list2.startPage > 5 }">
 							<li class="page-item">
-								<a href="ReviewListAction.do?pageNum=${list.startPage - 1}" class="page-link" aria-label="Previous"> 
+								<a href="ReviewListAction.do?pageNum=${list2.startPage - 1}" class="page-link" aria-label="Previous"> 
 									<span aria-hidden="true">
 										<span class="lnr lnr-chevron-left" ></span>
 									</span>
@@ -135,17 +135,17 @@
 							</li>
 						</c:if>
 						
-						<c:forEach var="pageNo" begin="${list.startPage}" end="${list.endPage}">
-							<c:if test="${list.requestPage == pageNo}"><b></c:if>
+						<c:forEach var="pageNo" begin="${list2.startPage}" end="${list2.endPage}">
+							<c:if test="${list2.requestPage == pageNo}"><b></c:if>
 								<li class="page-item">
 									<a href="ReviewListAction.do?pageNum=${pageNo}" class="page-link"  id="page-item-pageno">${pageNo}</a>
 								</li>
-							<c:if test="${list.requestPage == pageNo}"></b></c:if>
+							<c:if test="${list2.requestPage == pageNo}"></b></c:if>
 						</c:forEach>
 						
-						<c:if test="${list.endPage < list.totalPageCount}">
+						<c:if test="${list2.endPage < list2.totalPageCount}">
 							<li class="page-item">
-								<a href="ReviewListAction.do?pageNum=${list.endPage + 1}" class="page-link" aria-label="Next"> 
+								<a href="ReviewListAction.do?pageNum=${list2.endPage + 1}" class="page-link" aria-label="Next"> 
 									<span aria-hidden="true">
 										<span class="lnr lnr-chevron-right"></span>
 									</span>
@@ -156,7 +156,7 @@
 	            </nav>
 	        </div>
         </c:if>
-        <c:if test="${list.totalCount == 0 || list.totalCount == null}">
+        <c:if test="${list2.totalCount == 0 || list2.totalCount == null}">
 			리뷰가 없어요 작성해주세요
 			<a id="popup_open_btn">리뷰쓰기</a>   
         </c:if>

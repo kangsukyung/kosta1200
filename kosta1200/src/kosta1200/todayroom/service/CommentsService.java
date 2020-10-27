@@ -66,6 +66,7 @@ public class CommentsService {
 				List<MemberVO> mlist = dao.listMember();
 				//페이징에 필요한 모든 정보를 가지고 있는 객체를 생성
 				Comments_PagingVO listComments = new Comments_PagingVO(list, requestPage, totalPageCount, startPage, endPage, totalCount);
+				request.setCharacterEncoding("utf-8");
 				request.setAttribute("mlist", mlist);
 				
 		return listComments;

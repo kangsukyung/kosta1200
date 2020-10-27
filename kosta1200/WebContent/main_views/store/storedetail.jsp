@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,19 +36,19 @@
 <body>
 	<!--================ Start Header Menu Area =================-->
 	<!--================ End Header Menu Area =================-->
-
+ <jsp:include page="../header.jsp"></jsp:include>
 	<!-- ================ start banner area ================= -->
 
 	<section class="blog-banner-area" id="blog">
 		<div class="container h-100">
 			<div class="blog-banner">
 				<div class="text-center">
-					<h1>Á¦Ç° »ó¼¼ ÆäÀÌÁö</h1>
+					<h1>ì œí’ˆ ìƒì„¸ í˜ì´ì§€</h1>
 					<nav aria-label="breadcrumb" class="banner-breadcrumb">
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="#">Home</a></li>
-							<li class="breadcrumb-item active" aria-current="page">»óÇ°
-								µğÅ×ÀÏ</li>
+							<li class="breadcrumb-item active" aria-current="page">ìƒí’ˆ
+								ë””í…Œì¼</li>
 						</ol>
 					</nav>
 				</div>
@@ -83,11 +83,11 @@
 						<h3>${board.board_title }</h3>
 						<c:forEach items="${list }" var="product" varStatus="status"
 							begin="0" end="0">
-							<h2 class="product_price">${product.product_price }¿ø¿Ü</h2>
+							<h2 class="product_price">${product.product_price }ì›ì™¸</h2>
 						</c:forEach>
 						<button class="production-selling-header_action_button_hw"
 							type="button">
-							<svg class="icon--stroke" aria-label="½ºÅ©·¦" width="24" height="24"
+							<svg class="icon--stroke" aria-label="ìŠ¤í¬ë©" width="24" height="24"
 								fill="currentColor" stroke="currentColor" stroke-width="0.5"
 								viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
 								<path
@@ -101,8 +101,8 @@
 							<div class="production-select-dropdown__button">
 								<button class="production-select-button" type="button">
 									<div class="production-select-button__production">
-										<div class="production-select-button__production__blank">»óÇ°À»
-											¼±ÅÃÇÏ¼¼¿ä.</div>
+										<div class="production-select-button__production__blank">ìƒí’ˆì„
+											ì„ íƒí•˜ì„¸ìš”.</div>
 										<div class="production-select-button__production__icon">
 											<svg width="1em" height="1em" viewBox="0 0 16 16"
 												preserveAspectRatio="xMidYMid meet">
@@ -131,7 +131,7 @@
 													id="product_name"> ${product.product_name }</span><span
 													class="production-item-price production-select-item__contents__price"><span
 													class="production-item-price__price" id="product_price">${product.product_price }
-														¿ø</span></span>
+														ì›</span></span>
 											</div>
 										</button></li>
 								</c:forEach>
@@ -144,7 +144,7 @@
 										id="${status.count }">
 										<h1 class="selling-option-item__production">${product.product_name }</h1>
 										<button class="selling-option-item__delete" type="button"
-											aria-label="»èÁ¦">
+											aria-label="ì‚­ì œ">
 											<svg width="12" height="12" viewBox="0 0 12 12"
 												fill="currentColor" preserveAspectRatio="xMidYMid meet">
 											<path fill-rule="nonzero"
@@ -155,7 +155,7 @@
 											<div class="selling-option-item__quantity">
 												<div class="input-group select-input option-count-input">
 													<select class="form-control" id="${status.count }"><option
-															value="0">¼ö·®</option>
+															value="0">ìˆ˜ëŸ‰</option>
 														<option value="1">1</option>
 														<option value="2">2</option>
 														<option value="3">3</option>
@@ -169,7 +169,7 @@
 											</div>
 											<p class="selling-option-item__price">
 												<span class="selling-option-item__price__number"
-													id="${status.count }">0</span>¿ø <span
+													id="${status.count }">0</span>ì› <span
 													class="product-one-price" hidden="">${product.product_price }</span>
 											</p>
 										</div>
@@ -177,15 +177,15 @@
 							</c:forEach>
 						</ul>
 						<p class="selling-option-form-content__price">
-							<span class="selling-option-form-content__price__left">ÃÑ
-								ÁÖ¹®±İ¾×</span><span class="selling-option-form-content__price__right"><span
-								class="selling-option-form-content__price__number">0</span>¿ø</span>
+							<span class="selling-option-form-content__price__left">ì´
+								ì£¼ë¬¸ê¸ˆì•¡</span><span class="selling-option-form-content__price__right"><span
+								class="selling-option-form-content__price__number">0</span>ì›</span>
 						</p>
 
 						<div class="product_count">
 							<a class="button normal-btn"
-								href="BasketListActionForm.do?product_seq">Àå¹Ù±¸´Ï¿¡ ´ã±â</a> <a
-								class="button primary-btn" href="#">±¸¸ÅÇÏ±â</a>
+								href="BasketListActionForm.do?product_seq">ì¥ë°”êµ¬ë‹ˆì— ë‹´ê¸°</a> <a
+								class="button primary-btn" href="#">êµ¬ë§¤í•˜ê¸°</a>
 
 						</div>
 					</div>
@@ -201,13 +201,13 @@
 			<ul class="nav nav-tabs" id="myTab" role="tablist">
 				<li class="nav-item"><a class="nav-link" id="home-tab"
 					data-toggle="tab" href="#home" role="tab" aria-controls="home"
-					aria-selected="true">Á¦Ç° »ó¼¼</a></li>
+					aria-selected="true">ì œí’ˆ ìƒì„¸</a></li>
 				<li class="nav-item"><a class="nav-link active" id="review-tab"
 					data-toggle="tab" href="#review" role="tab" aria-controls="review"
-					aria-selected="false">¸®ºä</a></li>
+					aria-selected="false">ë¦¬ë·°</a></li>
 				<li>
-					<button type="button" class="btn btn-primary" id="inquiry-button" data-toggle="modal"
-						data-target="#exampleModal">¹®ÀÇÇÏ±â</button>
+					<button type="button" class="btn btn-primary" id="inquiry-button"
+						data-toggle="modal" data-target="#exampleModal">ë¬¸ì˜í•˜ê¸°</button>
 				</li>
 			</ul>
 			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
@@ -216,7 +216,7 @@
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
-							<h4 class="modal-title" id="exampleModalLabel">»óÇ° ¹®ÀÇÇÏ±â</h4>
+							<h4 class="modal-title" id="exampleModalLabel">ìƒí’ˆ ë¬¸ì˜í•˜ê¸°</h4>
 							<button type="button" class="close" data-dismiss="modal"
 								aria-label="Close">
 								<span aria-hidden="true">&times;</span>
@@ -226,34 +226,34 @@
 							<form id="my-form">
 								<div class="btn-group btn-group-toggle" data-toggle="buttons">
 									<label class="btn btn-default btn-lg"> <input
-										type="radio" name="pi_type" value="product"> »óÇ°
+										type="radio" name="pi_type" value="product"> ìƒí’ˆ
 									</label> <label class="btn btn-default btn-lg"> <input
-										type="radio" name="pi_type" value="shipping"> ¹è¼Û
+										type="radio" name="pi_type" value="shipping"> ë°°ì†¡
 									</label> <label class="btn btn-default btn-lg"> <input
-										type="radio" name="pi_type" value="return"> ¹İÇ°
+										type="radio" name="pi_type" value="return"> ë°˜í’ˆ
 									</label> <label class="btn btn-default btn-lg"> <input
-										type="radio" name="pi_type" value="exchange"> ±³È¯
+										type="radio" name="pi_type" value="exchange"> êµí™˜
 									</label> <label class="btn btn-default btn-lg"> <input
-										type="radio" name="pi_type" value="refund"> È¯ºÒ
+										type="radio" name="pi_type" value="refund"> í™˜ë¶ˆ
 									</label> <label class="btn btn-default btn-lg"> <input
-										type="radio" name="pi_type" value="etc"> ±âÅ¸
+										type="radio" name="pi_type" value="etc"> ê¸°íƒ€
 									</label>
 								</div>
 								<div class="form-group">
-									<label for="message-text" class="control-label">¹®ÀÇ³»¿ë</label>
+									<label for="message-text" class="control-label">ë¬¸ì˜ë‚´ìš©</label>
 									<textarea class="form-control" id="message-text"
 										name="pi_content"></textarea>
 								</div>
 								<input hidden="hidden" name="member_seq" value="1">
-								<!-- value °ª ÃßÈÄ Á¶Á¤ ÇÊ¿ä -->
+								<!-- value ê°’ ì¶”í›„ ì¡°ì • í•„ìš” -->
 								<input hidden="hidden" name="product_seq" value="1">
 							</form>
-							<div>¹®ÀÇ³»¿ë¿¡ ´ëÇÑ ´äº¯Àº ¡®¸¶ÀÌÆäÀÌÁö &gt; ³ªÀÇ ¼îÇÎ &gt; ³ªÀÇ ¹®ÀÇ³»¿ª¡¯ ¶Ç´Â ¡®»óÇ°
-								»ó¼¼ÆäÀÌÁö¡¯¿¡¼­ È®ÀÎ °¡´ÉÇÕ´Ï´Ù.</div>
+							<div>ë¬¸ì˜ë‚´ìš©ì— ëŒ€í•œ ë‹µë³€ì€ â€˜ë§ˆì´í˜ì´ì§€ &gt; ë‚˜ì˜ ì‡¼í•‘ &gt; ë‚˜ì˜ ë¬¸ì˜ë‚´ì—­â€™ ë˜ëŠ” â€˜ìƒí’ˆ
+								ìƒì„¸í˜ì´ì§€â€™ì—ì„œ í™•ì¸ ê°€ëŠ¥í•©ë‹ˆë‹¤.</div>
 						</div>
 						<div class="modal-footer">
 							<button type="submit" form="my-form" class="btn btn-primary"
-								id="inquiry-submit">¹®ÀÇÇÏ±â</button>
+								id="inquiry-submit">ë¬¸ì˜í•˜ê¸°</button>
 						</div>
 					</div>
 				</div>
@@ -268,234 +268,149 @@
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="comment_list">
-							<%-- <jsp:include page="../comments/comments.jsp"></jsp:include> --%>
-							<%-- <jsp:forward page="../../test.html"></jsp:forward> --%>
-							dkdkfkdkkfk
-								<!-- <div class="review_item">
-									<div class="media">
-										<div class="d-flex">
-											<img src="img/product/review-1.png" alt="">
-										</div>
-										<div class="media-body">
-											<h4>Blake Ruiz</h4>
-											<h5>12th Feb, 2018 at 05:56 pm</h5>
-											<a class="reply_btn" href="#">Reply</a>
-										</div>
-									</div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-										elit, sed do eiusmod tempor incididunt ut labore et dolore
-										magna aliqua. Ut enim ad minim veniam, quis nostrud
-										exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-								</div>
-								<div class="review_item reply">
-									<div class="media">
-										<div class="d-flex">
-											<img src="img/product/review-2.png" alt="">
-										</div>
-										<div class="media-body">
-											<h4>Blake Ruiz</h4>
-											<h5>12th Feb, 2018 at 05:56 pm</h5>
-											<a class="reply_btn" href="#">Reply</a>
-										</div>
-									</div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-										elit, sed do eiusmod tempor incididunt ut labore et dolore
-										magna aliqua. Ut enim ad minim veniam, quis nostrud
-										exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-								</div>
-								<div class="review_item">
-									<div class="media">
-										<div class="d-flex">
-											<img src="img/product/review-3.png" alt="">
-										</div>
-										<div class="media-body">
-											<h4>Blake Ruiz</h4>
-											<h5>12th Feb, 2018 at 05:56 pm</h5>
-											<a class="reply_btn" href="#">Reply</a>
-										</div>
-									</div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-										elit, sed do eiusmod tempor incididunt ut labore et dolore
-										magna aliqua. Ut enim ad minim veniam, quis nostrud
-										exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-								</div>
+								
+
 							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="review_box">
-								<h4>Post a comment</h4>
-								<form class="row contact_form" action="contact_process.php"
-									method="post" id="contactForm" novalidate="novalidate">
-									<div class="col-md-12">
-										<div class="form-group">
-											<input type="text" class="form-control" id="name" name="name"
-												placeholder="Your Full name">
-										</div>
-									</div>
-									<div class="col-md-12">
-										<div class="form-group">
-											<input type="email" class="form-control" id="email"
-												name="email" placeholder="Email Address">
-										</div>
-									</div>
-									<div class="col-md-12">
-										<div class="form-group">
-											<input type="text" class="form-control" id="number"
-												name="number" placeholder="Phone Number">
-										</div>
-									</div>
-									<div class="col-md-12">
-										<div class="form-group">
-											<textarea class="form-control" name="message" id="message"
-												rows="1" placeholder="Message"></textarea>
-										</div>
-									</div>
-									<div class="col-md-12 text-right">
-										<button type="submit" value="submit" class="btn primary-btn">Submit
-											Now</button>
-									</div>
-								</form>
-							</div> -->
 						</div>
 					</div>
-				</div>
-				<div class="tab-pane fade show active" id="review" role="tabpanel"
-					aria-labelledby="review-tab">
-					<div class="row">
-						<div class="col-lg-6">
-							<div class="row total_rate">
-								<div class="col-6">
-									<div class="box_total">
-										<h5>Overall</h5>
-										<h4>4.0</h4>
-										<h6>(03 Reviews)</h6>
+					<div class="tab-pane fade show active" id="review" role="tabpanel"
+						aria-labelledby="review-tab">
+						<div class="row">
+							<div class="col-lg-6">
+								<div class="row total_rate">
+									<div class="col-6">
+										<div class="box_total">
+											<h5>Overall</h5>
+											<h4>4.0</h4>
+											<h6>(03 Reviews)</h6>
+										</div>
+									</div>
+									<div class="col-6">
+										<div class="rating_list">
+											<h3>Based on 3 Reviews</h3>
+											<ul class="list">
+												<li><a href="#">5 Star <i class="fa fa-star"></i><i
+														class="fa fa-star"></i><i class="fa fa-star"></i><i
+														class="fa fa-star"></i><i class="fa fa-star"></i> 01
+												</a></li>
+												<li><a href="#">4 Star <i class="fa fa-star"></i><i
+														class="fa fa-star"></i><i class="fa fa-star"></i><i
+														class="fa fa-star"></i><i class="fa fa-star"></i> 01
+												</a></li>
+												<li><a href="#">3 Star <i class="fa fa-star"></i><i
+														class="fa fa-star"></i><i class="fa fa-star"></i><i
+														class="fa fa-star"></i><i class="fa fa-star"></i> 01
+												</a></li>
+												<li><a href="#">2 Star <i class="fa fa-star"></i><i
+														class="fa fa-star"></i><i class="fa fa-star"></i><i
+														class="fa fa-star"></i><i class="fa fa-star"></i> 01
+												</a></li>
+												<li><a href="#">1 Star <i class="fa fa-star"></i><i
+														class="fa fa-star"></i><i class="fa fa-star"></i><i
+														class="fa fa-star"></i><i class="fa fa-star"></i> 01
+												</a></li>
+											</ul>
+										</div>
 									</div>
 								</div>
-								<div class="col-6">
-									<div class="rating_list">
-										<h3>Based on 3 Reviews</h3>
-										<ul class="list">
-											<li><a href="#">5 Star <i class="fa fa-star"></i><i
-													class="fa fa-star"></i><i class="fa fa-star"></i><i
-													class="fa fa-star"></i><i class="fa fa-star"></i> 01
-											</a></li>
-											<li><a href="#">4 Star <i class="fa fa-star"></i><i
-													class="fa fa-star"></i><i class="fa fa-star"></i><i
-													class="fa fa-star"></i><i class="fa fa-star"></i> 01
-											</a></li>
-											<li><a href="#">3 Star <i class="fa fa-star"></i><i
-													class="fa fa-star"></i><i class="fa fa-star"></i><i
-													class="fa fa-star"></i><i class="fa fa-star"></i> 01
-											</a></li>
-											<li><a href="#">2 Star <i class="fa fa-star"></i><i
-													class="fa fa-star"></i><i class="fa fa-star"></i><i
-													class="fa fa-star"></i><i class="fa fa-star"></i> 01
-											</a></li>
-											<li><a href="#">1 Star <i class="fa fa-star"></i><i
-													class="fa fa-star"></i><i class="fa fa-star"></i><i
-													class="fa fa-star"></i><i class="fa fa-star"></i> 01
-											</a></li>
-										</ul>
+								<div class="review_list">
+									<div class="review_item">
+										<div class="media">
+											<div class="d-flex">
+												<img src="img/product/review-1.png" alt="">
+											</div>
+											<div class="media-body">
+												<h4>Blake Ruiz</h4>
+												<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+													class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+													class="fa fa-star"></i>
+											</div>
+										</div>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+											elit, sed do eiusmod tempor incididunt ut labore et dolore
+											magna aliqua. Ut enim ad minim veniam, quis nostrud
+											exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+									</div>
+									<div class="review_item">
+										<div class="media">
+											<div class="d-flex">
+												<img src="img/product/review-2.png" alt="">
+											</div>
+											<div class="media-body">
+												<h4>Blake Ruiz</h4>
+												<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+													class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+													class="fa fa-star"></i>
+											</div>
+										</div>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+											elit, sed do eiusmod tempor incididunt ut labore et dolore
+											magna aliqua. Ut enim ad minim veniam, quis nostrud
+											exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+									</div>
+									<div class="review_item">
+										<div class="media">
+											<div class="d-flex">
+												<img src="img/product/review-3.png" alt="">
+											</div>
+											<div class="media-body">
+												<h4>Blake Ruiz</h4>
+												<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+													class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+													class="fa fa-star"></i>
+											</div>
+										</div>
+										<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+											elit, sed do eiusmod tempor incididunt ut labore et dolore
+											magna aliqua. Ut enim ad minim veniam, quis nostrud
+											exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
 									</div>
 								</div>
 							</div>
-							<div class="review_list">
-								<div class="review_item">
-									<div class="media">
-										<div class="d-flex">
-											<img src="img/product/review-1.png" alt="">
+							<div class="col-lg-6">
+								<div class="review_box">
+									<h4>Add a Review</h4>
+									<p>Your Rating:</p>
+									<ul class="list">
+										<li><a href="#"><i class="fa fa-star"></i></a></li>
+										<li><a href="#"><i class="fa fa-star"></i></a></li>
+										<li><a href="#"><i class="fa fa-star"></i></a></li>
+										<li><a href="#"><i class="fa fa-star"></i></a></li>
+										<li><a href="#"><i class="fa fa-star"></i></a></li>
+									</ul>
+									<p>Outstanding</p>
+									<form action="#/" class="form-contact form-review mt-3">
+										<div class="form-group">
+											<input class="form-control" name="name" type="text"
+												placeholder="Enter your name" required>
 										</div>
-										<div class="media-body">
-											<h4>Blake Ruiz</h4>
-											<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-												class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-												class="fa fa-star"></i>
+										<div class="form-group">
+											<input class="form-control" name="email" type="email"
+												placeholder="Enter email address" required>
 										</div>
-									</div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-										elit, sed do eiusmod tempor incididunt ut labore et dolore
-										magna aliqua. Ut enim ad minim veniam, quis nostrud
-										exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+										<div class="form-group">
+											<input class="form-control" name="subject" type="text"
+												placeholder="Enter Subject">
+										</div>
+										<div class="form-group">
+											<textarea class="form-control different-control w-100"
+												name="textarea" id="textarea" cols="30" rows="5"
+												placeholder="Enter Message"></textarea>
+										</div>
+										<div class="form-group text-center text-md-right mt-3">
+											<button type="submit"
+												class="button button--active button-review">Submit
+												Now</button>
+										</div>
+									</form>
 								</div>
-								<div class="review_item">
-									<div class="media">
-										<div class="d-flex">
-											<img src="img/product/review-2.png" alt="">
-										</div>
-										<div class="media-body">
-											<h4>Blake Ruiz</h4>
-											<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-												class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-												class="fa fa-star"></i>
-										</div>
-									</div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-										elit, sed do eiusmod tempor incididunt ut labore et dolore
-										magna aliqua. Ut enim ad minim veniam, quis nostrud
-										exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-								</div>
-								<div class="review_item">
-									<div class="media">
-										<div class="d-flex">
-											<img src="img/product/review-3.png" alt="">
-										</div>
-										<div class="media-body">
-											<h4>Blake Ruiz</h4>
-											<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-												class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-												class="fa fa-star"></i>
-										</div>
-									</div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-										elit, sed do eiusmod tempor incididunt ut labore et dolore
-										magna aliqua. Ut enim ad minim veniam, quis nostrud
-										exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-6">
-							<div class="review_box">
-								<h4>Add a Review</h4>
-								<p>Your Rating:</p>
-								<ul class="list">
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-									<li><a href="#"><i class="fa fa-star"></i></a></li>
-								</ul>
-								<p>Outstanding</p>
-								<form action="#/" class="form-contact form-review mt-3">
-									<div class="form-group">
-										<input class="form-control" name="name" type="text"
-											placeholder="Enter your name" required>
-									</div>
-									<div class="form-group">
-										<input class="form-control" name="email" type="email"
-											placeholder="Enter email address" required>
-									</div>
-									<div class="form-group">
-										<input class="form-control" name="subject" type="text"
-											placeholder="Enter Subject">
-									</div>
-									<div class="form-group">
-										<textarea class="form-control different-control w-100"
-											name="textarea" id="textarea" cols="30" rows="5"
-											placeholder="Enter Message"></textarea>
-									</div>
-									<div class="form-group text-center text-md-right mt-3">
-										<button type="submit"
-											class="button button--active button-review">Submit
-											Now</button>
-									</div>
-								</form>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 	</section>
+	<jsp:include page="../review/review.jsp"></jsp:include>
 	<!--================End Product Description Area =================-->
 
 	<!--================ Start related Product area =================-->
@@ -505,7 +420,9 @@
 	<!--================ Start footer Area  =================-->
 
 	<!--================ End footer Area  =================-->
-
+	<section>
+	 	<jsp:include page="../footer.jsp"></jsp:include>
+	</section>	
 
 
 	<script
