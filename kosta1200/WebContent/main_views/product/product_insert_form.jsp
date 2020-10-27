@@ -95,7 +95,7 @@
 								
 							
 							
-								<h1>어떤식으로 나오나요.</h1>
+							
 							
 							
 							
@@ -213,7 +213,7 @@
 							
 							
 							<div class="col-md-12 form-group">
-								<button type="submit" value="submit" class="button button-register w-100">사ㅇ 등록</button>
+								<button type="submit" value="submit" class="button button-register w-100">상품등록</button>
 							</div>
 						</form>
 					</div>
