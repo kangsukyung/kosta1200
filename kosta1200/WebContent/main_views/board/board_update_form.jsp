@@ -57,9 +57,8 @@
 				<div class="contents-col-lg-6">
 					<div class="login_form_inner register_form_inner">
 						<h3>필수 입력 사항</h3>
-						<form class="contents-row login_form" action="board_updateAction.do" id="contents-register_form" method="post"  enctype="multipart/form-data">
+						<form class="contents-row login_form" action="board_updateAction.do" id="contents-register_form" method="post">
 							<div class="col-md-12 form-group">
-								
 								<div class="contents-form-control">
 									<div class="row">
 										<div class="col-md-12">
@@ -244,6 +243,7 @@
 							</div>
 							
 							<div class="col-md-12 form-group">
+								<input type="hidden" name="board_seq" value="${board.board_seq }">
 								<button type="submit" value="submit" class="button button-register w-100">글 수정</button>
 							</div>
 						</form>

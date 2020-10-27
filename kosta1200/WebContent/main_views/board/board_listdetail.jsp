@@ -84,7 +84,7 @@
 													</a>
 											</li>
 											<li class="li_fixed_style">
-													<a href="#" class="blog_meta_list_a">
+													<a href="board_deleteAction.do?board_seq=${board.board_seq }" class="blog_meta_list_a">
 														<i class="lnr lnr-trash"></i>
 														<div class="blog_meta_list_div">Delete</div>
 													</a>
