@@ -24,7 +24,7 @@
     <div class="main_menu">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <a class="navbar-brand logo_h" href="index.html"><img src="${pageContext.request.contextPath}/main_resource/img/logo.png" alt=""></a>
+          <a class="navbar-brand logo_h" href="${pageContext.request.contextPath}/board/listAction.do"><img src="${pageContext.request.contextPath}/main_resource/img/logo.png" alt=""></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -36,16 +36,20 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">커뮤니티</a>
 	              <ul class="dropdown-menu">
                   <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/listAction.do">방들이</a></li>
+<<<<<<< HEAD
                   <li class="nav-item"><a class="nav-link" href="#">노하우</a></li>
                   <li class="nav-item"><a class="nav-link" href="#">질문과답변</a></li>
+=======
+                  <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/listAction.do">노하우</a></li>
+                  <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/listAction.do">질문과답변</a></li>
+>>>>>>> refs/heads/develop
                 </ul>
 				</li>
               <li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">스토어</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="#">카테고리</a>
-                  </li>
+                  <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/store/listStoreAction.do">카테고리</a></li>
                   <li class="nav-item"><a class="nav-link" href="#">특가</a></li>
                   <li class="nav-item"><a class="nav-link" href="#">베스트</a></li>
                   <li class="nav-item"><a class="nav-link" href="#">기획전</a></li>
@@ -55,7 +59,7 @@
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"aria-expanded="false">인테리어</a>
                 <ul class="dropdown-menu">
                   <li class="nav-item"><a class="nav-link" href="#">우리지역 업체</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#">맞춤업체 추천</a></li>
+                  <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/const/insertConstForm.do">맞춤업체 추천</a></li>
                 </ul>
               </li>
               
@@ -81,8 +85,8 @@
 	
 	<c:choose>
 		<c:when test="${member!=null }">
-              <li class="nav-item"><a href="#" class="msk-id"><button onclick="">${member.member_nickname}</button></a></li>
-              <li class="nav-item"><a href="#" class="msk-id"><button onclick="location.href ='${pageContext.request.contextPath}/Member/MemberLogout.do'">로그아웃</button></a></li>
+              <li class="nav-item"><a href="${pageContext.request.contextPath}/Member/Member_Mypage.do" class="msk-id"><button onclick="">${member.member_nickname}</button></a></li>
+              <li class="nav-item"><a class="msk-id"><button onclick="location.href ='${pageContext.request.contextPath}/Member/MemberLogout.do'">로그아웃</button></a></li>
 		</c:when>
 		<c:otherwise>
               <li class="nav-item"><a href="${pageContext.request.contextPath}/Member/MemberLogin_Action.do" class="msk-id">로그인</a></li>
