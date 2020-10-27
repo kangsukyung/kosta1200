@@ -31,6 +31,7 @@
 			<div class="blog-banner">
 				<div class="text-center">
 					<h1>Blog Details
+					${member.member_seq }
 					</h1>
 					<nav aria-label="breadcrumb" class="banner-breadcrumb">
             <ol class="breadcrumb">
@@ -126,9 +127,14 @@
 																			</a>
 																	</li>
 																	<li>
-																			<a href="#">${board.board_scraps } Scraps
+																		<form action="${pageContext.request.contextPath}/Scrap/ScrapInsertAction.do" method="post">
+																			<a type="hidden" href="#">${board.board_scraps } Scraps
+																			<input type="hidden" name="board_seq" value="${board.board_seq }">
+																			<input type="hidden" name="member_seq" value="${member.member_seq }">
 																					<i class="lnr lnr-bubble"></i>
 																			</a>
+																			<input type="submit" value="½ºÅ©·¦ÇÏ±â">
+																		</form>
 																	</li>
 															</ul>
 															<ul class="social-links">

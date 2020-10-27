@@ -114,50 +114,7 @@
 						</aside>
 					</div>
 				</div>
-				<div class="ProductList" id="ProductList_box">
-					<div class="comments-area" id="ProductList_area">
-						<h4>등록한 상품</h4>
-						
-						<div class="ProductFname">
-
-							<c:forEach var="productVO" items="${list}">
-
-								<c:if test="${productVO.product_fname != null }">
-									<c:set var="head"
-										value="${fn:substring(productVO.product_fname, 0, fn:length(productVO.product_fname)-4) }"></c:set>
-									<c:set var="pattern"
-										value="${fn:substring(productVO.product_fname, fn:length(head) +1, fn:length(productVO.product_fname)) }"></c:set>
-
-									<c:choose>
-										<c:when
-											test="${pattern == 'png' || pattern == 'gif' || pattern == 'PNG' }">
-											<img src="/kosta1200/upload/${head }.${pattern}">
-										</c:when>
-										<c:otherwise>
-											<c:out value="NO IMAGE"></c:out>
-										</c:otherwise>
-									</c:choose>
-								</c:if>
-
-							</c:forEach>
-
-
-						</div>
-						
-						<div class="ProductDetail">
-
-							<ul>
-								<li>상품명 : ${productVO.product_name}</li>
-								<li>가   격 : ${productVO.product_price}</li>
-								<li>대분류 : ${productVO.product_lcategory}</li>
-								<li>소분류 : ${productVO.product_scategory}</li>
-							</ul>
-							<br>
-
-
-
-
-						</div>
+				
 									<div class="form-group text-center text-md-right mt-3" id="ksk_btn">
 										<a href="ProductUpdateActionForm.do?product_seq=${productVO.product_seq}">글 수정</a>
 										<input type="submit" class="button button--active button-review" value="삭제">
