@@ -237,4 +237,88 @@ public class BoardDAO {
 		
 		return knowhow;
 	}
+	
+	public int updateBoard(BoardVO board) {
+		int re = -1;
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		try {
+			re = sqlSession.getMapper(BoardMapper.class).updateBoard(board);
+			if(re >  0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
+		return re;
+	}
+	
+	public int deleteBoard(int seq) {
+		int re = -1;
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		try {
+			re = sqlSession.getMapper(BoardMapper.class).deleteBoard(seq);
+			if(re >  0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
+		return re;
+	}
+	
+	public int deleteRoomwarming(int seq) {
+		int re = -1;
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		try {
+			re = sqlSession.getMapper(BoardMapper.class).deleteRoomwarming(seq);
+			if(re >  0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
+		return re;
+	}
+	
+	public int deleteKnowhow(int seq) {
+		int re = -1;
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		try {
+			re = sqlSession.getMapper(BoardMapper.class).deleteKnowhow(seq);
+			if(re >  0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
+		return re;
+	}
 }

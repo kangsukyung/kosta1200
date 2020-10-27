@@ -25,4 +25,9 @@ public interface BoardMapper {
 	
 	RoomwarmingVO DetailRoomwarming(int seq);
 	KnowhowVO DetailKnowhow(int seq);
+	
+	int updateBoard(BoardVO board);
+	int deleteBoard(int seq);
+	int deleteRoomwarming(int seq);
+	int deleteKnowhow(int seq);
 }
