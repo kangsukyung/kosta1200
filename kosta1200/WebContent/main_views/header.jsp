@@ -75,12 +75,12 @@
               </li>
             </ul>
             <ul class="nav-shop">
-              <li class="nav-item" id="hw-search"><form id="hw-searchbar" action=""><input name="keyword" placeholder="검색어 입력"></form><button><i class="ti-search" id="hw-search-button"></i></button></li>
+              <li class="nav-item" id="hw-search"><form id="hw-searchbar" action=""><input name="keyword" placeholder="검색어 입력"></form><button><i class="ti-search"></i></button></li>
               <li class="nav-item" id="hw-shopping-cart"><button><i class="ti-shopping-cart"></i><span class="nav-shop__circle"></span></button> </li>
 	
 	<c:choose>
 		<c:when test="${member!=null }">
-              <li class="nav-item"><a href="${pageContext.request.contextPath}/Member/Member_Mypage.do" class="msk-id"><button onclick="">${member.member_nickname}</button></a></li>
+              <li class="nav-item"><a href="${pageContext.request.contextPath}/Member/Member_Mypage.do?seq=${member.member_seq }" class="msk-id"><button onclick="">${member.member_nickname}</button></a></li>
               <li class="nav-item"><a class="msk-id"><button onclick="location.href ='${pageContext.request.contextPath}/Member/MemberLogout.do'">로그아웃</button></a></li>
 		</c:when>
 		<c:otherwise>

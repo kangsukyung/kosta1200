@@ -27,8 +27,11 @@ public class BoardService {
 	public int insertBoardService(HttpServletRequest request)throws Exception{
 		request.setCharacterEncoding("utf-8");
 		
+//		System.out.println(request.getSession().get);
+		
 		//파일업로드(경로가 어디냐, 파일크기가 어느정도냐, 인코딩방식, 파일이름이 중첩되었을 때 정책)
 		String uploadPath = request.getRealPath("upload");
+//		String uploadPath = "C:\\kosta202";
 		System.out.println(uploadPath);
 		int size = 20 * 1024 * 1024;//20MB
 				
@@ -36,6 +39,7 @@ public class BoardService {
 				"utf-8", new DefaultFileRenamePolicy());
 		
 		BoardVO board = new BoardVO();
+		board.setMember_seq(Integer.parseInt(multi.getParameter("seq")));
 		board.setBoard_title(multi.getParameter("title"));
 		board.setBoard_content(multi.getParameter("content"));
 		//date

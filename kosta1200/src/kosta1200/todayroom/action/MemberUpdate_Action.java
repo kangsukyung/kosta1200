@@ -15,7 +15,6 @@ public class MemberUpdate_Action implements Action{
 		
 		MemberVO member=service.MemberUpdate(request, response);
 		
-		request.getSession().invalidate();
 		request.getSession().setAttribute("member", member);
 			
 		forward.setRedirect(false);
