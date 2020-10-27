@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.RowBounds;
 
 import kosta1200.todayroom.vo.CommentsVO;
+import kosta1200.todayroom.vo.MemberVO;
 
 public interface CommentsMapper {
 	
@@ -17,4 +18,6 @@ public interface CommentsMapper {
 	int deleteComments(CommentsVO commentsvo);
 
 	int countComments();
+	
+	List<MemberVO> listMember();
 }

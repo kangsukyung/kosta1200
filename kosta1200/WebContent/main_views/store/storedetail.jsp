@@ -34,7 +34,7 @@
 <body>
 	<!--================ Start Header Menu Area =================-->
 	<!--================ End Header Menu Area =================-->
-
+	
 	<!-- ================ start banner area ================= -->
 
 	<section class="blog-banner-area" id="blog">
@@ -209,7 +209,10 @@
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="comment_list">
-								<div class="review_item">
+							<%-- <jsp:include page="../comments/comments.jsp"></jsp:include> --%>
+							<%-- <jsp:forward page="../../test.html"></jsp:forward> --%>
+							dkdkfkdkkfk
+								<!-- <div class="review_item">
 									<div class="media">
 										<div class="d-flex">
 											<img src="img/product/review-1.png" alt="">
@@ -293,7 +296,7 @@
 											Now</button>
 									</div>
 								</form>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>

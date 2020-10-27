@@ -36,7 +36,7 @@ $("#btn_comments_Update").click(function(){
 		<h4>댓글 ${list.totalCount}</h4>
 		<div class="comment-list">
 			<div class="user d-flex comments_insert_jsb">
-				<c:forEach var="m" items="${member}">
+				<c:forEach var="m" items="${mlist}">
 					<div class="thumb">
 						<img src="${m.member_profile}" alt="">
 					</div>
@@ -61,7 +61,7 @@ $("#btn_comments_Update").click(function(){
 						<div class="desc">
 						<input type="hidden" name="seq" value="${c.comments_seq}">
 							<h5>
-								<a href="#">${c.member_seq}번 글쓴이</a>
+								<a href="Member_Mypage.do?member_seq=${c.member_seq}">${c.member_seq}님</a>
 							</h5>
                                <!-- 썸네일 이미지 -->
                                <c:if test="${c.comments_picture != null }">

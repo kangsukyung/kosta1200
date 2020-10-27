@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kosta1200.todayroom.mapper.CommentsMapper;
 import kosta1200.todayroom.vo.CommentsVO;
+import kosta1200.todayroom.vo.MemberVO;
 
 public class CommentsDAO {
 	private static CommentsDAO dao = new CommentsDAO();
@@ -37,6 +38,23 @@ public class CommentsDAO {
 		List<CommentsVO> list = null;
 		try {
 			list = sqlSession.getMapper(CommentsMapper.class).listComments(new RowBounds(startRow, 3));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
+		return list;
+	}	
+	
+	public List<MemberVO> listMember(){
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		
+		List<MemberVO> list = null;
+		try {
+			list = sqlSession.getMapper(CommentsMapper.class).listMember();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {

@@ -10,9 +10,11 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kosta1200.todayroom.dao.CommentsDAO;
+import kosta1200.todayroom.dao.MemberDAO;
 import kosta1200.todayroom.vo.CommentsVO;
 import kosta1200.todayroom.vo.Comments_PagingVO;
 import kosta1200.todayroom.vo.ImageUtil;
+import kosta1200.todayroom.vo.MemberVO;
 
 public class CommentsService {
 	private static CommentsService service = new CommentsService();
@@ -61,8 +63,10 @@ public class CommentsService {
 				int startRow = (requestPage -1) * PAGE_SIZE;
 				
 				List<CommentsVO> list = dao.listComments(startRow);
+				List<MemberVO> mlist = dao.listMember();
 				//페이징에 필요한 모든 정보를 가지고 있는 객체를 생성
 				Comments_PagingVO listComments = new Comments_PagingVO(list, requestPage, totalPageCount, startPage, endPage, totalCount);
+				request.setAttribute("mlist", mlist);
 				
 		return listComments;
 	}
