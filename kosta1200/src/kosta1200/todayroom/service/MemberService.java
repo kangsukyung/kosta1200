@@ -12,6 +12,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 import kosta1200.todayroom.dao.MemberDAO;
+import kosta1200.todayroom.vo.BoardVO;
 import kosta1200.todayroom.vo.ContractorVO;
 import kosta1200.todayroom.vo.ImageUtil;
 import kosta1200.todayroom.vo.MemberVO;
@@ -157,5 +158,11 @@ public class MemberService {
 		inquiry.setOi_answer("");
 		
 		return dao.OneInquiry(inquiry);
+	}
+	
+	public BoardVO MyRoomList(MemberVO member) {
+		BoardVO board=new BoardVO();
+//		board.setMember_seq();
+		return null;
 	}
 }

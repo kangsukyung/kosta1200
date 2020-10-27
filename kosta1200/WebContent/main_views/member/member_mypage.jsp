@@ -68,7 +68,7 @@
 						</c:choose>					
 					</c:if>
 					<c:if test="${member.member_profile ==null}">
-						<a href="${pageContext.request.contextPath}/Member/MemberUpdate_form.do"><img class="author_img rounded-circle" src="../../upload/member_basic.png" alt="" width="130" height="130"></a>
+						<a href="${pageContext.request.contextPath}/Member/MemberUpdate_form.do"><img class="author_img rounded-circle" src="${pageContext.request.contextPath}/upload/member_basic.png" alt="" width="130" height="130"></a>
 					</c:if>
 							<h4 style=" padding-top: 10px;">${member.member_nickname}님 프로필</h4>
 							<div class="social_icon">
@@ -87,7 +87,9 @@
 					<li><a href="${pageContext.request.contextPath}/Member/MemberUpdate_form.do" class="d-flex justify-content-between"><p>설정</p></a></li>
 					<li><a href="${pageContext.request.contextPath}/Member/ConstractorSignup_form.do" class="d-flex justify-content-between"><p>전문가 신청</p></a></li>
 					<li><a href="${pageContext.request.contextPath}/Member/VendorSignup_form.do" class="d-flex justify-content-between"><p>판매자 신청</p></a></li>
-					<li><a href="#" class="d-flex justify-content-between"><p>스토어 목록</p></a></li>			
+					<c:if test="${member.member_rating eq '2' }">
+					<li><a href="#" class="d-flex justify-content-between"><p>마이스토어</p></a></li>			
+					</c:if>
 				</ul>
           </div>
         </div>
