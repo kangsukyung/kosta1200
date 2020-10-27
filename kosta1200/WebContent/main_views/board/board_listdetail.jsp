@@ -236,9 +236,9 @@
 											</div>
 									</div>
 									<div class="comments-area">
-											<jsp:include page="../comments/comments.jsp"></jsp:include>
+										<jsp:include page="../comments/comments.jsp"></jsp:include>
 									</div>
-										<div class="comment-list">
+										<%-- <div class="comment-list">
 											<div class="single-comment justify-content-between d-flex">
 													<div class="user justify-content-between d-flex">
 															<div class="thumb">
@@ -258,9 +258,9 @@
 															<a href="#" class="btn-reply text-uppercase">reply</a>
 													</div>
 											</div>
-										</div>
+										</div> --%>
 									</div>
-									<div class="comment-form">
+									<!-- <div class="comment-form">
 											<h4>Leave a Reply</h4>
 											<form>
 													<div class="form-group form-inline">
@@ -280,7 +280,7 @@
 													</div>
 													<a href="#" class="button button-postComment button--active">Post Comment</a>
 											</form>
-									</div>
+									</div> -->
 							</div>
 							
 							

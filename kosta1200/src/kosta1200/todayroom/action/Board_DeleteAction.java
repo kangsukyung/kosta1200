@@ -16,11 +16,6 @@ public class Board_DeleteAction implements Action {
 		
 		int seq = Integer.parseInt(request.getParameter("board_seq"));
 		
-		//댓글 리스트 부분
-		CommentsService service2 = CommentsService.getInstance();
-		Comments_PagingVO list2 = service2.listCommentsService(request);
-		System.out.println("list안에 :: "+ list2);
-		request.setAttribute("list2", list2);
 		
 		
 		service.deleteRoomwarmingService(seq);

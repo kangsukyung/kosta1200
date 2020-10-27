@@ -82,9 +82,9 @@
 	                 </div>
 	   		</div>
 	        <div class="blog_left_sidebar">
+	        	<a class="review_sidebar_alig_jsb">추천순</a>
 	        	<a class="review_sidebar_alig_jsb">최신순</a>
-	        	<a class="review_sidebar_alig_jsb">최신순</a>
-	        	<a class="review_sidebar_alig_jsb">최신순</a>
+	        	<a class="review_sidebar_alig_jsb">평점</a>
 	            <c:forEach var="r" items="${list2.list}">
 	            <div class="production-review-item__container">
 		            <article class="row blog_item blog_item_jsb">

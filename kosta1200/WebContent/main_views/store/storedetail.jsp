@@ -410,7 +410,9 @@
 				</div>
 			</div>
 	</section>
+	<section>
 	<jsp:include page="../review/review.jsp"></jsp:include>
+	</section>
 	<!--================End Product Description Area =================-->
 
 	<!--================ Start related Product area =================-->

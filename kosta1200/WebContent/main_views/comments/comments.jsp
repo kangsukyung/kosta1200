@@ -35,7 +35,7 @@
 					<div class="thumb">
 					<%-- <%= session.getAttribute("member") %> --%>
 						<img src="${pageContext.request.contextPath}/upload/${member.member_profile}" alt="">
-						<c:out value="${pageContext.request.contextPath}/upload/${member.member_profile}"></c:out>
+						<%-- <c:out value="${pageContext.request.contextPath}/upload/${member.member_profile}"></c:out> --%>
 					</div>
 <%-- 				</c:forEach> --%>
 				<div class="form-group col-lg-10 col-md-6 name comments_reply_jsb">

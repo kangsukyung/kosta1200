@@ -31,3 +31,12 @@
 	width:15px;
 	overflow: hidden;
 }
+
+.thumb img{
+	width : 75% !important;
+}
+
+#insert_content{
+	
+	width : 75% !important;
+}
