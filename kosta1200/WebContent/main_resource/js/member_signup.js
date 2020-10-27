@@ -15,7 +15,7 @@ $(function(){
             async: true,
             type : 'Post',
             data : "userid="+userid,
-            url : "../../Member/MemberIdCheckList.do",
+            url : "../Member/MemberIdCheckList.do",
             dataType : "text",
             success : function(data) {
             	console.log(data);
@@ -39,7 +39,7 @@ $(function(){
             async: true,
             type : 'Post',
             data : "userName="+userName,
-            url : "../../Member/MemberNickNameCheck.do",
+            url : "../Member/MemberNickNameCheck.do",
             dataType : "text",
             success : function(data) {
             	console.log(data);

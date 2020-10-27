@@ -136,9 +136,7 @@ public class MemberController extends HttpServlet {
 				e.printStackTrace();
 			}			
 		}else if(command.equals("MemberSignup_Form.do")) {
-			System.out.println("1");
 			try {
-				System.out.println("2");
 				action=new MemberSignup_Form();
 				forward=action.execute(request, response);
 			} catch (Exception e) {
