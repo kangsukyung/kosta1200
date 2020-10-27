@@ -102,12 +102,12 @@ public class BoardDAO {
 		return re;
 	}
 	
-	public List<BoardVO> listBoard() {
+	public List<BoardVO> listBoard(String keyword) {
 		SqlSession sqlSession = getSqlSessionFactory().openSession();
 		List<BoardVO> list = null;
 		
 		try {
-			list = sqlSession.getMapper(BoardMapper.class).listBoard();
+			list = sqlSession.getMapper(BoardMapper.class).listBoard(keyword);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -236,5 +236,89 @@ public class BoardDAO {
 		}
 		
 		return knowhow;
+	}
+	
+	public int updateBoard(BoardVO board) {
+		int re = -1;
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		try {
+			re = sqlSession.getMapper(BoardMapper.class).updateBoard(board);
+			if(re >  0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
+		return re;
+	}
+	
+	public int deleteBoard(int seq) {
+		int re = -1;
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		try {
+			re = sqlSession.getMapper(BoardMapper.class).deleteBoard(seq);
+			if(re >  0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
+		return re;
+	}
+	
+	public int deleteRoomwarming(int seq) {
+		int re = -1;
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		try {
+			re = sqlSession.getMapper(BoardMapper.class).deleteRoomwarming(seq);
+			if(re >  0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
+		return re;
+	}
+	
+	public int deleteKnowhow(int seq) {
+		int re = -1;
+		SqlSession sqlSession = getSqlSessionFactory().openSession();
+		try {
+			re = sqlSession.getMapper(BoardMapper.class).deleteKnowhow(seq);
+			if(re >  0) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession != null) {
+				sqlSession.close();
+			}
+		}
+		
+		return re;
 	}
 }

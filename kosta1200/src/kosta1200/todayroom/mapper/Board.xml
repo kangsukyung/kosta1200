@@ -17,8 +17,11 @@
 		insert into knowhow values(SEQ_BOARD_BOARD_SEQ.CURRVAL, #{knowhow_style})
 	</insert>
 
-	<select id="listBoard" resultType="board">
+	<select id="listBoard" resultType="board" parameterType="String">
 		select * from board
+		<if test="value != null and value != '%null%'">
+			where board_title like #{value}
+		</if>
 	</select>
 	
 	<select id="listRoomwarming" resultType="roomwarming">
@@ -48,6 +51,22 @@
 	<select id="DetailKnowhow" parameterType="int" resultType="knowhow">
 		select * from knowhow k, board b where k.board_seq = b.board_seq and b.board_seq = #{board_seq}
 	</select>
+	
+	<update id="updateBoard" parameterType="board">
+		update board set board_title=#{board_title}, board_content=#{board_content} where board_seq = #{board_seq}
+	</update>
+	
+	<delete id="deleteRoomwarming" parameterType="int">
+		delete from roomwarming where board_seq = #{board_seq}
+	</delete>
+	
+	<delete id="deleteKnowhow" parameterType="int">
+		delete from knowhow where board_seq = #{board_seq}
+	</delete>
+	
+	<delete id="deleteBoard" parameterType="int">
+		delete from board where board_seq = #{board_seq}
+	</delete>
 </mapper>
 
 

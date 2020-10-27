@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kosta1200.todayroom.action.Action;
 import kosta1200.todayroom.action.ActionForward;
+import kosta1200.todayroom.action.Board_DeleteAction;
 import kosta1200.todayroom.action.Board_UpdateAction;
 import kosta1200.todayroom.action.Board_UpdateActionForm;
 import kosta1200.todayroom.action.Board_insertAction;
@@ -66,6 +67,20 @@ public class BoardController extends HttpServlet {
 			}
 		}else if (command.equals("board_updateActionform.do")) {
 			action = new Board_UpdateActionForm();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("board_updateAction.do")) {
+			action = new Board_UpdateAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if (command.equals("board_deleteAction.do")) {
+			action = new Board_DeleteAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
