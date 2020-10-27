@@ -114,7 +114,7 @@
                           <div class="col-md-3">
                               <div class="blog_info text-right">
                                   <div class="post_tag">
-                                      <a href="#">${board.board_classification },</a>
+                                      <a href="#">${board.board_classification }/</a>
                                       <a class="active" href="#">Technology,</a>
                                       <a href="#">Politics,</a>
                                       <a href="#">Lifestyle</a>

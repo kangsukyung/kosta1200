@@ -9,7 +9,8 @@ public class MemberSignup_Form implements Action{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward=new ActionForward();
 		
-		forward.setRedirect(true);
+		System.out.println("1");
+		forward.setRedirect(false);
 		forward.setPath("../main_views/member/member_signup.jsp");
 		return forward;
 	}

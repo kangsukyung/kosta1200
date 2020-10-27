@@ -100,8 +100,19 @@ public class BoardService {
 		
 	}
 	
-	public List<BoardVO> listBoardService()throws Exception{
-		return dao.listBoard();
+	public List<BoardVO> listBoardService(HttpServletRequest request)throws Exception{
+		request.setCharacterEncoding("utf-8");
+		String str = "";
+		
+		str = request.getParameter("keyword");
+		System.out.println(str);
+		
+		if (str != null & str != "") {
+			str = "%" + str + "%";
+		}
+		System.out.println(str);
+		
+		return dao.listBoard(str);
 	}
 	
 	public List<RoomwarmingVO> listRoomwarmingService()throws Exception{
@@ -130,5 +141,21 @@ public class BoardService {
 	
 	public KnowhowVO DetailKnowhowService(int seq)throws Exception{
 		return dao.DetailKnowhow(seq);
+	}
+	
+	public int updateBoardService(BoardVO board)throws Exception{
+		return dao.updateBoard(board);
+	}
+	
+	public int deleteBoardService(int seq)throws Exception{
+		return dao.deleteBoard(seq);
+	}
+	
+	public int deleteRoomwarmingService(int seq)throws Exception{
+		return dao.deleteRoomwarming(seq);
+	}
+	
+	public int deleteKnowhowService(int seq)throws Exception{
+		return dao.deleteKnowhow(seq);
 	}
 }
