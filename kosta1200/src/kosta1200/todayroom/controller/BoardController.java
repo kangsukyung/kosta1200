@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 import kosta1200.todayroom.action.Action;
 import kosta1200.todayroom.action.ActionForward;
 import kosta1200.todayroom.action.Board_DeleteAction;
@@ -31,8 +34,6 @@ public class BoardController extends HttpServlet {
     	String requestURI = request.getRequestURI();    	
     	String contextPath = request.getContextPath();
     	String command = requestURI.substring(contextPath.length()+7);
-    	
-    	System.out.println(command);
     	
     	Action action = null;
     	ActionForward forward = null;
