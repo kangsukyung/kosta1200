@@ -83,7 +83,7 @@
 									</div>
 								</div>
 								<div class="col-md-12 form-group">
-									<a href="" id="hw-button" class="button">취소</a>
+									<a href="javascript:history.back();" id="hw-button" class="button">취소</a>
 									<button type="submit" value="submit"
 										class="button hw-float-right">신청서 등록</button>
 								</div>

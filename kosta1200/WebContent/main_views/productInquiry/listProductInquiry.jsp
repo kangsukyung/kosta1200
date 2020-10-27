@@ -29,12 +29,7 @@
 
 </head>
 <body>
-	<!-- 	private int pi_seq; -->
-	<!-- 	private String pi_type; -->
-	<!-- 	private String pi_content; -->
-	<!-- 	private String pi_answer; -->
-	<!-- 	private int product_seq; -->
-	<!-- 	private int member_seq; -->
+	<jsp:include page="../header.jsp"></jsp:include>
 	<div class="comments-area" id="product-inquiry-list">
 		<h4>상품문의 목록</h4>
 
@@ -101,6 +96,7 @@
 		src="${pageContext.request.contextPath}/main_resource/vendors/mail-script.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/main_resource/js/main.js"></script>
-	<script type="text/javascript" src="${pageContext.request.contextPath}/main_resource/js/product_inquiry.js"></script> 		
+	<script type="text/javascript" src="${pageContext.request.contextPath}/main_resource/js/product_inquiry.js"></script>
+	<jsp:include page="../footer.jsp"></jsp:include> 		
 </body>
 </html>

@@ -34,7 +34,7 @@
 <body>
 	<!--================ Start Header Menu Area =================-->
 	<!--================ End Header Menu Area =================-->
-	
+
 	<!-- ================ start banner area ================= -->
 
 	<section class="blog-banner-area" id="blog">
