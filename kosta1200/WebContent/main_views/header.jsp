@@ -35,7 +35,7 @@
               <li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">커뮤니티</a>
 	              <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/">방들이</a></li>
+                  <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/board/listAction.do">방들이</a></li>
                   <li class="nav-item"><a class="nav-link" href="#">노하우</a></li>
                   <li class="nav-item"><a class="nav-link" href="#">질문과답변</a></li>
                 </ul>
