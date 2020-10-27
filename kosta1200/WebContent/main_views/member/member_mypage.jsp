@@ -88,32 +88,36 @@
 					<li><a href="${pageContext.request.contextPath}/Member/ConstractorSignup_form.do" class="d-flex justify-content-between"><p>전문가 신청</p></a></li>
 					<li><a href="${pageContext.request.contextPath}/Member/VendorSignup_form.do" class="d-flex justify-content-between"><p>판매자 신청</p></a></li>
 					<c:if test="${member.member_rating eq '2' }">
-					<li><a href="#" class="d-flex justify-content-between"><p>마이스토어</p></a></li>			
+					<li><a href="${pageContext.request.contextPath}/Product/ProductListAction.do" class="d-flex justify-content-between"><p>마이스토어</p></a></li>			
 					</c:if>
 				</ul>
           </div>
         </div>
+        
         <div class="col-xl-9 col-lg-8 col-md-7">
           <section class="lattest-product-area pb-40 category-list">
       	    <div class="filter-bar d-flex flex-wrap align-items-center"><h2>방들이</h2></div>
             <div class="row">
+              <c:forEach items="${room }" var="board" >
               <div class="col-md-6 col-lg-4">
                 <div class="card text-center card-product">
- 	                <a href='#'><img class="card-img" src="${pageContext.request.contextPath}/main_resource/img/product/product1.png" alt=""></a>
+ 	                <a href='#'><img class="card-img" src="/kosta1200/upload/${board.board_thumbnail}" alt=""></a>
                 </div>
               </div>
+              </c:forEach>
             </div>
           </section>
-          
           
           <section class="lattest-product-area pb-40 category-list">
           <div class="filter-bar d-flex flex-wrap align-items-center"><h2>노하우</h2></div>
             <div class="row">
+            <c:forEach items="${knowhow }" var="knowhow" >
               <div class="col-md-6 col-lg-4">
                	    <div class="card text-center card-product">
- 	               	 <a href='#'><img class="card-img" src="${pageContext.request.contextPath}/main_resource/img/product/product1.png" alt=""></a>
+ 	               	 <a href='#'><img class="card-img" src="/kosta1200/upload/${knowhow.board_thumbnail}" alt=""></a>
                 	</div>
                 </div>
+                </c:forEach>
               </div>
             </section>
         

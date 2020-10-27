@@ -4,6 +4,7 @@ package kosta1200.todayroom.service;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -160,9 +161,11 @@ public class MemberService {
 		return dao.OneInquiry(inquiry);
 	}
 	
-	public BoardVO MyRoomList(MemberVO member) {
-		BoardVO board=new BoardVO();
-//		board.setMember_seq();
-		return null;
+	public List<BoardVO> MyRoomList(int seq) {
+		return dao.MyRoomList(seq);
+	}
+	
+	public List<BoardVO> MyKnowhowList(int seq) {
+		return dao.MyKnowhowList(seq);
 	}
 }

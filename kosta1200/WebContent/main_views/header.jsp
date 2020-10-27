@@ -80,7 +80,7 @@
 	
 	<c:choose>
 		<c:when test="${member!=null }">
-              <li class="nav-item"><a href="${pageContext.request.contextPath}/Member/Member_Mypage.do" class="msk-id"><button onclick="">${member.member_nickname}</button></a></li>
+              <li class="nav-item"><a href="${pageContext.request.contextPath}/Member/Member_Mypage.do?seq=${member.member_seq }" class="msk-id"><button onclick="">${member.member_nickname}</button></a></li>
               <li class="nav-item"><a class="msk-id"><button onclick="location.href ='${pageContext.request.contextPath}/Member/MemberLogout.do'">로그아웃</button></a></li>
 		</c:when>
 		<c:otherwise>

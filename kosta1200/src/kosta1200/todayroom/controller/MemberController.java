@@ -100,6 +100,7 @@ public class MemberController extends HttpServlet {
 			
 		}else if(command.equals("MemberUpdate_Action.do")) {
 			try {
+				System.out.println(request.getParameter("seq"));
 				action=new MemberUpdate_Action();
 				forward=action.execute(request, response);
 			} catch (Exception e) {

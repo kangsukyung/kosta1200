@@ -1,6 +1,7 @@
 package kosta1200.todayroom.dao;
 
 import java.io.InputStream;
+import java.util.List;
 
 import org.apache.catalina.mapper.Mapper;
 import org.apache.ibatis.io.Resources;
@@ -11,6 +12,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import kosta1200.todayroom.action.ConstractorSignup_Action;
 import kosta1200.todayroom.mapper.MemberMapper;
+import kosta1200.todayroom.vo.BoardVO;
 import kosta1200.todayroom.vo.ContractorVO;
 import kosta1200.todayroom.vo.MemberVO;
 import kosta1200.todayroom.vo.One_inquiryVO;
@@ -178,16 +180,15 @@ public class MemberDAO {
 		return re;
 	}
 	
-	public int VendorSignup_Action(VendorVO vender) {
+	public int VendorSignup_Action(VendorVO vendor) {
 		int re=-1;
 		int re1=-1;
 		SqlSession sqlSession=getSqlSessionFactory().openSession();
-		int seq=vender.getMember_seq();
+		int seq=vendor.getMember_seq();
 		try {
-			re=sqlSession.getMapper(MemberMapper.class).VendorSignup(vender);
+			re=sqlSession.getMapper(MemberMapper.class).VendorSignup(vendor);
 			re1=sqlSession.getMapper(MemberMapper.class).Vender_Rating(seq);
 			
-			System.out.println(re+"_____"+re1);
 			if(re>0 && re1>0) {
 				sqlSession.commit();
 			}else {
@@ -224,6 +225,44 @@ public class MemberDAO {
 		}
 		return re;
 	}
-
 	
+	public List<BoardVO> MyRoomList(int seq) {
+		List<BoardVO> board=null;
+		SqlSession sqlSession=getSqlSessionFactory().openSession();
+		try {
+			board=sqlSession.getMapper(MemberMapper.class).MyRoomList(seq);
+			if(board!=null ) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession!= null) {
+				sqlSession.close();
+			}
+		}
+		return board;
+	}
+
+	public List<BoardVO> MyKnowhowList(int seq) {
+		List<BoardVO> board=null;
+		SqlSession sqlSession=getSqlSessionFactory().openSession();
+		try {
+			board=sqlSession.getMapper(MemberMapper.class).MyKnowhowList(seq);
+			if(board!=null ) {
+				sqlSession.commit();
+			}else {
+				sqlSession.rollback();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(sqlSession!= null) {
+				sqlSession.close();
+			}
+		}
+		return board;
+	}
 }
