@@ -28,7 +28,7 @@
 
   <!-- ================ start banner area ================= -->	
   <section class="blog-banner-area" id="blog">
-    <div class="container h-100">
+    <div class="container h-100" id="main-banner">
       <div class="blog-banner">
         <div class="text-center">
           <h1>
@@ -47,7 +47,7 @@
   <!-- ================ end banner area ================= -->
 
   <!--================Blog Area =================-->
-  <section class="blog_area">
+  <section class="blog_area" id='hw-blog'>
       <div class="container">
           <div class="row">
           	  <div class="col-lg-4" id="board_list_category">

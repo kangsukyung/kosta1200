@@ -3,3 +3,14 @@
 #board_list_category{
 	max-width: 25.333333%;
 }
+
+#main-banner{
+	background: url("../../main_resource/img/main-banner.jpg") no-repeat;
+	
+	background-size: cover; 
+}
+
+#hw-blog{
+	padding-top:30px;
+	
+}
