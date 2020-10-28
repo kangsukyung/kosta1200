@@ -82,10 +82,13 @@ public class MemberDAO {
 		SqlSession sqlSession=getSqlSessionFactory().openSession();
 		
 		try {
+			System.out.println("3");
 			re=sqlSession.getMapper(MemberMapper.class).MemberSignup(member);
 			if(re>0) {
+				System.out.println("1");
 				sqlSession.commit();
 			}else {
+				System.out.println("2");
 				sqlSession.rollback();
 			}
 		} catch (Exception e) {
