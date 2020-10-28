@@ -117,6 +117,7 @@
  	               	 <a href='#'><img class="card-img" src="/kosta1200/upload/${knowhow.board_thumbnail}" alt=""></a>
                 	</div>
                 </div>
+                
                 </c:forEach>
               </div>
             </section>
